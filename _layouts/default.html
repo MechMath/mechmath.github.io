@@ -9,23 +9,28 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
-    <header class="site-header">
-      <div class="container">
-        <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <nav class="site-nav">
-          <a href="{{ '/' | relative_url }}">首页</a>
-          <a href="{{ '/agent-team/' | relative_url }}">Agent Team</a>
-          <a href="{{ '/publications/' | relative_url }}">Publications</a>
+    <header class="masthead">
+      <div class="masthead__inner-wrap">
+        <nav class="greedy-nav" aria-label="Primary navigation">
+          <a class="site-logo" href="{{ '/' | relative_url }}">
+            <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
+          </a>
+          <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          <ul class="visible-links">
+            <li class="masthead__menu-item"><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li class="masthead__menu-item"><a href="{{ '/agent-team/' | relative_url }}">Agent Team</a></li>
+            <li class="masthead__menu-item"><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+          </ul>
         </nav>
       </div>
     </header>
 
-    <main class="container">
+    <main id="main" class="initial-content">
       {{ content }}
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
+    <footer class="page__footer">
+      <div class="page__footer-inner">
         <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
       </div>
     </footer>
