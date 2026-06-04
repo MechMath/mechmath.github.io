@@ -15,7 +15,7 @@ permalink: /agent-team/
     <article class="card agent-card">
       <img src="{{ '/assets/images/NL.jpg' | relative_url }}" alt="NL Prover agent illustration">
       <h3>NL Prover</h3>
-      <p class="card-placeholder">Description placeholder.</p>
+      <p class="card-placeholder">An informal proof system with single-agent solve mode and multi-agent orchestration. Sketcher decomposes problems into lemmas, Generators prove them, Verifiers check each proof, and the Orchestrator assembles the final proof.</p>
     </article>
     <article class="card agent-card">
       <img src="{{ '/assets/images/FL.jpg' | relative_url }}" alt="FL Prover agent illustration">
