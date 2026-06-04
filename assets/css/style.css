@@ -20,10 +20,11 @@ img{max-width:100%;height:auto}
 .page-section,.home-content,.feature-row{background:#fff}
 .page-section{margin-top:1rem;padding:1.5rem;border-radius:4px}
 .page-section h2,.home-content h2,.feature-row__body h2{margin:0 0 .75rem;padding-bottom:.5rem;border-bottom:1px solid #cfd2d8;color:#222831;font-size:1.75rem;line-height:1.25}
-.home-hero{width:100vw;min-height:320px;margin:-1rem calc(50% - 50vw) 2rem;border-radius:0;background-size:cover;background-position:center;display:flex;align-items:center}
-.home-hero__content{width:100%;max-width:1280px;margin:0 auto;padding:3rem 1rem;color:#fff;text-shadow:1px 1px 4px rgba(0,0,0,.5)}
+.home-hero{position:relative;width:100vw;height:20vh;min-height:180px;margin:-1rem calc(50% - 50vw) 2rem;overflow:hidden;background:#fff;display:flex;align-items:center}
+.home-hero__image{position:absolute;right:0;bottom:0;height:100%;width:auto;max-width:none;object-fit:contain;object-position:right bottom}
+.home-hero__content{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:2rem 1rem;color:#222831;text-shadow:none}
 .home-hero__content h2{margin:0 0 .5rem;font-size:3rem;line-height:1.05}
-.home-hero__content p{margin:0;font-size:1.2rem;color:#fff}
+.home-hero__content p{max-width:460px;margin:0;font-size:1.2rem;color:#393e46}
 .feature-row{display:grid;grid-template-columns:minmax(180px,300px) 1fr;gap:2rem;align-items:center;margin-bottom:2rem;padding:1.5rem;border-bottom:1px solid #cfd2d8}
 .feature-row__media{border-radius:4px;overflow:hidden}
 .feature-row__media img{display:block;width:100%}
@@ -52,7 +53,7 @@ img{max-width:100%;height:auto}
   .visible-links{flex-basis:100%;justify-content:flex-start;margin-top:.5rem}
   .masthead__menu-item a{margin-right:1rem;margin-left:0}
   #main{padding:.75rem}
-  .home-hero{min-height:260px;margin-top:-.75rem}
+  .home-hero{height:20vh;min-height:160px;margin-top:-.75rem}
   .home-hero__content{padding:2rem 1.25rem}
   .home-hero__content h2{font-size:2.2rem}
   .feature-row{grid-template-columns:1fr;padding:1rem}
