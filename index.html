@@ -8,9 +8,14 @@ title: 首页
   <div class="home-hero__content">
     <div class="home-hero__brand">
       <div class="home-hero__brand-text">
+        <p class="home-hero__eyebrow">Mechanized Mathematics Lab</p>
         <h2>MechMath</h2>
         <p>Key Laboratory of Mathematics Mechanization</p>
         <p>AMSS, CAS</p>
+        <div class="home-hero__actions">
+          <a href="{{ '/agent-team/' | relative_url }}">Agent Team</a>
+          <a href="{{ '/publications/' | relative_url }}">Publications</a>
+        </div>
       </div>
     </div>
   </div>
@@ -20,17 +25,26 @@ title: 首页
   <div class="feature-row__body">
     <h2>About MechMath</h2>
     <p>MechMath explores agent-assisted mathematical reasoning, connecting natural-language problem solving with formal verification workflows.</p>
+    <div class="about-points">
+      <span>Natural-language reasoning</span>
+      <span>Formal proof workflows</span>
+      <span>Coordinated agent systems</span>
+    </div>
   </div>
 </section>
 
-<section class="home-card">
-  <h2>Agent Team</h2>
-  <p>Collector, NL Prover, and FL Prover coordinate across problem collection, informal reasoning, and formal proof.</p>
-  <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
-</section>
+<div class="home-card-grid">
+  <section class="home-card">
+    <p class="home-card__label">Team</p>
+    <h2>Agent Team</h2>
+    <p>Collector, NL Prover, and FL Prover coordinate across problem collection, informal reasoning, and formal proof.</p>
+    <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
+  </section>
 
-<section class="home-card">
-  <h2>Publication</h2>
-  <p>Publication entries are indexed from markdown files and displayed as concise research cards.</p>
-  <a href="{{ '/publications/' | relative_url }}">View Publications</a>
-</section>
+  <section class="home-card">
+    <p class="home-card__label">Research</p>
+    <h2>Publication</h2>
+    <p>Publication entries are indexed from markdown files and displayed as concise research cards.</p>
+    <a href="{{ '/publications/' | relative_url }}">View Publications</a>
+  </section>
+</div>
