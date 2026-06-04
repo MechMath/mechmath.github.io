@@ -3,4 +3,35 @@ layout: default
 title: 首页
 ---
 
-欢迎来到 MechMath 项目主页。
+<section class="home-hero" style="background-image: linear-gradient(rgba(11,18,32,.48), rgba(11,18,32,.48)), url('{{ "/assets/images/home-hero.jpg" | relative_url }}');">
+  <div class="home-hero__content">
+    <h2>MechMath</h2>
+    <p>Mechanized mathematics with coordinated agents and formal reasoning.</p>
+  </div>
+</section>
+
+<section class="feature-row">
+  <div class="feature-row__media">
+    <img src="{{ '/assets/logo.png' | relative_url }}" alt="MechMath logo">
+  </div>
+  <div class="feature-row__body">
+    <h2>About MechMath</h2>
+    <p>MechMath explores agent-assisted mathematical reasoning, connecting natural-language problem solving with formal verification workflows.</p>
+  </div>
+</section>
+
+<section class="home-content">
+  <h2>Research Directions</h2>
+  <div class="home-list">
+    <article>
+      <h3>Agent Team</h3>
+      <p>Collector, NL Prover, and FL Prover coordinate across problem collection, informal reasoning, and formal proof.</p>
+      <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
+    </article>
+    <article>
+      <h3>Publications</h3>
+      <p>Publication entries are indexed from markdown files and displayed as concise research cards.</p>
+      <a href="{{ '/publications/' | relative_url }}">View Publications</a>
+    </article>
+  </div>
+</section>
