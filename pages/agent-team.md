@@ -20,7 +20,7 @@ permalink: /agent-team/
     <article class="card agent-card">
       <img src="{{ '/assets/images/FL.jpg' | relative_url }}" alt="FL Prover agent illustration">
       <h3>FL Prover</h3>
-      <p class="card-placeholder">Description placeholder.</p>
+      <p class="card-placeholder">A formal proof system for Lean. It can automatically complete Lean proofs from formalized problems or translate natural-language mathematical arguments into Lean statements and proof scripts.</p>
     </article>
   </div>
 </section>
