@@ -10,7 +10,7 @@ permalink: /agent-team/
     <article class="card agent-card">
       <img src="{{ '/assets/images/collector.jpg' | relative_url }}" alt="Collector agent illustration">
       <h3>Collector</h3>
-      <p class="card-placeholder">Description placeholder.</p>
+      <p class="card-placeholder">A persistent research knowledge base maintained by Codex. Researchers provide raw sources, and Collector handles reading, extraction, cross-referencing, and compilation into a structured wiki.</p>
     </article>
     <article class="card agent-card">
       <img src="{{ '/assets/images/NL.jpg' | relative_url }}" alt="NL Prover agent illustration">
