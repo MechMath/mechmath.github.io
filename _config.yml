@@ -1,0 +1,8 @@
+title: WuProver
+email: ""
+description: "WuProver GitHub Pages site"
+baseurl: ""
+url: ""
+markdown: kramdown
+collections: {}
+permalink: /:path/

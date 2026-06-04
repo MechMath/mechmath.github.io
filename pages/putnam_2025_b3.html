@@ -1,0 +1,831 @@
+---
+layout: default
+title: Putnam-2025-b3
+permalink: /putnam_2025_b3/
+---
+
+<h2>Putnam-2025-b3 证明树</h2>
+
+<style>
+  .tree-container {
+    position: relative;
+    width: 100%;
+    height: 78vh;
+    overflow: hidden;
+  }
+  
+  /* 连线层在最底层 */
+  .connectors-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* 节点层在连线层之上 */
+  .nodes-layer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  /* 节点基础样式 */
+  .node {
+    position: absolute;
+    transform: translate(-18%, 10%);
+    z-index: 10 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .node-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(190, 238, 208, 1);
+    color: #064e3b;
+    border: solid #B0BEC5;
+    box-shadow: 0 3px 8px rgba(2, 6, 23, 0.08);
+    text-align: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 2px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .node:hover .node-content {
+    /* 保持每级的主色，hover 只做轻微高亮和放大，不覆盖背景色 */
+    filter: brightness(1.04);
+    box-shadow: 0 6px 16px rgba(2, 6, 23, 0.14);
+    transform: scale(1.05);
+  }
+
+  /* 节点层级大小 */
+  /* 各级统一绿色系：级数越高颜色越浅（0 为根，颜色最深） */
+  .node[data-level="0"] .node-content {
+    width: 12%;
+    height: 12%;
+    font-size: 3vmin;
+    background: #68BECA;
+    color: #e6fff6; /* 亮色文字以保证可读性 */
+    border: 3.5px;
+    /* border-color: #044936; */
+  }
+
+  .node[data-level="1"] .node-content {
+    width: 10%;
+    height: 10%;
+    font-size: 2vmin;
+    background: #82C9D4; /* 中深绿 */
+    color: #e9fff5;
+    border: 3px;
+    /* border-color: #0c8a5f; */
+  }
+
+  .node[data-level="2"] .node-content {
+    width: 8%;
+    height: 8%;
+    font-size: 1.5vmin;
+    background: #9CD4DE; /* 亮绿 */
+    color: #e9fff5;
+    border: 2.5px;
+    /* border-color: #2bb07f; */
+  }
+
+  .node[data-level="3"] .node-content {
+    width: 7%;
+    height: 7%;
+    font-size: 1vmin;
+    background: #B7DFE8;
+    color: #064e3b;
+    border: 2px;
+    /* border-color: #4fd1a6; */
+  }
+
+  .node[data-level="4"] .node-content {
+    width: 6%;
+    height: 6%;
+    font-size: 0.8vmin;
+    background: #D3EAF2;
+    color: #064e3b;
+    border: 1.5px;
+    /* border-color: #86e8b9; */
+  }
+
+  .node[data-level="5"] .node-content {
+    width: 5%;
+    height: 4%;
+    font-size: 0.6vmin;
+    background: #E8F4F8;
+    color: #064e3b;
+    border: 1px;
+    /* border-color: rgba(16, 185, 129, 0.95); */
+  }
+
+  .node[data-level="6"] .node-content {
+    width: 4%;
+    height: 3%;
+    font-size: 0.5vmin;
+    background: rgba(230, 240, 250, 1); /* 更浅的绿色 */
+    color: #064e3b;
+    border: 0.5px;
+    /* border-color: rgba(100, 200, 160, 0.6); */
+  }
+
+  /* 节点定位（基于你的布局） */
+  .node[data-id="putnam_2025_b3"] {
+    left: 20%;
+    top: 42%;
+  }
+
+  .node[data-id="putnam_2025_b3--0"] {
+    left: 37%;
+    top: 21%;
+  }
+
+  .node[data-id="putnam_2025_b3--1"] {
+    left: 30%;
+    top: 70%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--0"] {
+    left: 23%;
+    top: 20%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--1"] {
+    left: 29%;
+    top: 8%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--2"] {
+    left: 41%;
+    top: 5%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--3"] {
+    left: 52%;
+    top: 16%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4"] {
+    left: 66%;
+    top: 56%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--0"] {
+    left: 61%;
+    top: 42%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1"] {
+    left: 73%;
+    top: 30%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2"] {
+    left: 96%;
+    top: 40%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--3"] {
+    left: 80%;
+    top: 54%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--4"] {
+    left: 79%;
+    top: 66%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--5"] {
+    left: 68%;
+    top: 71%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--6"] {
+    left: 56%;
+    top: 68%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--7"] {
+    left: 52%;
+    top: 54%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--0"] {
+    left: 71%;
+    top: 19%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--0--0"] {
+    left: 68%;
+    top: 10%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--0--1"] {
+    left: 76%;
+    top: 10%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--0--1--0"] {
+    left: 80%;
+    top: 5%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--1"] {
+    left: 78%;
+    top: 20%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--2"] {
+    left: 83%;
+    top: 26%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--2--0"] {
+    left: 89%;
+    top: 20%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--1--2--0--0"] {
+    left: 92%;
+    top: 14%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2--0"] {
+    left: 90%;
+    top: 34%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2--1"] {
+    left: 97%;
+    top: 31%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2--2"] {
+    left: 104%;
+    top: 37%;
+  }
+  .node[data-id="putnam_2025_b3--0--4--2--2--0"] {
+    left: 110%;
+    top: 34%;
+  }
+  .node[data-id="putnam_2025_b3--0--4--2--2--1"] {
+    left: 111%;
+    top: 39%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2--3"] {
+    left: 103%;
+    top: 47%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2--3--0"] {
+    left: 109%;
+    top: 52%;
+  }
+
+  .node[data-id="putnam_2025_b3--0--4--2--4"] {
+    left: 94%;
+    top: 49%;
+  }
+</style>
+
+<div class="tree-container">
+  <div class="nodes-layer">
+    <!-- 根节点 -->
+    <div class="node root" data-id="putnam_2025_b3" data-level="0">
+      <div class="node-content">b3</div>
+    </div>
+    
+    <!-- 第一级子节点 -->
+    <div class="node" data-id="putnam_2025_b3--0" data-level="1" data-parent="putnam_2025_b3">
+      <div class="node-content">b3-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--1" data-level="1" data-parent="putnam_2025_b3">
+      <div class="node-content">b3-1</div>
+    </div>
+    
+    <!-- 第二级子节点 (putnam_2025_b3--0 的子节点) -->
+    <div class="node" data-id="putnam_2025_b3--0--0" data-level="2" data-parent="putnam_2025_b3--0">
+      <div class="node-content">b3-0-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--1" data-level="2" data-parent="putnam_2025_b3--0">
+      <div class="node-content">b3-0-1</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--2" data-level="2" data-parent="putnam_2025_b3--0">
+      <div class="node-content">b3-0-2</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--3" data-level="2" data-parent="putnam_2025_b3--0">
+      <div class="node-content">b3-0-3</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4" data-level="2" data-parent="putnam_2025_b3--0">
+      <div class="node-content">b3-0-4</div>
+    </div>
+    
+    <!-- 第三级子节点 (putnam_2025_b3--0--4 的子节点) -->
+    <div class="node" data-id="putnam_2025_b3--0--4--0" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-1</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-2</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--3" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-3</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--4" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-4</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--5" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-5</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--6" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-6</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--7" data-level="3" data-parent="putnam_2025_b3--0--4">
+      <div class="node-content">b3-0-4-7</div>
+    </div>
+    
+    <div class="node" data-id="putnam_2025_b3--0--4--1--0" data-level="4" data-parent="putnam_2025_b3--0--4--1">
+      <div class="node-content">b3-0-4-1-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--0--0" data-level="5" data-parent="putnam_2025_b3--0--4--1--0">
+      <div class="node-content">b3-0-4-1-0-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--0--1" data-level="5" data-parent="putnam_2025_b3--0--4--1--0">
+      <div class="node-content">b3-0-4-1-0-1</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--0--1--0" data-level="6" data-parent="putnam_2025_b3--0--4--1--0--1">
+      <div class="node-content">b3-0-4-1-0-1-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--1" data-level="4" data-parent="putnam_2025_b3--0--4--1">
+      <div class="node-content">b3-0-4-1-1</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--2" data-level="4" data-parent="putnam_2025_b3--0--4--1">
+      <div class="node-content">b3-0-4-1-2</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--2--0" data-level="5" data-parent="putnam_2025_b3--0--4--1--2">
+      <div class="node-content">b3-0-4-1-2-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--1--2--0--0" data-level="6" data-parent="putnam_2025_b3--0--4--1--2--0">
+      <div class="node-content">b3-0-4-1-2-0-0</div>
+    </div>
+
+    <div class="node" data-id="putnam_2025_b3--0--4--2--0" data-level="4" data-parent="putnam_2025_b3--0--4--2">
+      <div class="node-content">b3-0-4-2-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--1" data-level="4" data-parent="putnam_2025_b3--0--4--2">
+      <div class="node-content">b3-0-4-2-1</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--2" data-level="4" data-parent="putnam_2025_b3--0--4--2">
+      <div class="node-content">b3-0-4-2-2</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--2--0" data-level="5" data-parent="putnam_2025_b3--0--4--2--2">
+      <div class="node-content">b3-0-4-2-2-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--2--1" data-level="5" data-parent="putnam_2025_b3--0--4--2--2">
+      <div class="node-content">b3-0-4-2-2-1</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--3" data-level="4" data-parent="putnam_2025_b3--0--4--2">
+      <div class="node-content">b3-0-4-2-3</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--3--0" data-level="5" data-parent="putnam_2025_b3--0--4--2--3">
+      <div class="node-content">b3-0-4-2-3-0</div>
+    </div>
+    <div class="node" data-id="putnam_2025_b3--0--4--2--4" data-level="4" data-parent="putnam_2025_b3--0--4--2">
+      <div class="node-content">b3-0-4-2-4</div>
+    </div>
+  </div>
+  <svg class="connectors-layer"></svg>
+</div>
+
+<script>
+  function getNodeCenterPosition(node) {
+    const container = document.querySelector('.tree-container');
+    const containerRect = container.getBoundingClientRect();
+    const nodeRect = node.getBoundingClientRect();
+    const nodeContent = node.querySelector('.node-content');
+    const contentRect = nodeContent.getBoundingClientRect();
+    
+    // 获取节点的百分比值
+    const style = window.getComputedStyle(node);
+    const nodeX = parseFloat(style.left); // 例如 "20%"
+    const nodeY = parseFloat(style.top);   // 例如 "42%"
+    
+    // 加上节点自身的一半（因为left/top是节点的左上角）
+    const nodeWidth = contentRect.width;
+    const nodeHeight = contentRect.height;
+    
+    return {
+      x: nodeX + nodeWidth / 2 - containerRect.width * 0.18,
+      y: nodeY + nodeHeight / 2 + containerRect.height * 0.1
+    };
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const svg = document.querySelector('.connectors-layer');
+    const nodes = document.querySelectorAll('.node');
+    
+    nodes.forEach(node => {
+      const parentId = node.getAttribute('data-parent');
+      const level = node.getAttribute('data-level');
+      if (!parentId) return;
+      
+      const parentNode = document.querySelector(`.node[data-id="${parentId}"]`);
+      if (!parentNode) return;
+
+      const nodePos = getNodeCenterPosition(node);
+      const parentPos = getNodeCenterPosition(parentNode);
+      const nodeX = nodePos.x;
+      const nodeY = nodePos.y;
+      const parentX = parentPos.x;
+      const parentY = parentPos.y;
+      
+      // 创建连线
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', parentX);
+      line.setAttribute('y1', parentY);
+      line.setAttribute('x2', nodeX);
+      line.setAttribute('y2', nodeY);
+      line.setAttribute('stroke', '#B0BEC5');
+      line.setAttribute('stroke-width', `${4.5 - level/1.5}`);
+      
+      svg.appendChild(line);
+    });
+  });
+</script>
+
+<script>
+  // 获取 JSONL 文件并在点击节点时显示对应 proof 字段
+  const jsonlUrl = '{{ "files/putnam_2025_b3_success.jsonl" | relative_url }}';
+  let nodeMap = {};
+
+  async function loadJsonl() {
+    try {
+      const res = await fetch(jsonlUrl);
+      if (!res.ok) {
+        console.warn('无法加载 JSONL:', res.status);
+        return;
+      }
+      const text = await res.text();
+      for (const line of text.split('\n')) {
+        const s = line.trim();
+        if (!s) continue;
+        try {
+          const obj = JSON.parse(s);
+          if (obj && obj.id) {
+            nodeMap[obj.id] = obj;
+          }
+        } catch (e) {
+          console.debug('解析JSON行时出错:', e);
+        }
+      }
+      console.log(`已加载 ${Object.keys(nodeMap).length} 个节点`);
+    } catch (e) {
+      console.warn('加载JSONL文件时出错:', e);
+    }
+  }
+
+  // 格式化 proof 内容
+  function formatProof(proof) {
+    if (!proof) return '(no proof)';
+    
+    if (Array.isArray(proof)) {
+      return proof.map((step, index) => {
+        if (typeof step === 'string') {
+          return `${index + 1}. ${step}`;
+        } else if (step && typeof step === 'object') {
+          // 处理对象形式的步骤
+          return `${index + 1}. ${JSON.stringify(step, null, 2)}`;
+        }
+        return `${index + 1}. ${String(step)}`;
+      }).join('\n\n');
+    }
+    
+    if (typeof proof === 'object') {
+      return JSON.stringify(proof, null, 2);
+    }
+    
+    return String(proof);
+  }
+
+  // 侧栏：显示 proof 的元素
+  function showSidebarProof(id) {
+    console.log(`正在查找节点: ${id}`);
+    
+    // 在 nodeMap 中查找匹配的节点
+    const node = nodeMap[id];
+    let proofContent;
+    
+    if (!node) {
+      proofContent = `节点未找到: ${id}\n\n可用的节点ID:\n${Object.keys(nodeMap).slice(0, 20).join('\n')}`;
+      if (Object.keys(nodeMap).length > 20) {
+        proofContent += `\n... (共 ${Object.keys(nodeMap).length} 个节点)`;
+      }
+    } else {
+      // 按优先级查找 proof 字段
+      const proof = node.proof || node.fs;
+      proofContent = formatProof(proof);
+      
+      // 显示更多节点信息用于调试
+      proofContent += `\n\n--- 节点信息 ---\nID: ${node.id}`;
+      if (node.state) proofContent += `\n状态: ${node.state}`;
+      if (node._parent) proofContent += `\n父节点: ${node._parent}`;
+      
+      // 如果没有找到 proof，显示其他字段
+      if (proofContent.includes('(no proof)')) {
+        const otherFields = Object.keys(node).filter(key => 
+          !['id', 'label', 'parent'].includes(key)
+        );
+        if (otherFields.length > 0) {
+          proofContent += '\n\n其他字段:';
+          otherFields.forEach(key => {
+            const value = node[key];
+            if (typeof value === 'string' && value.length > 0) {
+              proofContent += `\n${key}: ${value.substring(0, 100)}${value.length > 100 ? '...' : ''}`;
+            }
+          });
+        }
+      }
+    }
+    
+    const sidebar = document.getElementById('proof-sidebar');
+    const title = document.getElementById('proof-sidebar-title');
+    const content = document.getElementById('proof-sidebar-content');
+    if (!sidebar || !content) return;
+    
+    // 更新内容
+    title.textContent = `Lean proof of ${id}`;
+
+    if (proofContent && proofContent.includes && proofContent.includes('sorry')) {
+      // 替换 sorry 为 apply，并添加样式
+      const escapedContent = proofContent.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const highlightedContent = escapedContent.replace(/sorry/gi, '<span class="sorry-highlight">apply?</span>');
+      
+      // 使用 innerHTML 来渲染带样式的 HTML
+      content.innerHTML = highlightedContent;
+    } else {
+      // 普通情况使用 textContent
+      content.textContent = proofContent;
+    }
+    
+    // 显示侧栏
+    sidebar.classList.add('open');
+    
+    // 添加高亮样式
+    const nodeElement = document.querySelector(`.node[data-id="${id}"]`);
+    if (nodeElement) {
+      nodeElement.classList.add('highlighted');
+    }
+  }
+
+  function hideSidebar() {
+    const sidebar = document.getElementById('proof-sidebar');
+    if (!sidebar) return;
+    
+    // 移除所有高亮
+    document.querySelectorAll('.node.highlighted').forEach(el => {
+      el.classList.remove('highlighted');
+    });
+    
+    sidebar.classList.remove('open');
+  }
+
+  // 初始化
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadJsonl();
+    
+    // 绑定所有节点的点击事件
+    const contentElements = document.querySelectorAll('.node .node-content');
+    contentElements.forEach(contentElement => {
+      console.log(`找到 ${contentElements.length} 个节点元素`);
+      const node = contentElement.closest('.node');
+      const nodeId = node.getAttribute('data-id');
+      const nodeName = node.querySelector('.node-content')?.textContent || '未知节点';
+      if (!nodeId) return;
+      
+      // 设置节点样式和事件
+      node.style.cursor = 'pointer';
+      node.title = `双击查看 proof\n完整ID: ${nodeName}\nLevel: ${node.getAttribute('data-level')}`;
+      
+      // 绑定双击事件到整个节点
+      contentElement.addEventListener('dblclick', (ev) => {
+        ev.stopPropagation();
+        console.log(`双击节点: ${nodeName}`);
+        showSidebarProof(nodeId);
+      });
+      
+      // 添加点击高亮
+      contentElement.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        // 移除其他节点的高亮
+        document.querySelectorAll('.node.highlighted').forEach(highlightedNode => {
+          highlightedNode.classList.remove('highlighted');
+        });
+        // 切换当前节点的高亮
+        node.classList.add('highlighted');
+      });
+    });
+    
+    // 绑定关闭按钮事件
+    const closeBtn = document.querySelector('#proof-sidebar .close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideSidebar();
+      });
+    }
+    
+    // 点击侧栏外部关闭
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('proof-sidebar');
+      const isNode = e.target.closest('.node');
+      const isSidebar = e.target.closest('#proof-sidebar');
+      
+      if (sidebar && sidebar.classList.contains('open') && 
+          !isSidebar && !isNode) {
+        hideSidebar();
+      }
+    });
+    
+    // ESC键关闭侧栏
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hideSidebar();
+      }
+    });
+  });
+</script>
+
+<style>
+  /* 侧栏：浅绿色主题，与页面说明块保持视觉一致 */
+  #proof-sidebar {
+    position: fixed;
+    right: -44%;
+    bottom: 56px;
+    width: 40%;
+    max-width: 640px;
+    height: 78%;
+    background: linear-gradient(180deg, rgba(240, 255, 244, 1), rgba(255,255,255,1));
+    border-left: 1px solid rgba(16, 185, 129, 0.12);
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+    transition: right .18s ease-in-out, box-shadow .18s ease;
+    padding: 14px 16px;
+    z-index: 80;
+    overflow: auto;
+    border-radius: 10px 0 0 10px;
+  }
+
+  #proof-sidebar.open {
+    right: 16px;
+  }
+
+  /* 关闭按钮使用绿色系 */
+  #proof-sidebar .close-btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: #10b981;
+    color: #fff;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  #proof-sidebar .close-btn:hover {
+    background: #059669;
+  }
+
+  /* 标题样式偏绿色 */
+  #proof-sidebar h3 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: #064e3b;
+    border-bottom: 1px solid rgba(16,185,129,0.12);
+    padding-bottom: 8px;
+  }
+
+  #proof-sidebar-content {
+    white-space: pre-wrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    font-size: 0.6rem;
+    line-height: 1.45;
+    color: #052e22;
+    padding-top: 8px;
+    overflow-wrap: break-word;
+  }
+
+  /* 高亮被点击的节点（保留现有行为） */
+  .node-name.highlighted {
+    background-color: rgba(16, 185, 129, 0.12);
+    border-radius: 4px;
+    padding: 2px 4px;
+    transition: background-color 0.2s;
+  }
+
+  /* sorry/apply? 高亮保持粉色以便区分 */
+  .sorry-highlight {
+    background-color: rgba(255, 182, 193, 0.35);
+    padding: 1px 3px;
+    border-radius: 3px;
+    color: #b91c52;
+    font-weight: 700;
+  }
+</style>
+
+<div id="proof-sidebar" aria-hidden="true">
+  <button class="close-btn" aria-label="close">×</button>
+  <h3 id="proof-sidebar-title">Proof</h3>
+  <div id="proof-sidebar-content">(双击节点以显示 proof)</div>
+</div>
+
+<style>
+  /* 顶部说明框基础样式 */
+  .intro-box {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.04);
+    margin: 8px 0 18px 0;
+    font-family: system-ui, 'Segoe UI', -apple-system, 'Hiragino Sans GB', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    color: #0f172a;
+  }
+
+  /* 浅蓝：交互说明 */
+  .intro-box.interaction {
+    background: linear-gradient(180deg, rgba(239, 246, 255, 1), rgba(255,255,255,1));
+    border: 1px solid rgba(59, 130, 246, 0.12);
+  }
+
+  /* 浅紫：证明解释 */
+  .intro-box.proof {
+    background: linear-gradient(180deg, rgba(250, 240, 255, 1), rgba(255,255,255,1));
+    border: 1px solid rgba(124, 58, 237, 0.12);
+  }
+
+  .intro-icon { font-size: 20px; line-height: 1; padding-top: 4px; }
+  .intro-box.interaction .intro-icon { color: #2563eb; }
+  .intro-box.proof .intro-icon { color: #7c3aed; }
+
+  .intro-text h4 { margin: 0 0 6px 0; font-size: 1.02rem; }
+  .intro-box.interaction .intro-text h4 { color: #1e40af; }
+  .intro-box.proof .intro-text h4 { color: #5b21b6; }
+
+  .intro-text .lead { margin: 0 0 6px 0; font-size: 0.95rem; color: #0f172a; }
+  .intro-text .muted { margin: 0; font-size: 0.86rem; color: #334155; opacity: 0.95; }
+  .intro-text .code { background: rgba(17,24,39,0.04); padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, Menlo, Monaco, monospace; font-size: 0.85em; color: #7c3aed; border: 1px solid rgba(124,58,237,0.08); }
+
+  @media (max-width: 800px) {
+    .intro-box { gap: 10px; padding: 10px; }
+    .intro-icon { font-size: 18px }
+    .intro-text .lead { font-size: 0.9rem; }
+  }
+</style>
+<div class="intro-box interaction" role="note" aria-label="交互说明">
+  <div class="intro-icon">🛈</div>
+  <div class="intro-text">
+    <h4>交互说明</h4>
+    <ol class="lead" style="margin:0 0 6px 18px; padding:0;">
+      <li>单击节点：为该节点添加视觉高亮，便于对比和定位。</li>
+      <li>双击节点：在右侧侧栏打开该节点的完整 Lean 证明。</li>
+      <li>关闭侧栏：按 <span class="code">Esc</span> 键或点击侧栏外部即可关闭。</li>
+    </ol>
+  </div>
+</div>
+<div class="intro-box proof" role="note" aria-label="证明解释">
+  <div class="intro-icon">🔬</div>
+  <div class="intro-text">
+    <h4>证明解释</h4>
+    <ol class="lead" style="margin:0 0 6px 18px; padding:0;">
+      <li><span class="code">Prover</span>首先会尝试直接证明定理。</li>
+      <li>当证明存在问题时，<span class="code">Sorrifier</span>会将错误的证明块用“sorry”占位。</li>
+      <li>每个占位块会被提取成为一个子定理，即证明树上的一个子节点。</li>
+      <li><span class="code">Prover</span>会递归地尝试证明这些子定理，当一个定理的所有子定理都被证明时，该定理也被证明，通过将“sorry”替换为“apply?”来完成 Lean 编译</li>
+    </ol>
+  </div>
+</div>
