@@ -27,7 +27,7 @@ permalink: /publications/
           <div class="publication-links">
             {% if publication.arxiv and publication.arxiv != "pending" %}
               <a href="{{ publication.arxiv }}" aria-label="arXiv">
-                <img src="https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-one-color-white.svg" alt="">
+                <img src="{{ '/assets/icons/arxiv-logo-one-color-white.svg' | relative_url }}" alt="">
               </a>
             {% else %}
               <span>arXiv pending</span>
