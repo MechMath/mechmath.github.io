@@ -46,7 +46,14 @@
 
     <footer class="page__footer">
       <div class="page__footer-inner">
-        <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+        <div class="footer-contact">
+          <p class="footer-contact__name">Key Laboratory of Mathematics Mechanization, AMSS, CAS</p>
+          <address>
+            No. 55 Zhongguancun East Road, Beijing 100190, China<br>
+            Email: <a href="mailto:mmat@amss.ac.cn">mmat@amss.ac.cn</a>
+          </address>
+        </div>
+        <p class="footer-copyright">© {{ site.time | date: "%Y" }} {{ site.title }}</p>
       </div>
     </footer>
   </body>
