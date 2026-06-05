@@ -30,6 +30,13 @@ title: 首页
     <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
   </section>
 
+  <section class="home-card">
+    <p class="home-card__label">Team</p>
+    <h2>Researchers</h2>
+    <p>Researchers collaborating on AI-assisted mathematical discovery, proof development, and formal verification.</p>
+    <a href="{{ '/researchers/' | relative_url }}">View Researchers</a>
+  </section>
+
   <section class="home-card home-card--publications">
     <p class="home-card__label">Research</p>
     <h2>Publication</h2>
@@ -51,5 +58,12 @@ title: 首页
       {% endfor %}
     </ul>
     <a class="home-card__action" href="{{ '/publications/' | relative_url }}">View Publications</a>
+  </section>
+
+  <section class="home-card">
+    <p class="home-card__label">Research</p>
+    <h2>Blogs</h2>
+    <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
+    <a href="{{ '/blogs/' | relative_url }}">View Blogs</a>
   </section>
 </div>
