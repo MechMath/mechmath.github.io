@@ -4,15 +4,15 @@ title: Publications
 permalink: /publications/
 ---
 
-<section class="page-section">
+<section class="publication-index">
   <h2>Publications</h2>
   {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "title" %}
-  <div class="card-grid">
+  <div class="publication-list">
     {% assign publication_count = 0 %}
     {% for publication in publication_pages %}
       {% unless publication.publication_template %}
         {% assign publication_count = publication_count | plus: 1 %}
-        <article class="card publication-card">
+        <article class="home-card publication-card">
           <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
           {% if publication.authors %}
             <p class="publication-authors">{{ publication.authors }}</p>
