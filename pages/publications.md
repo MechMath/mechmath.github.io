@@ -20,6 +20,18 @@ permalink: /publications/
           {% if publication.abstract %}
             <p class="publication-abstract">{{ publication.abstract }}</p>
           {% endif %}
+          <div class="publication-links">
+            {% if publication.arxiv and publication.arxiv != "pending" %}
+              <a href="{{ publication.arxiv }}">arXiv</a>
+            {% else %}
+              <span>arXiv pending</span>
+            {% endif %}
+            {% if publication.github and publication.github != "pending" %}
+              <a href="{{ publication.github }}">GitHub</a>
+            {% else %}
+              <span>GitHub pending</span>
+            {% endif %}
+          </div>
         </article>
       {% endunless %}
     {% endfor %}

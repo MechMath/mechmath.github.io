@@ -63,6 +63,11 @@ img{max-width:100%;height:auto}
 .card-placeholder{margin-bottom:1rem;color:#393e46}
 .publication-authors{margin:0 0 .5rem;color:#393e46;font-weight:700}
 .publication-abstract{margin:0;color:#393e46}
+.publication-links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.publication-links a,.publication-links span{display:inline-flex;align-items:center;min-height:2rem;padding:.25rem .65rem;border:1px solid #cfd2d8;border-radius:4px;background:#f8fafc;color:#393e46;font-size:.9rem;font-weight:700}
+.publication-links a{border-color:#0092ca;color:#0092ca}
+.publication-links a:hover{background:#0092ca;color:#fff;text-decoration:none}
+.publication-links span{color:#667085}
 .empty-state{margin:1rem 0 0;color:#393e46}
 .page__footer{flex-shrink:0;margin-top:2rem;background:#0092ca;color:#fff}
 .page__footer-inner{max-width:var(--content-max);margin:0 auto;padding:1rem var(--content-pad)}
