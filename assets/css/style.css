@@ -48,6 +48,10 @@ img{max-width:100%;height:auto}
 .home-card__label{margin:0 0 .35rem;color:#0092ca;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .home-card p{margin:0 0 .75rem;color:#393e46}
 .home-card a{font-weight:700;color:#393e46}
+.home-publication-list{margin:0 0 .9rem;padding:0;list-style:none}
+.home-publication-list li{padding:.45rem 0;border-bottom:1px solid #e5e8ee}
+.home-publication-list li:first-child{padding-top:0}
+.home-publication-list a{font-weight:700}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
 .card,.home-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .card{min-height:150px;padding:1rem;background:#fff;border:1px solid #cfd2d8;border-radius:4px}

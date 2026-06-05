@@ -18,7 +18,7 @@ title: 首页
 <section class="about-card">
   <div class="feature-row__body">
     <h2>About MechMath</h2>
-    <p>MechMath explores agent-assisted mathematical reasoning, connecting natural-language problem solving with formal verification workflows. We are committed to exploring agent-assisted mathematical reasoning with the aim of better tackling complex mathematical problems. For this purpose, the system incorporates dual proof mechanisms—natural language and formal. The former generates intuitive natural-language derivations, whereas the latter executes strictly rigorous code-level verification.</p>
+    <p>MechMath explores AI agent-assisted mathematical research by providing both natural-language mathematical theorem proving and formal verification. </p>
   </div>
 </section>
 
@@ -33,7 +33,18 @@ title: 首页
   <section class="home-card">
     <p class="home-card__label">Research</p>
     <h2>Publication</h2>
-    <p>Publication entries are indexed from markdown files and displayed as concise research cards.</p>
+    {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "title" %}
+    {% assign shown_publications = 0 %}
+    <ul class="home-publication-list">
+      {% for publication in publication_pages %}
+        {% unless publication.publication_template %}
+          {% if shown_publications < 3 %}
+            <li><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></li>
+            {% assign shown_publications = shown_publications | plus: 1 %}
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    </ul>
     <a href="{{ '/publications/' | relative_url }}">View Publications</a>
   </section>
 </div>
