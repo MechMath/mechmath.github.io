@@ -6,7 +6,7 @@ permalink: /publications/
 
 <section class="home-card publication-summary">
   <h2>Publications</h2>
-  <p>Publication overview placeholder.</p>
+  <p>We conduct broad mathematical research through AI for Mathematics.</p>
 </section>
 
 <section class="publication-index">
