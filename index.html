@@ -30,7 +30,7 @@ title: 首页
     <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
   </section>
 
-  <section class="home-card">
+  <section class="home-card home-card--publications">
     <p class="home-card__label">Research</p>
     <h2>Publication</h2>
     {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "title" %}
@@ -39,12 +39,17 @@ title: 首页
       {% for publication in publication_pages %}
         {% unless publication.publication_template %}
           {% if shown_publications < 3 %}
-            <li><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></li>
+            <li>
+              <a href="{{ publication.url | relative_url }}">{{ publication.title }}</a>
+              {% if publication.authors %}
+                <span>{{ publication.authors }}</span>
+              {% endif %}
+            </li>
             {% assign shown_publications = shown_publications | plus: 1 %}
           {% endif %}
         {% endunless %}
       {% endfor %}
     </ul>
-    <a href="{{ '/publications/' | relative_url }}">View Publications</a>
+    <a class="home-card__action" href="{{ '/publications/' | relative_url }}">View Publications</a>
   </section>
 </div>
