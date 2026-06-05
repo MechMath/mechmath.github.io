@@ -4,12 +4,16 @@ title: Blogs
 permalink: /blogs/
 ---
 
-<section class="page-section">
+<section class="home-card publication-summary">
   <h2>Blogs</h2>
-  <div class="card-grid">
-    <article class="card">
+  <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
+</section>
+
+<section class="publication-index">
+  <div class="publication-list">
+    <article class="home-card publication-card blog-card">
       <h3>Blog Title</h3>
-      <p class="card-placeholder">Blog summary placeholder.</p>
+      <p class="publication-abstract">Blog summary placeholder.</p>
     </article>
   </div>
 </section>

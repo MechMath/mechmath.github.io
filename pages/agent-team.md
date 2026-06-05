@@ -4,9 +4,13 @@ title: Agent Team
 permalink: /agent-team/
 ---
 
-<section class="page-section">
+<section class="home-card publication-summary">
   <h2>Agent Team</h2>
-  <div class="card-grid">
+  <p>Agents coordinate across collection, informal proof search, and formal verification.</p>
+</section>
+
+<section class="team-index">
+  <div class="card-grid team-card-grid">
     <article class="card agent-card">
       <img src="{{ '/assets/images/collector.jpg' | relative_url }}" alt="Collector agent illustration">
       <h3>Collector</h3>
