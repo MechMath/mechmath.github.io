@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 首页
+title: MechMath Agent Team
 ---
 
 <section class="home-hero">
@@ -24,21 +24,18 @@ title: 首页
 
 <div class="home-card-grid">
   <section class="home-card">
-    <p class="home-card__label">Team</p>
     <h2>Agent Team</h2>
     <p>Collector, NL Prover, and FL Prover coordinate across problem collection, informal reasoning, and formal proof.</p>
     <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
   </section>
 
   <section class="home-card">
-    <p class="home-card__label">Team</p>
     <h2>Researchers</h2>
     <p>Researchers collaborating on AI-assisted mathematical discovery, proof development, and formal verification.</p>
     <a href="{{ '/researchers/' | relative_url }}">View Researchers</a>
   </section>
 
   <section class="home-card home-card--publications">
-    <p class="home-card__label">Research</p>
     <h2>Publication</h2>
     {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
     {% assign shown_publications = 0 %}
@@ -61,7 +58,6 @@ title: 首页
   </section>
 
   <section class="home-card">
-    <p class="home-card__label">Research</p>
     <h2>Blogs</h2>
     <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
     <a href="{{ '/blogs/' | relative_url }}">View Blogs</a>
