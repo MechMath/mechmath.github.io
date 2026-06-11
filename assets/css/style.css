@@ -2,6 +2,8 @@
 *{box-sizing:border-box}
 html{font-size:16px}
 body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:#eeeeee;color:#222831;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.65}
+body.mechmath-cover-page{width:100%;height:100vh;overflow:hidden;background:#fff}
+body.mechmath-cover-page #main{width:100%;max-width:none;height:100vh;margin:0;padding:0}
 a{color:#393e46;text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;height:auto}
@@ -36,13 +38,13 @@ img{max-width:100%;height:auto}
 .home-hero__actions a{display:inline-flex;align-items:center;min-height:2.25rem;padding:.35rem .8rem;border:1px solid #aeb7c2;border-radius:4px;background:rgba(255,255,255,.82);color:#222831;font-size:.92rem;font-weight:700}
 .home-hero__actions a:first-child{border-color:#0092ca;background:#0092ca;color:#fff}
 .home-hero__actions a:hover{text-decoration:none}
-.mechmath-cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem);background:#fff}
-.mechmath-cover__hero{position:relative;width:100%;max-width:var(--content-max);aspect-ratio:4/1;min-height:220px;overflow:hidden;background:#fff}
+.mechmath-cover{position:relative;width:100%;height:100vh;padding:0;background:#fff;overflow:hidden}
+.mechmath-cover__hero{position:absolute;left:0;top:40%;transform:translateY(-50%);width:100%;aspect-ratio:4/1;max-height:calc(100vh - 5.5rem);overflow:hidden;background:#fff}
 .mechmath-cover__hero-image{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}
-.mechmath-cover__hero-content{position:absolute;z-index:1;left:clamp(1.5rem,5.4vw,6.75rem);top:8%;color:#222831}
+.mechmath-cover__hero-content{position:absolute;z-index:1;left:clamp(2.25rem,10vw,10rem);top:10%;color:#222831}
 .mechmath-cover__hero-content h1{margin:0 0 .35rem;font-size:clamp(2.65rem,4.6vw,5rem);line-height:1.02}
 .mechmath-cover__hero-content p{margin:0;color:#393e46;font-size:clamp(.9rem,1.2vw,1.2rem);font-weight:700;letter-spacing:.06em;line-height:1.35;text-transform:uppercase;white-space:nowrap}
-.mechmath-cover__cta{margin-top:clamp(1.25rem,3vw,2rem);padding:.65rem 0;border-bottom:2px solid #0092ca;color:#222831;font-size:1rem;font-weight:700;letter-spacing:.02em;line-height:1.2}
+.mechmath-cover__cta{position:absolute;left:50%;bottom:20%;transform:translateX(-50%);padding:.7rem 0;border-bottom:3px solid #0092ca;color:#222831;font-size:clamp(1.2rem,1.8vw,1.7rem);font-weight:700;letter-spacing:.02em;line-height:1.15}
 .mechmath-cover__cta:hover{color:#0092ca;text-decoration:none}
 .feature-row{display:grid;grid-template-columns:minmax(180px,300px) 1fr;gap:2rem;align-items:center;margin-bottom:2rem;padding:1.5rem;border-bottom:1px solid #cfd2d8}
 .feature-row__media{border-radius:4px;overflow:hidden}
@@ -144,11 +146,11 @@ img{max-width:100%;height:auto}
   .home-hero{min-height:160px;margin-top:-.75rem}
   .home-hero__content{left:1rem;top:6%}
   .home-hero__actions{display:none}
-  .mechmath-cover{padding:.75rem}
+  .mechmath-cover{padding:0}
   .mechmath-cover__hero{min-height:180px}
-  .mechmath-cover__hero-content{left:1rem;top:6%}
+  .mechmath-cover__hero-content{left:1.25rem;top:10%}
   .mechmath-cover__hero-content p{white-space:normal}
-  .mechmath-cover__cta{margin-top:1.25rem}
+  .mechmath-cover__cta{bottom:20%}
   .about-points{gap:.4rem}
   .home-card-grid{grid-template-columns:1fr;gap:1rem}
   .team-card-grid{grid-template-columns:1fr}
