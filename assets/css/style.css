@@ -54,15 +54,15 @@ img{max-width:100%;height:auto}
 .about-points{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
 .about-points span{padding:.35rem .65rem;border:1px solid #cfd2d8;border-radius:4px;background:#f8fafc;color:#393e46;font-size:.92rem}
 .home-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-bottom:2rem}
-.home-card{margin-bottom:2rem;padding:1.5rem;border-bottom:1px solid #cfd2d8}
+.home-card{position:relative;margin-bottom:2rem;padding:1.5rem 1.5rem 3.75rem;border-bottom:1px solid #cfd2d8}
 .home-card-grid .home-card{margin-bottom:0}
 .home-card__label{margin:0 0 .35rem;color:#0092ca;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .home-card p{margin:0 0 .75rem;color:#393e46}
 .home-card a{font-weight:700;color:#393e46}
 .home-card--publications{position:relative;padding-bottom:3.75rem}
 .home-card--publications h2{margin-bottom:1rem}
-.home-card--publications .home-card__action{position:absolute;right:1.5rem;bottom:1.25rem;color:#0092ca;font-size:.95rem;font-weight:700}
-.home-card--publications .home-card__action:hover{color:#0077a5}
+.home-card__action{position:absolute;right:1.5rem;bottom:1.25rem;color:#0092ca;font-size:.95rem;font-weight:700}
+.home-card__action:hover{color:#0077a5}
 .home-publication-list{margin:.15rem 0 0;padding:0;list-style:none}
 .home-publication-list li{padding:.65rem 0;border-bottom:1px solid #e5e8ee}
 .home-publication-list li:first-child{padding-top:0}
@@ -157,8 +157,9 @@ img{max-width:100%;height:auto}
   .feature-row{grid-template-columns:1fr;padding:1rem}
   .feature-row__media{max-width:220px}
   .page-section,.about-card,.home-card{padding:1rem}
+  .home-card{padding-bottom:3.25rem}
   .home-card--publications{padding-bottom:3.25rem}
-  .home-card--publications .home-card__action{right:1rem;bottom:1rem}
+  .home-card__action{right:1rem;bottom:1rem}
   .publication-card{padding-top:2.5rem;padding-right:1rem}
   .publication-date{top:1rem;right:auto;left:1rem}
   .page__footer-inner{align-items:flex-start;flex-direction:column;gap:.75rem}
