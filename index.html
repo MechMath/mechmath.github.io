@@ -4,62 +4,88 @@ title: MechMath Agent Team
 ---
 
 <section class="home-hero">
-  <img class="home-hero__image" src="{{ '/assets/images/home-long.jpg' | relative_url }}" alt="Agent assembly line illustration">
-  <div class="home-hero__content">
-    <div class="home-hero__brand">
-      <div class="home-hero__brand-text">
-        <h2>MechMath</h2>
-        <p class="home-hero__eyebrow">Key Lab of Mathematics Mechanization</p>
-      </div>
+    <img
+        class="home-hero__image"
+        src="{{ '/assets/images/home-long.jpg' | relative_url }}"
+        alt="Agent assembly line illustration"
+    />
+    <div class="home-hero__content">
+        <div class="home-hero__brand">
+            <div class="home-hero__brand-text">
+                <h2>MechMath</h2>
+                <p class="home-hero__eyebrow">
+                    Key Lab of Mathematics Mechanization
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <section class="about-card">
-  <div class="feature-row__body">
-    <h2>About MechMath</h2>
-    <p>MechMath explores AI agent-assisted mathematical research by providing both natural-language mathematical theorem proving and formal verification. </p>
-  </div>
+    <div class="feature-row__body">
+        <h2>About MechMath</h2>
+        <p>
+            MechMath Agent Team (MMAT) is a large language model driven agent
+            designed as a co-pilot throughout the full cycle of mathematical
+            research, including organizing and utilizing mathematical knowledge,
+            proving theorems in natural language, proving theorems in formal
+            language using Lean, proposing new conjectures, and drafting
+            research papers in LaTeX.
+        </p>
+    </div>
 </section>
 
 <div class="home-card-grid">
-  <section class="home-card">
-    <h2>Agent Team</h2>
-    <p>Collector, NL Prover, and FL Prover coordinate across problem collection, informal reasoning, and formal proof.</p>
-    <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
-  </section>
+    <section class="home-card">
+        <h2>MechMath Agent Team</h2>
+        <p>
+            Collector, NL Prover, and FL Prover coordinate across problem
+            collection, informal reasoning, and formal proof.
+        </p>
+        <a href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
+    </section>
 
-  <section class="home-card">
-    <h2>Researchers</h2>
-    <p>Researchers collaborating on AI-assisted mathematical discovery, proof development, and formal verification.</p>
-    <a href="{{ '/researchers/' | relative_url }}">View Researchers</a>
-  </section>
+    <section class="home-card">
+        <h2>Research Team</h2>
+        <p>
+            Researchers collaborating on AI-assisted mathematical discovery,
+            proof development, and formal verification.
+        </p>
+        <a href="{{ '/researchers/' | relative_url }}">View Researchers</a>
+    </section>
 
-  <section class="home-card home-card--publications">
-    <h2>Publication</h2>
-    {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
-    {% assign shown_publications = 0 %}
-    <ul class="home-publication-list">
-      {% for publication in publication_pages %}
-        {% unless publication.publication_template %}
-          {% if shown_publications < 3 %}
+    <section class="home-card home-card--publications">
+        <h2>Publications</h2>
+        {% assign publication_pages = site.pages | where_exp: "item", "item.path
+        contains 'pages/publication/'" | sort: "publication_date" | reverse %}
+        {% assign shown_publications = 0 %}
+        <ul class="home-publication-list">
+            {% for publication in publication_pages %} {% unless
+            publication.publication_template %} {% if shown_publications < 3 %}
             <li>
-              <a href="{{ publication.url | relative_url }}">{{ publication.title }}</a>
-              {% if publication.authors %}
+                <a href="{{ publication.url | relative_url }}"
+                    >{{ publication.title }}</a
+                >
+                {% if publication.authors %}
                 <span>{{ publication.authors }}</span>
-              {% endif %}
+                {% endif %}
             </li>
-            {% assign shown_publications = shown_publications | plus: 1 %}
-          {% endif %}
-        {% endunless %}
-      {% endfor %}
-    </ul>
-    <a class="home-card__action" href="{{ '/publications/' | relative_url }}">View Publications</a>
-  </section>
+            {% assign shown_publications = shown_publications | plus: 1 %} {%
+            endif %} {% endunless %} {% endfor %}
+        </ul>
+        <a
+            class="home-card__action"
+            href="{{ '/publications/' | relative_url }}"
+            >View All Publications</a
+        >
+    </section>
 
-  <section class="home-card">
-    <h2>Blogs</h2>
-    <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
-    <a href="{{ '/blogs/' | relative_url }}">View Blogs</a>
-  </section>
+    <section class="home-card">
+        <h2>Blogs</h2>
+        <p>
+            Research notes, project updates, and technical reflections on AI for
+            Mathematics.
+        </p>
+        <a href="{{ '/blogs/' | relative_url }}">View Blogs</a>
+    </section>
 </div>
