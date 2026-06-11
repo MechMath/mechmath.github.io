@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Dakai Guo
-role: PhD Student
-researcher_group: phd
+role: Post doc
+researcher_group: postdoc
 homepage:
-photo:
+photo: /assets/researchers/dakai-guo.jpg
 summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
 permalink: /researcher/dakai-guo/
 ---

@@ -1,11 +1,12 @@
 ---
 layout: default
 title: Xiao-Shan Gao
-role: PhD Student
-researcher_group: phd
-homepage:
-photo:
-summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
+role: Professor
+researcher_group: professor
+order: 1
+homepage: http://www.mmrc.iss.ac.cn/~xgao/
+photo: /assets/researchers/xiaoshan-gao.png
+summary: Mathematics Mechanization, Mathematical Theory of Artificial Intelligence, Automated Reasoning
 permalink: /researcher/xiaoshan-gao/
 ---
 

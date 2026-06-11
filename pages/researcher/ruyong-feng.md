@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Ruyong Feng
-role: PhD Student
-researcher_group: phd
-homepage:
-photo:
-summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
+role: Professor
+researcher_group: professor
+homepage: http://mmrc.iss.ac.cn/~ryfeng/
+photo: /assets/researchers/ruyong-feng.jpg
+summary: Symbolic Computation, Differential Algebra
 permalink: /researcher/ruyong-feng/
 ---
 

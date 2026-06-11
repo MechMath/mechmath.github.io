@@ -3,9 +3,9 @@ layout: default
 title: Ruichen Qiu
 role: PhD Student
 researcher_group: phd
-homepage:
-photo:
-summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
+homepage: https://reed-qiuu.github.io/
+photo: /assets/researchers/default3.jpg
+summary: AI4Math, LLM Agents
 permalink: /researcher/ruichen-qiu/
 ---
 

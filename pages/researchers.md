@@ -20,6 +20,8 @@ permalink: /researchers/
       {% assign group_key = group_parts[0] %}
       {% assign group_label = group_parts[1] %}
       {% assign group_researchers = researcher_pages | where: "researcher_group", group_key %}
+      {% assign ordered_researchers = group_researchers | where_exp: "researcher", "researcher.order" | sort: "order" %}
+      {% assign unordered_researchers = group_researchers | where_exp: "researcher", "researcher.order == nil" %}
 
       {% assign group_count = 0 %}
       {% for researcher in group_researchers %}
@@ -32,22 +34,64 @@ permalink: /researchers/
         {% assign researcher_count = researcher_count | plus: group_count %}
         <article class="card researcher-group-card">
           <h3>{{ group_label }}</h3>
-          <ul class="researcher-list">
-            {% for researcher in group_researchers %}
+          <div class="researcher-person-grid">
+            {% for researcher in ordered_researchers %}
               {% unless researcher.researcher_template %}
-                <li>
+                <article class="researcher-person-card">
                   {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
-                  <img class="researcher-photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
-                  <span class="researcher-list__body">
-                    <a href="{{ researcher.url | relative_url }}">{{ researcher.title }}</a>
-                    {% if researcher.homepage %}
-                      <a class="researcher-homepage" href="{{ researcher.homepage }}">Homepage</a>
-                    {% endif %}
-                  </span>
-                </li>
+                  {% if researcher.homepage %}
+                    <a class="researcher-person-card__link" href="{{ researcher.homepage }}">
+                      <img class="researcher-photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                      <span class="researcher-person-card__body">
+                        <span class="researcher-person-card__name">{{ researcher.title }}</span>
+                        {% if researcher.summary %}
+                          <span class="researcher-person-card__summary">{{ researcher.summary }}</span>
+                        {% endif %}
+                      </span>
+                    </a>
+                  {% else %}
+                    <div class="researcher-person-card__link researcher-person-card__link--disabled">
+                      <img class="researcher-photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                      <span class="researcher-person-card__body">
+                        <span class="researcher-person-card__name">{{ researcher.title }}</span>
+                        {% if researcher.summary %}
+                          <span class="researcher-person-card__summary">{{ researcher.summary }}</span>
+                        {% endif %}
+                      </span>
+                    </div>
+                  {% endif %}
+                </article>
               {% endunless %}
             {% endfor %}
-          </ul>
+            {% for researcher in unordered_researchers %}
+              {% unless researcher.researcher_template %}
+                <article class="researcher-person-card">
+                  {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
+                  {% if researcher.homepage %}
+                    <a class="researcher-person-card__link" href="{{ researcher.homepage }}">
+                      <img class="researcher-photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                      <span class="researcher-person-card__body">
+                        <span class="researcher-person-card__name">{{ researcher.title }}</span>
+                        {% if researcher.summary %}
+                          <span class="researcher-person-card__summary">{{ researcher.summary }}</span>
+                        {% endif %}
+                      </span>
+                    </a>
+                  {% else %}
+                    <div class="researcher-person-card__link researcher-person-card__link--disabled">
+                      <img class="researcher-photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                      <span class="researcher-person-card__body">
+                        <span class="researcher-person-card__name">{{ researcher.title }}</span>
+                        {% if researcher.summary %}
+                          <span class="researcher-person-card__summary">{{ researcher.summary }}</span>
+                        {% endif %}
+                      </span>
+                    </div>
+                  {% endif %}
+                </article>
+              {% endunless %}
+            {% endfor %}
+          </div>
         </article>
       {% endif %}
     {% endfor %}
