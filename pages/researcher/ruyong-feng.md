@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Ruyong Feng
-role: Researcher
+role: PhD Student
+researcher_group: phd
 summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
 permalink: /researcher/ruyong-feng/
 ---

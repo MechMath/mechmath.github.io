@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Qiao-Long Huang
-role: Researcher
+title: Lihong Zhi
+role: PhD Student
+researcher_group: phd
 summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
-permalink: /researcher/qiaolong-huang/
+permalink: /researcher/lihong-zhi/
 ---
 
-## Qiao-Long Huang
+## Lihong Zhi
 
 Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.

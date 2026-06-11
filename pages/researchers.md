@@ -11,23 +11,41 @@ permalink: /researchers/
 
 <section class="team-index">
   {% assign researcher_pages = site.pages | where_exp: "item", "item.path contains 'pages/researcher/'" | sort: "title" %}
-  <div class="card-grid team-card-grid">
-    {% assign researcher_count = 0 %}
-    {% for researcher in researcher_pages %}
-      {% unless researcher.researcher_template %}
-        {% assign researcher_count = researcher_count | plus: 1 %}
-        <article class="card researcher-card">
-          <h3><a href="{{ researcher.url | relative_url }}">{{ researcher.title }}</a></h3>
-          {% if researcher.role %}
-            <p class="researcher-role">{{ researcher.role }}</p>
-          {% endif %}
-          {% if researcher.summary %}
-            <p class="card-placeholder">{{ researcher.summary }}</p>
-          {% endif %}
+  {% assign researcher_groups = "professor:Professor|postdoc:Postdoctoral Researcher|phd:PhD Student|master:Master's Student|undergrad:Undergraduate Student" | split: "|" %}
+  {% assign researcher_count = 0 %}
+
+  <div class="researcher-group-grid">
+    {% for group_entry in researcher_groups %}
+      {% assign group_parts = group_entry | split: ":" %}
+      {% assign group_key = group_parts[0] %}
+      {% assign group_label = group_parts[1] %}
+      {% assign group_researchers = researcher_pages | where: "researcher_group", group_key %}
+
+      {% assign group_count = 0 %}
+      {% for researcher in group_researchers %}
+        {% unless researcher.researcher_template %}
+          {% assign group_count = group_count | plus: 1 %}
+        {% endunless %}
+      {% endfor %}
+
+      {% if group_count > 0 %}
+        {% assign researcher_count = researcher_count | plus: group_count %}
+        <article class="card researcher-group-card">
+          <h3>{{ group_label }}</h3>
+          <ul class="researcher-list">
+            {% for researcher in group_researchers %}
+              {% unless researcher.researcher_template %}
+                <li>
+                  <a href="{{ researcher.url | relative_url }}">{{ researcher.title }}</a>
+                </li>
+              {% endunless %}
+            {% endfor %}
+          </ul>
         </article>
-      {% endunless %}
+      {% endif %}
     {% endfor %}
   </div>
+
   {% if researcher_count == 0 %}
     <p class="empty-state">暂无研究人员条目。</p>
   {% endif %}

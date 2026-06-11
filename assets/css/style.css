@@ -61,6 +61,11 @@ img{max-width:100%;height:auto}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
 .team-index{margin-top:1rem}
 .team-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.researcher-group-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
+.researcher-group-card{min-height:150px}
+.researcher-list{display:grid;gap:.45rem;margin:0;padding:0;list-style:none}
+.researcher-list a{color:#222831;font-weight:700}
+.researcher-list a:hover{color:#0092ca}
 .card,.home-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .card{min-height:150px;padding:1rem;background:#fff;border:1px solid #cfd2d8;border-radius:4px}
 .card:hover,.home-card:hover{transform:translateY(-3px);border-color:#0092ca;box-shadow:0 10px 24px rgba(34,40,49,.12)}
@@ -81,7 +86,6 @@ img{max-width:100%;height:auto}
 .agent-card h3,.agent-card p{margin-left:1rem;margin-right:1rem}
 .agent-card h3{margin-top:1rem}
 .researcher-card{min-height:190px}
-.researcher-role{margin:0 0 .5rem;color:#393e46;font-weight:700}
 .card-empty{min-height:3rem}
 .card-placeholder{margin-bottom:1rem;color:#393e46}
 .publication-authors{margin:0 0 .5rem;color:#393e46;font-weight:700}

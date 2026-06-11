@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Ruichen Qiu
+title: Junqi Liu
 role: PhD Student
 researcher_group: phd
 summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
-permalink: /researcher/ruichen-qiu/
+permalink: /researcher/junqi-liu/
 ---
 
-## Ruichen Qiu
+## Junqi Liu
 
 Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
