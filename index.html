@@ -40,7 +40,7 @@ title: 首页
   <section class="home-card home-card--publications">
     <p class="home-card__label">Research</p>
     <h2>Publication</h2>
-    {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "title" %}
+    {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
     {% assign shown_publications = 0 %}
     <ul class="home-publication-list">
       {% for publication in publication_pages %}

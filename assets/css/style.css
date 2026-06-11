@@ -71,9 +71,10 @@ img{max-width:100%;height:auto}
 .publication-list{display:grid;gap:1.25rem}
 .publication-summary{margin-top:1rem}
 .publication-summary p{margin:0;color:#393e46}
-.publication-card{position:relative;padding-right:5.5rem;padding-bottom:3.75rem}
+.publication-card{position:relative;padding-right:9rem;padding-bottom:3.75rem}
 .publication-card h3{margin-top:-.15rem;padding-bottom:.75rem;border-bottom:1px solid #cfd2d8;font-size:1.55rem}
 .publication-card h3 a{color:inherit}
+.publication-date{position:absolute;top:1.2rem;right:1.25rem;color:#667085;font-size:.82rem;font-weight:600;line-height:1.2;white-space:nowrap}
 .blog-card{padding-right:1.5rem;padding-bottom:1.5rem}
 .agent-card{padding:0;overflow:hidden}
 .agent-card img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#f8fafc;border-bottom:1px solid #cfd2d8}
@@ -122,6 +123,8 @@ img{max-width:100%;height:auto}
   .page-section,.about-card,.home-card{padding:1rem}
   .home-card--publications{padding-bottom:3.25rem}
   .home-card--publications .home-card__action{right:1rem;bottom:1rem}
+  .publication-card{padding-top:2.5rem;padding-right:1rem}
+  .publication-date{top:1rem;right:auto;left:1rem}
   .page__footer-inner{align-items:flex-start;flex-direction:column;gap:.75rem}
   .footer-copyright{white-space:normal}
 }
