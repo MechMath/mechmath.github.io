@@ -2,10 +2,34 @@
 layout: default
 title: MechMath
 permalink: /mechmath/
+hide_header: true
+hide_footer: true
+full_width: true
 ---
 
-<meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}">
-<section class="page-section">
-  <h2>MechMath</h2>
-  <p><a href="{{ '/' | relative_url }}">Return to home.</a></p>
+<section class="mechmath-cover">
+  <div class="mechmath-cover__hero">
+    <img class="mechmath-cover__hero-image" src="{{ '/assets/images/home-long.jpg' | relative_url }}" alt="Agent assembly line illustration">
+    <div class="mechmath-cover__hero-content">
+      <h1>MechMath</h1>
+      <p>Key Lab of Mathematics Mechanization</p>
+    </div>
+  </div>
+
+  <div class="mechmath-cover__agents" aria-label="MechMath agent team">
+    <figure>
+      <img src="{{ '/assets/images/collector.jpg' | relative_url }}" alt="Collector robot">
+      <figcaption>Collector</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ '/assets/images/NL.jpg' | relative_url }}" alt="NL Prover robot">
+      <figcaption>NL Prover</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ '/assets/images/FL.jpg' | relative_url }}" alt="FL Prover robot">
+      <figcaption>FL Prover</figcaption>
+    </figure>
+  </div>
+
+  <a class="mechmath-cover__cta" href="{{ '/' | relative_url }}">Start Exploring</a>
 </section>

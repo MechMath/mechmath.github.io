@@ -22,39 +22,43 @@
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   </head>
   <body>
-    <header class="masthead">
-      <div class="masthead__inner-wrap">
-        <nav class="greedy-nav" aria-label="Primary navigation">
-          <a class="site-logo" href="{{ '/' | relative_url }}">
-            <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
-          </a>
-          <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-          <ul class="visible-links">
-            <li class="masthead__menu-item"><a href="{{ '/' | relative_url }}">Home</a></li>
-            <li class="masthead__menu-item"><a href="{{ '/agent-team/' | relative_url }}">Agent Team</a></li>
-            <li class="masthead__menu-item"><a href="{{ '/researchers/' | relative_url }}">Researchers</a></li>
-            <li class="masthead__menu-item"><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
-            <li class="masthead__menu-item"><a href="{{ '/blogs/' | relative_url }}">Blogs</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    {% unless page.hide_header %}
+      <header class="masthead">
+        <div class="masthead__inner-wrap">
+          <nav class="greedy-nav" aria-label="Primary navigation">
+            <a class="site-logo" href="{{ '/' | relative_url }}">
+              <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }}">
+            </a>
+            <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+            <ul class="visible-links">
+              <li class="masthead__menu-item"><a href="{{ '/' | relative_url }}">Home</a></li>
+              <li class="masthead__menu-item"><a href="{{ '/agent-team/' | relative_url }}">Agent Team</a></li>
+              <li class="masthead__menu-item"><a href="{{ '/researchers/' | relative_url }}">Researchers</a></li>
+              <li class="masthead__menu-item"><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+              <li class="masthead__menu-item"><a href="{{ '/blogs/' | relative_url }}">Blogs</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    {% endunless %}
 
-    <main id="main" class="initial-content">
+    <main id="main" class="initial-content{% if page.full_width %} initial-content--full{% endif %}">
       {{ content }}
     </main>
 
-    <footer class="page__footer">
-      <div class="page__footer-inner">
-        <div class="footer-contact">
-          <p class="footer-contact__name">Key Laboratory of Mathematics Mechanization, AMSS, CAS</p>
-          <address>
-            No. 55 Zhongguancun East Road, Beijing 100190, China<br>
-            Email: <a href="mailto:mmat@amss.ac.cn">mmat@amss.ac.cn</a>
-          </address>
+    {% unless page.hide_footer %}
+      <footer class="page__footer">
+        <div class="page__footer-inner">
+          <div class="footer-contact">
+            <p class="footer-contact__name">Key Laboratory of Mathematics Mechanization, AMSS, CAS</p>
+            <address>
+              No. 55 Zhongguancun East Road, Beijing 100190, China<br>
+              Email: <a href="mailto:mmat@amss.ac.cn">mmat@amss.ac.cn</a>
+            </address>
+          </div>
+          <p class="footer-copyright">© {{ site.time | date: "%Y" }} {{ site.title }}</p>
         </div>
-        <p class="footer-copyright">© {{ site.time | date: "%Y" }} {{ site.title }}</p>
-      </div>
-    </footer>
+      </footer>
+    {% endunless %}
   </body>
 </html>
