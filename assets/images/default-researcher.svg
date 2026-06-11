@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Default researcher robot avatar</title>
+  <desc id="desc">A small friendly robot head used as a default researcher photo.</desc>
+  <rect width="160" height="160" rx="16" fill="#f8fafc"/>
+  <circle cx="80" cy="78" r="48" fill="#ffffff" stroke="#cfd2d8" stroke-width="6"/>
+  <path d="M80 24v16" stroke="#0092ca" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="80" cy="18" r="8" fill="#0092ca"/>
+  <rect x="42" y="54" width="76" height="58" rx="18" fill="#eef3f8" stroke="#222831" stroke-width="6"/>
+  <circle cx="65" cy="80" r="8" fill="#0092ca"/>
+  <circle cx="95" cy="80" r="8" fill="#0092ca"/>
+  <path d="M64 99h32" stroke="#393e46" stroke-width="6" stroke-linecap="round"/>
+  <path d="M34 76h-12M138 76h-12" stroke="#222831" stroke-width="6" stroke-linecap="round"/>
+  <path d="M52 126h56" stroke="#cfd2d8" stroke-width="8" stroke-linecap="round"/>
+</svg>

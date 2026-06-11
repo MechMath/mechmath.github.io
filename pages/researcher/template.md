@@ -3,6 +3,8 @@ layout: default
 title: Researcher Name
 role: PhD Student
 researcher_group: phd
+homepage:
+photo:
 summary: Short research profile summary.
 permalink: /researcher/template/
 researcher_template: true

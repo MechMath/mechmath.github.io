@@ -64,8 +64,12 @@ img{max-width:100%;height:auto}
 .researcher-group-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
 .researcher-group-card{min-height:150px}
 .researcher-list{display:grid;gap:.45rem;margin:0;padding:0;list-style:none}
+.researcher-list li{display:flex;align-items:center;gap:.75rem;min-height:3.25rem}
+.researcher-photo{flex:0 0 auto;width:2.75rem;height:2.75rem;border:1px solid #cfd2d8;border-radius:4px;background:#f8fafc;object-fit:cover}
+.researcher-list__body{display:flex;flex-direction:column;gap:.1rem;min-width:0}
 .researcher-list a{color:#222831;font-weight:700}
 .researcher-list a:hover{color:#0092ca}
+.researcher-homepage{font-size:.85rem;font-weight:600}
 .card,.home-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .card{min-height:150px;padding:1rem;background:#fff;border:1px solid #cfd2d8;border-radius:4px}
 .card:hover,.home-card:hover{transform:translateY(-3px);border-color:#0092ca;box-shadow:0 10px 24px rgba(34,40,49,.12)}

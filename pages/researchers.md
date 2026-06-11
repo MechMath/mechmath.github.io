@@ -36,7 +36,14 @@ permalink: /researchers/
             {% for researcher in group_researchers %}
               {% unless researcher.researcher_template %}
                 <li>
-                  <a href="{{ researcher.url | relative_url }}">{{ researcher.title }}</a>
+                  {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
+                  <img class="researcher-photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                  <span class="researcher-list__body">
+                    <a href="{{ researcher.url | relative_url }}">{{ researcher.title }}</a>
+                    {% if researcher.homepage %}
+                      <a class="researcher-homepage" href="{{ researcher.homepage }}">Homepage</a>
+                    {% endif %}
+                  </span>
                 </li>
               {% endunless %}
             {% endfor %}
