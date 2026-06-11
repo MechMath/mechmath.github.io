@@ -51,47 +51,7 @@ title: MechMath Agent Team
             Researchers collaborating on AI-assisted mathematical discovery,
             proof development, and formal verification.
         </p>
-        {% assign researcher_pages = site.pages | where_exp: "item", "item.path contains 'pages/researcher/'" | sort: "title" %}
-        {% assign professor_pages = researcher_pages | where: "researcher_group", "professor" %}
-        {% assign ordered_professors = professor_pages | where_exp: "researcher", "researcher.order" | sort: "order" %}
-        {% assign unordered_professors = professor_pages | where_exp: "researcher", "researcher.order == nil" %}
-        <div class="home-professor-list" aria-label="Professors">
-            {% for researcher in ordered_professors %}
-                {% unless researcher.researcher_template %}
-                    {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
-                    {% if researcher.homepage %}
-                        <a class="home-professor" href="{{ researcher.homepage }}">
-                    {% else %}
-                        <div class="home-professor">
-                    {% endif %}
-                        <img src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
-                        <span>{{ researcher.title }}</span>
-                    {% if researcher.homepage %}
-                        </a>
-                    {% else %}
-                        </div>
-                    {% endif %}
-                {% endunless %}
-            {% endfor %}
-            {% for researcher in unordered_professors %}
-                {% unless researcher.researcher_template %}
-                    {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
-                    {% if researcher.homepage %}
-                        <a class="home-professor" href="{{ researcher.homepage }}">
-                    {% else %}
-                        <div class="home-professor">
-                    {% endif %}
-                        <img src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
-                        <span>{{ researcher.title }}</span>
-                    {% if researcher.homepage %}
-                        </a>
-                    {% else %}
-                        </div>
-                    {% endif %}
-                {% endunless %}
-            {% endfor %}
-        </div>
-        <a class="home-card__action" href="{{ '/researchers/' | relative_url }}">View Researchers</a>
+        <a class="home-card__action" href="{{ '/researchers/' | relative_url }}">View All Team Members</a>
     </section>
 
     <section class="home-card home-card--publications">

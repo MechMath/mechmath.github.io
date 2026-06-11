@@ -69,11 +69,6 @@ img{max-width:100%;height:auto}
 .home-publication-list a{display:block;color:#222831;font-weight:500;line-height:1.35}
 .home-publication-list a:hover{color:#0092ca}
 .home-publication-list span{display:block;margin-top:.2rem;color:#667085;font-size:.92rem;line-height:1.35}
-.home-professor-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem;margin-top:1rem}
-.home-professor{display:flex;align-items:center;gap:.6rem;min-width:0;color:#222831}
-.home-professor:hover{color:#0092ca;text-decoration:none}
-.home-professor img{display:block;width:3rem;height:3.75rem;flex:0 0 auto;border:1px solid #cfd2d8;border-radius:4px;background:#f8fafc;object-fit:cover;object-position:center top}
-.home-professor span{min-width:0;font-size:.95rem;font-weight:700;line-height:1.25}
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.25rem}
 .team-index{margin-top:1rem}
 .team-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
