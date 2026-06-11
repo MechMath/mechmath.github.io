@@ -81,6 +81,7 @@ img{max-width:100%;height:auto}
 .agent-card h3,.agent-card p{margin-left:1rem;margin-right:1rem}
 .agent-card h3{margin-top:1rem}
 .researcher-card{min-height:190px}
+.researcher-role{margin:0 0 .5rem;color:#393e46;font-weight:700}
 .card-empty{min-height:3rem}
 .card-placeholder{margin-bottom:1rem;color:#393e46}
 .publication-authors{margin:0 0 .5rem;color:#393e46;font-weight:700}
