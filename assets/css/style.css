@@ -44,8 +44,10 @@ img{max-width:100%;height:auto}
 .mechmath-cover__hero-content{position:absolute;z-index:1;left:clamp(2.25rem,10vw,10rem);top:10%;color:#222831}
 .mechmath-cover__hero-content h1{margin:0 0 .35rem;font-size:clamp(2.65rem,4.6vw,5rem);line-height:1.02}
 .mechmath-cover__hero-content p{margin:0;color:#393e46;font-size:clamp(.9rem,1.2vw,1.2rem);font-weight:700;letter-spacing:.06em;line-height:1.35;text-transform:uppercase;white-space:nowrap}
-.mechmath-cover__cta{position:absolute;left:50%;bottom:20%;transform:translateX(-50%);padding:.7rem 0;border-bottom:3px solid #0092ca;color:#222831;font-size:clamp(1.2rem,1.8vw,1.7rem);font-weight:700;letter-spacing:.02em;line-height:1.15}
-.mechmath-cover__cta:hover{color:#0092ca;text-decoration:none}
+.mechmath-cover__cta{position:absolute;left:50%;bottom:20%;transform:translateX(-50%);padding:.7rem 0;color:#222831;font-size:clamp(1.2rem,1.8vw,1.7rem);font-weight:700;letter-spacing:.02em;line-height:1.15}
+.mechmath-cover__cta:before{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:#0092ca;transform:scaleX(0);transform-origin:center;transition:transform .2s ease}
+.mechmath-cover__cta:hover,.mechmath-cover__cta:focus{text-decoration:none;color:#222831}
+.mechmath-cover__cta:hover:before,.mechmath-cover__cta:focus:before{transform:scaleX(1)}
 .feature-row{display:grid;grid-template-columns:minmax(180px,300px) 1fr;gap:2rem;align-items:center;margin-bottom:2rem;padding:1.5rem;border-bottom:1px solid #cfd2d8}
 .feature-row__media{border-radius:4px;overflow:hidden}
 .feature-row__media img{display:block;width:100%}
@@ -54,6 +56,8 @@ img{max-width:100%;height:auto}
 .about-points{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
 .about-points span{padding:.35rem .65rem;border:1px solid #cfd2d8;border-radius:4px;background:#f8fafc;color:#393e46;font-size:.92rem}
 .home-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-bottom:2rem}
+.home-card-grid--overview{grid-template-columns:minmax(300px,1fr) minmax(220px,.75fr) minmax(340px,1.25fr);align-items:stretch}
+.home-card-stack{display:grid;gap:1.25rem}
 .home-card{position:relative;margin-bottom:2rem;padding:1.5rem 1.5rem 3.75rem;border-bottom:1px solid #cfd2d8}
 .home-card-grid .home-card{margin-bottom:0}
 .home-card__label{margin:0 0 .35rem;color:#0092ca;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
@@ -63,6 +67,10 @@ img{max-width:100%;height:auto}
 .home-card--publications h2{margin-bottom:1rem}
 .home-card__action{position:absolute;right:1.5rem;bottom:1.25rem;color:#0092ca;font-size:.95rem;font-weight:700}
 .home-card__action:hover{color:#0077a5}
+.home-researcher-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:1rem .75rem;margin:1.25rem 0 .75rem}
+.home-researcher{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center}
+.home-researcher__photo{display:block;width:4.5rem;height:4.5rem;border:2px solid #e5e8ee;border-radius:50%;background:#f8fafc;object-fit:cover;object-position:center top}
+.home-researcher__name{display:block;width:100%;margin-top:.45rem;color:#222831;font-size:.9rem;font-weight:700;line-height:1.25}
 .home-publication-list{margin:.15rem 0 0;padding:0;list-style:none}
 .home-publication-list li{padding:.65rem 0;border-bottom:1px solid #e5e8ee}
 .home-publication-list li:first-child{padding-top:0}
@@ -102,6 +110,14 @@ img{max-width:100%;height:auto}
 .publication-summary{margin-top:1rem}
 .publication-summary p{margin:0;color:#393e46}
 .publication-card{position:relative;padding-right:9rem;padding-bottom:3.75rem}
+.publication-detail-card{padding-right:9rem;padding-bottom:3.75rem}
+.publication-detail-date{margin:0}
+.publication-detail-card h1{margin:0 0 .45rem;color:#222831;font-size:1.65rem;font-weight:700;line-height:1.25}
+.publication-detail-card h2{margin:1.25rem 0 .55rem;padding:0;border:0;color:#222831;font-size:1.15rem;font-weight:700;line-height:1.3}
+.publication-detail-card h1+h2,.publication-detail-divider+h2{margin-top:0}
+.publication-detail-card p,.publication-detail-card ul{color:#393e46}
+.publication-detail-authors{margin:0 0 .9rem;color:#667085;font-weight:400}
+.publication-detail-divider{height:0;margin:0 0 1.15rem;border:0;border-top:1px solid #d9dde3}
 .publication-card h3{margin-top:-.15rem;padding-bottom:.75rem;border-bottom:1px solid #cfd2d8;font-size:1.55rem}
 .publication-card h3 a{color:inherit}
 .publication-date{position:absolute;top:1.2rem;right:1.25rem;color:#667085;font-size:.82rem;font-weight:600;line-height:1.2;white-space:nowrap}
@@ -115,6 +131,7 @@ img{max-width:100%;height:auto}
 .card-placeholder{margin-bottom:1rem;color:#393e46}
 .publication-authors{margin:0 0 .5rem;color:#393e46;font-weight:700}
 .publication-abstract{margin:0;color:#393e46}
+.publication-abstract p{margin:0}
 .publication-links{position:absolute;right:1.25rem;bottom:1.25rem;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.5rem}
 .publication-links a,.publication-links span{display:inline-flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;padding:.35rem;border-radius:4px;background:#fff;color:#393e46;font-size:.9rem;font-weight:700}
 .publication-links a:hover{background:#eef3f8;color:#222831;text-decoration:none}
@@ -135,6 +152,9 @@ img{max-width:100%;height:auto}
 .footer-contact__name{font-weight:700}
 .footer-contact address{margin-top:.2rem;color:rgba(255,255,255,.9);font-style:normal;line-height:1.5}
 .footer-copyright{white-space:nowrap;color:rgba(255,255,255,.9)}
+@media (max-width:1080px){
+  .home-card-grid--overview{grid-template-columns:1fr}
+}
 @media (max-width:720px){
   .masthead__inner-wrap{padding:.75rem 1rem}
   .greedy-nav{flex-wrap:wrap}
@@ -153,6 +173,7 @@ img{max-width:100%;height:auto}
   .mechmath-cover__cta{bottom:20%}
   .about-points{gap:.4rem}
   .home-card-grid{grid-template-columns:1fr;gap:1rem}
+  .home-card-stack{gap:1rem}
   .team-card-grid{grid-template-columns:1fr}
   .feature-row{grid-template-columns:1fr;padding:1rem}
   .feature-row__media{max-width:220px}

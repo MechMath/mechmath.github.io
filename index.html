@@ -35,23 +35,58 @@ title: MechMath Agent Team
     </div>
 </section>
 
-<div class="home-card-grid">
-    <section class="home-card">
-        <h2>MechMath Agent Team</h2>
-        <p>
-            Collector, NL Prover, and FL Prover coordinate across problem
-            collection, informal reasoning, and formal proof.
-        </p>
-        <a class="home-card__action" href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
-    </section>
+<div class="home-card-grid home-card-grid--overview">
+    <div class="home-card-stack">
+        <section class="home-card">
+            <h2>MechMath Agent Team</h2>
+            <p>
+                Collector, NL Prover, and FL Prover coordinate across problem
+                collection, informal reasoning, and formal proof.
+            </p>
+            <a class="home-card__action" href="{{ '/agent-team/' | relative_url }}">View Agent Team</a>
+        </section>
+
+        <section class="home-card">
+            <h2>Research Team</h2>
+            {% assign researcher_pages = site.pages | where_exp: "item", "item.path contains 'pages/researcher/'" | sort: "title" %}
+            {% assign researcher_groups = "professor|postdoc|phd" | split: "|" %}
+            <div class="home-researcher-grid">
+                {% for group in researcher_groups %}
+                    {% assign group_researchers = researcher_pages | where: "researcher_group", group %}
+                    {% assign ordered_researchers = group_researchers | where_exp: "researcher", "researcher.order" | sort: "order" %}
+                    {% assign unordered_researchers = group_researchers | where_exp: "researcher", "researcher.order == nil" %}
+                    {% for researcher in ordered_researchers %}
+                        {% unless researcher.researcher_template %}
+                            {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
+                            <span class="home-researcher">
+                                <img class="home-researcher__photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                                <span class="home-researcher__name">{{ researcher.title }}</span>
+                            </span>
+                        {% endunless %}
+                    {% endfor %}
+                    {% for researcher in unordered_researchers %}
+                        {% unless researcher.researcher_template %}
+                            {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
+                            <span class="home-researcher">
+                                <img class="home-researcher__photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                                <span class="home-researcher__name">{{ researcher.title }}</span>
+                            </span>
+                        {% endunless %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <a class="home-card__action" href="{{ '/researchers/' | relative_url }}">View All Team Members</a>
+        </section>
+
+    </div>
 
     <section class="home-card">
-        <h2>Research Team</h2>
+        <h2>Blogs</h2>
         <p>
-            Researchers collaborating on AI-assisted mathematical discovery,
-            proof development, and formal verification.
+            Research notes, project updates, and technical reflections on AI for
+            Mathematics.
         </p>
-        <a class="home-card__action" href="{{ '/researchers/' | relative_url }}">View All Team Members</a>
+        <a class="home-card__action" href="{{ '/blogs/' | relative_url }}">View Blogs</a>
     </section>
 
     <section class="home-card home-card--publications">
@@ -61,7 +96,7 @@ title: MechMath Agent Team
         {% assign shown_publications = 0 %}
         <ul class="home-publication-list">
             {% for publication in publication_pages %} {% unless
-            publication.publication_template %} {% if shown_publications < 3 %}
+            publication.publication_template %} {% if shown_publications < 5 %}
             <li>
                 <a href="{{ publication.url | relative_url }}"
                     >{{ publication.title }}</a
@@ -78,14 +113,5 @@ title: MechMath Agent Team
             href="{{ '/publications/' | relative_url }}"
             >View All Publications</a
         >
-    </section>
-
-    <section class="home-card">
-        <h2>Blogs</h2>
-        <p>
-            Research notes, project updates, and technical reflections on AI for
-            Mathematics.
-        </p>
-        <a class="home-card__action" href="{{ '/blogs/' | relative_url }}">View Blogs</a>
     </section>
 </div>
