@@ -6,20 +6,20 @@ permalink: /agent-team/
 
 <section class="home-card publication-summary">
   <h2>Agent Team</h2>
-  <p>Agents coordinate across collection, informal proof search, and formal verification.</p>
+  <p>Agents coordinate across knowledge base management, natural language proof, and formal verification.</p>
 </section>
 
 <section class="team-index">
   <div class="card-grid team-card-grid">
     <article class="card agent-card">
-      <img src="{{ '/assets/images/collector.jpg' | relative_url }}" alt="Collector agent illustration">
-      <h3>Collector</h3>
-      <p class="card-placeholder">A persistent research knowledge base. Researchers provide raw sources, and Collector handles reading, extraction, cross-referencing, and compilation into a structured wiki.</p>
+      <img src="{{ '/assets/images/collector.jpg' | relative_url }}" alt="KB Manager agent illustration">
+      <h3>KB Manager</h3>
+      <p class="card-placeholder">A persistent research knowledge base. Researchers provide raw sources, and KB-Manager handles reading, extraction, cross-referencing, and compilation into a structured wiki.</p>
     </article>
     <article class="card agent-card">
       <img src="{{ '/assets/images/NL.jpg' | relative_url }}" alt="NL Prover agent illustration">
       <h3>NL Prover</h3>
-      <p class="card-placeholder">An informal proof system with single-agent solve mode and multi-agent orchestration. Sketcher decomposes problems into lemmas, Generators prove them, Verifiers check each proof, and the Orchestrator assembles the final proof.</p>
+      <p class="card-placeholder">An natural language proof system with single-agent solve mode and multi-agent orchestration. Sketcher decomposes problems into lemmas, Generators prove them, Verifiers check each proof, and the Orchestrator assembles the final proof.</p>
     </article>
     <article class="card agent-card">
       <img src="{{ '/assets/images/FL.jpg' | relative_url }}" alt="FL Prover agent illustration">
