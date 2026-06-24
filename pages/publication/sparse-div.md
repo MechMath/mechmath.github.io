@@ -6,7 +6,7 @@ abstract: >-
  In this paper, we show that deciding whether a sparse polynomial does not divide another sparse polynomial exactly over finite fields is NP-hard under BPP many-one reductions. Equivalently, the sparse polynomial divisibility test over finite fields is CoNP-hard. This resolves the long-standing open problem concerning the computational complexity of the divisibility test for sparse polynomials in the setting of finite fields.
 publication_date: 2026-06-10 14:25:06 +0000
 arxiv: https://arxiv.org/abs/2606.12130
-github: https://github.com/EonMath/sparse-div
+github: https://github.com/MechMath/sparse-div
 permalink: /publication/sparse-div/
 ---
 
