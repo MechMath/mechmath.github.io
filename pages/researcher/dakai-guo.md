@@ -5,7 +5,7 @@ role: Post doc
 researcher_group: postdoc
 homepage:
 photo: /assets/researchers/dakai-guo.jpg
-summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
+summary: AI4Math, LLM Agents, Formal Mathematics
 permalink: /researcher/dakai-guo/
 ---
 

@@ -6,7 +6,7 @@ researcher_group: professor
 order: 1
 homepage: http://www.mmrc.iss.ac.cn/~xgao/
 photo: /assets/researchers/xiaoshan-gao.png
-summary: Mathematics Mechanization, Mathematical Theory of Artificial Intelligence, Automated Reasoning
+summary: Mathematics Mechanization, Mathematical Theory of AI, Automated Reasoning
 permalink: /researcher/xiaoshan-gao/
 ---
 

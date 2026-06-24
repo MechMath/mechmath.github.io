@@ -3,8 +3,9 @@ layout: default
 title: Jiaqi Wang
 role: Phd
 researcher_group: phd
+order: 4
 homepage:
-photo: /assets/researchers/default1.jpg
-summary: Researcher collaborating on AI-assisted mathematical discovery, proof development, and formal verification.
+photo: /assets/researchers/jiaqi-wang.jpg
+summary: AI4Math, LLM Agents, Formal Mathematics
 permalink: /researcher/jiaqi-wang/
 ---
