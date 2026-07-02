@@ -8,6 +8,7 @@ scripts:
   - /assets/js/list-index.js
 ---
 
+{% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
 <div data-list-index data-page-size="7">
   <section class="home-card list-summary">
     <h2>Publications</h2>
@@ -24,18 +25,32 @@ scripts:
         <label class="list-search-label" for="publication-search-input">Search publications</label>
         <input id="publication-search-input" type="search" data-list-search placeholder="Search by title or abstract">
       </div>
+      <button class="list-filter-toggle" type="button" data-list-filter-toggle aria-expanded="false" aria-controls="publication-filter-panel" aria-label="Filter publications">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16"></path>
+          <path d="M7 12h10"></path>
+          <path d="M10 18h4"></path>
+        </svg>
+        <span class="list-control-tooltip">Filter</span>
+      </button>
+      {% assign publication_tags = publication_pages | map: "tag" | compact | uniq | sort %}
+      <div class="list-filter" id="publication-filter-panel" data-list-filter-panel hidden>
+        <button class="is-active" type="button" data-list-filter-tag="" aria-pressed="true">All</button>
+        {% for tag in publication_tags %}
+          <button type="button" data-list-filter-tag="{{ tag | downcase | escape }}" aria-pressed="false">{{ tag }}</button>
+        {% endfor %}
+      </div>
     </div>
   </section>
 
   <section class="list-index">
-  {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
   <div class="list-items">
     {% assign publication_count = 0 %}
     {% for publication in publication_pages %}
       {% unless publication.publication_template %}
         {% assign publication_count = publication_count | plus: 1 %}
         {% assign publication_search_text = publication.title | append: " " | append: publication.abstract | strip_html | normalize_whitespace %}
-        <article class="home-card list-card" data-list-card data-list-text="{{ publication_search_text | escape }}">
+        <article class="home-card list-card" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}">
           {% if publication.publication_date %}
             <time class="list-card-date" datetime="{{ publication.publication_date | date_to_xmlschema }}">{{ publication.publication_date | date: "%b %-d, %Y" }}</time>
           {% endif %}
