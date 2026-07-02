@@ -84,9 +84,24 @@
 
     if (searchToggle && searchPanel && searchInput) {
       searchToggle.addEventListener('click', function () {
+        var isOpen = searchToggle.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          searchPanel.classList.remove('is-open');
+          searchToggle.setAttribute('aria-expanded', 'false');
+          window.setTimeout(function () {
+            if (searchToggle.getAttribute('aria-expanded') === 'false') {
+              searchPanel.hidden = true;
+            }
+          }, 180);
+          return;
+        }
+
         searchPanel.hidden = false;
-        searchToggle.setAttribute('aria-expanded', 'true');
-        searchInput.focus();
+        window.requestAnimationFrame(function () {
+          searchPanel.classList.add('is-open');
+          searchToggle.setAttribute('aria-expanded', 'true');
+          searchInput.focus();
+        });
       });
     }
 
