@@ -11,12 +11,17 @@ permalink: /publications/
 
 <section class="publication-index" id="publications-app" data-page-size="7">
   {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
+  <div class="publication-search">
+    <label for="publication-search-input">Search publications</label>
+    <input id="publication-search-input" type="search" data-publication-search placeholder="Search by title or abstract">
+  </div>
   <div class="publication-list">
     {% assign publication_count = 0 %}
     {% for publication in publication_pages %}
       {% unless publication.publication_template %}
         {% assign publication_count = publication_count | plus: 1 %}
-        <article class="home-card publication-card" data-publication-card>
+        {% assign publication_search_text = publication.title | append: " " | append: publication.abstract | strip_html | normalize_whitespace %}
+        <article class="home-card publication-card" data-publication-card data-publication-text="{{ publication_search_text | escape }}">
           {% if publication.publication_date %}
             <time class="publication-date" datetime="{{ publication.publication_date | date_to_xmlschema }}">{{ publication.publication_date | date: "%b %-d, %Y" }}</time>
           {% endif %}
@@ -33,6 +38,7 @@ permalink: /publications/
     {% endfor %}
   </div>
   <nav class="publication-pagination" data-publication-pagination aria-label="Publication pages"></nav>
+  <p class="empty-state" data-publication-empty hidden>No publications match your search.</p>
   {% if publication_count == 0 %}
     <p class="empty-state">暂无论文条目。</p>
   {% endif %}
@@ -46,7 +52,10 @@ permalink: /publications/
     var pageSize = parseInt(app.getAttribute('data-page-size'), 10) || 7;
     var cards = Array.prototype.slice.call(app.querySelectorAll('[data-publication-card]'));
     var pagination = app.querySelector('[data-publication-pagination]');
+    var searchInput = app.querySelector('[data-publication-search]');
+    var emptyState = app.querySelector('[data-publication-empty]');
     var currentPage = 1;
+    var filteredCards = cards;
 
     function renderPagination(totalPages) {
       pagination.innerHTML = '';
@@ -87,16 +96,32 @@ permalink: /publications/
     }
 
     function setPage(page) {
-      var totalPages = Math.max(1, Math.ceil(cards.length / pageSize));
+      var totalPages = Math.max(1, Math.ceil(filteredCards.length / pageSize));
       currentPage = Math.min(Math.max(page, 1), totalPages);
       var start = (currentPage - 1) * pageSize;
       var end = start + pageSize;
 
       cards.forEach(function (card, index) {
-        card.hidden = index < start || index >= end;
+        var filteredIndex = filteredCards.indexOf(card);
+        card.hidden = filteredIndex === -1 || filteredIndex < start || filteredIndex >= end;
       });
 
       renderPagination(totalPages);
+      if (emptyState) {
+        emptyState.hidden = filteredCards.length > 0;
+      }
+    }
+
+    function filterCards() {
+      var query = searchInput.value.trim().toLowerCase();
+      filteredCards = cards.filter(function (card) {
+        return !query || card.getAttribute('data-publication-text').toLowerCase().indexOf(query) !== -1;
+      });
+      setPage(1);
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterCards);
     }
 
     setPage(1);
