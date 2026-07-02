@@ -1,0 +1,29 @@
+---
+layout: default
+title: Blogs
+permalink: /blogs/
+stylesheets:
+  - /assets/css/list-index.css
+scripts:
+  - /assets/js/list-index.js
+---
+
+<section class="home-card list-summary">
+  <h2>Blogs</h2>
+  <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
+</section>
+
+<section class="list-index" data-list-index data-page-size="7">
+  <div class="list-search">
+    <label for="blog-search-input">Search blogs</label>
+    <input id="blog-search-input" type="search" data-list-search placeholder="Search by title or summary">
+  </div>
+  <div class="list-items">
+    <article class="home-card list-card blog-card" data-list-card data-list-text="Blog Title Blog summary placeholder.">
+      <h3>Blog Title</h3>
+      <p class="list-card-summary">Blog summary placeholder.</p>
+    </article>
+  </div>
+  <nav class="list-pagination" data-list-pagination aria-label="Blog pages"></nav>
+  <p class="empty-state" data-list-empty hidden>No blogs match your search.</p>
+</section>
