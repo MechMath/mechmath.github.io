@@ -107,6 +107,12 @@ img{max-width:100%;height:auto}
 .researcher-group-card>h3{margin-bottom:1rem;padding-bottom:.65rem;border-bottom:1px solid #cfd2d8;font-size:1.45rem}
 .publication-index{margin-top:1rem}
 .publication-list{display:grid;gap:1.25rem}
+.publication-pagination{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:1.5rem 0 0}
+.publication-pagination:empty{display:none}
+.publication-pagination button{min-width:2.5rem;min-height:2.5rem;padding:.45rem .75rem;border:1px solid #cfd2d8;border-radius:4px;background:#fff;color:#393e46;font:inherit;font-weight:700;line-height:1;cursor:pointer}
+.publication-pagination button:hover:not(:disabled),.publication-pagination button:focus-visible{border-color:#0092ca;color:#0092ca}
+.publication-pagination button.is-active{border-color:#0092ca;background:#0092ca;color:#fff}
+.publication-pagination button:disabled{cursor:not-allowed;opacity:.45}
 .publication-summary{margin-top:1rem}
 .publication-summary p{margin:0;color:#393e46}
 .publication-card{position:relative;padding-right:9rem;padding-bottom:3.75rem}
