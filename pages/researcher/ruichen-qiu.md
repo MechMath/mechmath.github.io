@@ -3,7 +3,7 @@ layout: default
 title: Ruichen Qiu
 role: PhD Student
 researcher_group: phd
-order: 3
+order: 4
 homepage: https://reed-qiuu.github.io/
 photo: /assets/researchers/ruichen-qiu.jpg
 summary: AI4Math, LLM Agents
