@@ -8,22 +8,33 @@ scripts:
   - /assets/js/list-index.js
 ---
 
-<section class="home-card list-summary">
-  <h2>Blogs</h2>
-  <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
-</section>
+<div data-list-index data-page-size="7">
+  <section class="home-card list-summary">
+    <h2>Blogs</h2>
+    <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
+    <div class="list-search-shell">
+      <button class="list-search-toggle" type="button" data-list-search-toggle aria-expanded="false" aria-controls="blog-search-panel" aria-label="Search blogs">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <span class="list-search-tooltip">Search</span>
+      </button>
+      <div class="list-search" id="blog-search-panel" data-list-search-panel hidden>
+        <label class="list-search-label" for="blog-search-input">Search blogs</label>
+        <input id="blog-search-input" type="search" data-list-search placeholder="Search by title or summary">
+      </div>
+    </div>
+  </section>
 
-<section class="list-index" data-list-index data-page-size="7">
-  <div class="list-search">
-    <label for="blog-search-input">Search blogs</label>
-    <input id="blog-search-input" type="search" data-list-search placeholder="Search by title or summary">
-  </div>
-  <div class="list-items">
-    <article class="home-card list-card blog-card" data-list-card data-list-text="Blog Title Blog summary placeholder.">
-      <h3>Blog Title</h3>
-      <p class="list-card-summary">Blog summary placeholder.</p>
-    </article>
-  </div>
-  <nav class="list-pagination" data-list-pagination aria-label="Blog pages"></nav>
-  <p class="empty-state" data-list-empty hidden>No blogs match your search.</p>
-</section>
+  <section class="list-index">
+    <div class="list-items">
+      <article class="home-card list-card blog-card" data-list-card data-list-text="Blog Title Blog summary placeholder.">
+        <h3>Blog Title</h3>
+        <p class="list-card-summary">Blog summary placeholder.</p>
+      </article>
+    </div>
+    <nav class="list-pagination" data-list-pagination aria-label="Blog pages"></nav>
+    <p class="empty-state" data-list-empty hidden>No blogs match your search.</p>
+  </section>
+</div>

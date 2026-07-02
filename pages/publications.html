@@ -8,17 +8,27 @@ scripts:
   - /assets/js/list-index.js
 ---
 
-<section class="home-card list-summary">
-  <h2>Publications</h2>
-  <p>Our publications explore AI-assisted mathematics across theorem proving, formal verification, symbolic computation, and computational complexity. Recent work includes Lean-formalized solutions to OEIS conjectures, finite certificates for inequalities, complexity results for sparse polynomial problems, fast algorithms in computer algebra, and human-AI collaborations through the MechMath Agent Team.</p>
-</section>
+<div data-list-index data-page-size="7">
+  <section class="home-card list-summary">
+    <h2>Publications</h2>
+    <p>Our publications explore AI-assisted mathematics across theorem proving, formal verification, symbolic computation, and computational complexity. Recent work includes Lean-formalized solutions to OEIS conjectures, finite certificates for inequalities, complexity results for sparse polynomial problems, fast algorithms in computer algebra, and human-AI collaborations through the MechMath Agent Team.</p>
+    <div class="list-search-shell">
+      <button class="list-search-toggle" type="button" data-list-search-toggle aria-expanded="false" aria-controls="publication-search-panel" aria-label="Search publications">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <span class="list-search-tooltip">Search</span>
+      </button>
+      <div class="list-search" id="publication-search-panel" data-list-search-panel hidden>
+        <label class="list-search-label" for="publication-search-input">Search publications</label>
+        <input id="publication-search-input" type="search" data-list-search placeholder="Search by title or abstract">
+      </div>
+    </div>
+  </section>
 
-<section class="list-index" data-list-index data-page-size="7">
+  <section class="list-index">
   {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
-  <div class="list-search">
-    <label for="publication-search-input">Search publications</label>
-    <input id="publication-search-input" type="search" data-list-search placeholder="Search by title or abstract">
-  </div>
   <div class="list-items">
     {% assign publication_count = 0 %}
     {% for publication in publication_pages %}
@@ -46,4 +56,5 @@ scripts:
   {% if publication_count == 0 %}
     <p class="empty-state">暂无论文条目。</p>
   {% endif %}
-</section>
+  </section>
+</div>

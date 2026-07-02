@@ -1,6 +1,13 @@
 .list-index{margin-top:1rem}
-.list-search{display:grid;gap:.4rem;margin:0 0 1rem}
-.list-search label{color:#222831;font-weight:700}
+.list-search-shell{display:flex;align-items:center;gap:.75rem;margin-top:1rem}
+.list-search-toggle{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:1px solid #cfd2d8;border-radius:4px;background:#fff;color:#393e46;cursor:pointer}
+.list-search-toggle:hover,.list-search-toggle:focus-visible{border-color:#0092ca;color:#0092ca;outline:0}
+.list-search-toggle svg{display:block;width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.list-search-tooltip{position:absolute;left:50%;bottom:calc(100% + .45rem);z-index:2;padding:.25rem .45rem;border-radius:4px;background:#222831;color:#fff;font-size:.78rem;font-weight:700;line-height:1;white-space:nowrap;opacity:0;pointer-events:none;transform:translate(-50%,.25rem);transition:opacity .15s ease,transform .15s ease}
+.list-search-toggle:hover .list-search-tooltip,.list-search-toggle:focus-visible .list-search-tooltip{opacity:1;transform:translate(-50%,0)}
+.list-search{display:grid;flex:1;gap:.4rem;max-width:36rem}
+.list-search[hidden]{display:none}
+.list-search-label{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;border:0;clip:rect(0 0 0 0);white-space:nowrap}
 .list-search input{width:100%;min-height:2.75rem;padding:.6rem .8rem;border:1px solid #cfd2d8;border-radius:4px;background:#fff;color:#222831;font:inherit}
 .list-search input:focus{border-color:#0092ca;box-shadow:0 0 0 3px rgba(0,146,202,.18);outline:0}
 .list-items{display:grid;gap:1.25rem}

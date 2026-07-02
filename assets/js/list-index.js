@@ -7,6 +7,8 @@
     var cards = Array.prototype.slice.call(app.querySelectorAll('[data-list-card]'));
     var pagination = app.querySelector('[data-list-pagination]');
     var searchInput = app.querySelector('[data-list-search]');
+    var searchToggle = app.querySelector('[data-list-search-toggle]');
+    var searchPanel = app.querySelector('[data-list-search-panel]');
     var emptyState = app.querySelector('[data-list-empty]');
     var currentPage = 1;
     var filteredCards = cards;
@@ -78,6 +80,14 @@
 
     if (searchInput) {
       searchInput.addEventListener('input', filterCards);
+    }
+
+    if (searchToggle && searchPanel && searchInput) {
+      searchToggle.addEventListener('click', function () {
+        searchPanel.hidden = false;
+        searchToggle.setAttribute('aria-expanded', 'true');
+        searchInput.focus();
+      });
     }
 
     setPage(1);
