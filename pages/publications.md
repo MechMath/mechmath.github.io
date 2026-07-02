@@ -6,7 +6,7 @@ permalink: /publications/
 
 <section class="home-card publication-summary">
   <h2>Publications</h2>
-  <p>We conduct broad mathematical research through AI for Mathematics.</p>
+  <p>Our publications explore AI-assisted mathematics across theorem proving, formal verification, symbolic computation, and computational complexity. Recent work includes Lean-formalized solutions to OEIS conjectures, finite certificates for inequalities, complexity results for sparse polynomial problems, fast algorithms in computer algebra, and human-AI collaborations through the MechMath Agent Team.</p>
 </section>
 
 <section class="publication-index">
