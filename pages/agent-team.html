@@ -6,11 +6,14 @@ scripts:
   - /assets/js/agent-team.js
 ---
 
+<header class="agent-page-header">
+  <h1>MechMath Agent Team</h1>
+  <p>KB-Manager, NL-Prover, and FL-Prover operate as a closed loop that accumulates mathematical knowledge, develops proofs, and produces formal certification.</p>
+</header>
+
 <section id="agent-team" class="agent-content-section agent-content-section--team">
   <div class="agent-content-section__intro">
-    <p class="agent-content-section__eyebrow">System Architecture</p>
-    <h2>MechMath Agent Team</h2>
-    <p>KB-Manager, NL-Prover, and FL-Prover operate as a closed loop that accumulates mathematical knowledge, develops proofs, and produces formal certification.</p>
+    <h2>Three Specialized Agents</h2>
   </div>
   <div class="agent-system" aria-label="MechMath Agent Team relationship diagram">
     <div class="agent-stage" data-agent-stage>
@@ -73,7 +76,6 @@ scripts:
 
 <section id="knowledge-base" class="agent-content-section">
   <div class="agent-content-section__intro">
-    <p class="agent-content-section__eyebrow">Persistent Knowledge</p>
     <h2>Knowledge Base</h2>
     <p>The KB-Manager turns the team&apos;s sources, proof fragments, formal artifacts, and verified obstructions into a shared mathematical dependency and evidence graph.</p>
   </div>
@@ -85,29 +87,58 @@ scripts:
 
 <section id="proving-workflow" class="agent-content-section">
   <div class="agent-content-section__intro">
-    <p class="agent-content-section__eyebrow">From Discovery To Certification</p>
-    <h2>NL-FL Proving Workflow</h2>
-    <p>NL-Prover develops and recovers mathematical routes, while FL-Prover turns validated derivations into machine-checkable Lean 4 proofs. The detailed workflow follows five connected stages.</p>
+    <h2>Full-Cycle Theorem Proving</h2>
+    <p>Using OEIS A287616 as a case study, MMAT coordinates 137 specialized subagents across mathematical exploration, computational certification, and iterative Lean 4 verification. The resulting natural-language proof is compiled into more than 3,500 lines of formally checked Lean code.</p>
   </div>
-  <ol class="workflow-stage-list" aria-label="NL-FL proving workflow stages">
-    <li>Problem Understanding and Route Exploration</li>
-    <li>Proof Development and Bottleneck Identification</li>
-    <li>Mechanism Blockage and Strategic Recovery</li>
-    <li>Computation Certification and Proof Assembly</li>
-    <li>Lean 4 Formalization and Verification</li>
-  </ol>
-  <figure class="agent-content-figure agent-content-figure--workflow">
-    <object class="workflow-document" data="{{ '/assets/images/workflow_white.pdf' | relative_url }}" type="application/pdf">
-      <a href="{{ '/assets/images/workflow_white.pdf' | relative_url }}">Open the complete NL-FL proving workflow.</a>
-    </object>
-    <figcaption>Complete workflow reference. A stage-by-stage interactive view will be added here.</figcaption>
-  </figure>
+  <div class="workflow-stage-controls" data-workflow-controls aria-label="Full-cycle theorem proving stages">
+    <div class="workflow-stage-item">
+      <button class="workflow-stage-button workflow-stage-button--blue" type="button" data-workflow-stage="route-exploration" aria-expanded="false" aria-controls="workflow-detail">
+        <span class="workflow-stage-button__number">01</span>
+        <span class="workflow-stage-button__title">Problem Understanding and Route Exploration</span>
+        <span class="workflow-stage-button__summary">Searchers and Explorers develop the Primitive Seed, Move Calculus, descent lemmas, and competing routes through the residual problem.</span>
+      </button>
+    </div>
+    <div class="workflow-stage-item">
+      <button class="workflow-stage-button workflow-stage-button--purple" type="button" data-workflow-stage="proof-development" aria-expanded="false" aria-controls="workflow-detail">
+        <span class="workflow-stage-button__number">02</span>
+        <span class="workflow-stage-button__title">Proof Development and Bottleneck Identification</span>
+        <span class="workflow-stage-button__summary">Sketchers, Generators, and Verifiers refine candidate lemmas while isolating the residual cone and the proof obligations that remain unresolved.</span>
+      </button>
+    </div>
+    <div class="workflow-stage-item">
+      <button class="workflow-stage-button workflow-stage-button--red" type="button" data-workflow-stage="strategic-recovery" aria-expanded="false" aria-controls="workflow-detail">
+        <span class="workflow-stage-button__number">03</span>
+        <span class="workflow-stage-button__title">Mechanism Blockage and Strategic Recovery</span>
+        <span class="workflow-stage-button__summary">When a route fails, the system records the obstruction, corrects the target, and reroutes without discarding validated intermediate work.</span>
+      </button>
+    </div>
+    <div class="workflow-stage-item">
+      <button class="workflow-stage-button workflow-stage-button--gold" type="button" data-workflow-stage="computation-certification" aria-expanded="false" aria-controls="workflow-detail">
+        <span class="workflow-stage-button__number">04</span>
+        <span class="workflow-stage-button__title">Computation Certification and Proof Assembly</span>
+        <span class="workflow-stage-button__summary">Code Executors construct cover and Exact-LP certificates, while CE-Hunters search for counterexamples before the proof is assembled.</span>
+      </button>
+    </div>
+    <div class="workflow-stage-item">
+      <button class="workflow-stage-button workflow-stage-button--teal" type="button" data-workflow-stage="lean-formalization" aria-expanded="false" aria-controls="workflow-detail">
+        <span class="workflow-stage-button__number">05</span>
+        <span class="workflow-stage-button__title">Lean 4 Formalization and Verification</span>
+        <span class="workflow-stage-button__summary">Formalizers and reviewers refine the Lean boundary, integrate proof fragments, and audit dependencies before final kernel verification.</span>
+      </button>
+    </div>
+  </div>
+  <dialog class="workflow-modal" data-workflow-modal aria-labelledby="workflow-detail-caption">
+    <button class="workflow-modal__close" type="button" data-workflow-close>Close</button>
+    <figure id="workflow-detail" class="workflow-detail" data-workflow-detail hidden>
+      <img data-workflow-image src="" alt="">
+      <figcaption id="workflow-detail-caption" data-workflow-caption></figcaption>
+    </figure>
+  </dialog>
 </section>
 
 <section id="automated-discovery" class="agent-content-section">
   <div class="agent-content-section__intro">
-    <p class="agent-content-section__eyebrow">Research Compounding</p>
-    <h2>Automated Discovery</h2>
+    <h2>Project-Level Discovery</h2>
     <p>Archived results feed back into new research directions. This sparse-polynomial map connects prior questions, core themes, and the discoveries that extend them.</p>
   </div>
   <ul class="discovery-topic-list" aria-label="Sparse polynomial research themes">

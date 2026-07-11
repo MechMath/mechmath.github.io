@@ -107,19 +107,109 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     const stage = document.querySelector("[data-agent-stage]");
-    if (!stage) return;
+    if (stage) {
+      Object.values(agents).forEach(function (agent) {
+        const image = new Image();
+        image.src = agent.image;
+      });
 
-    Object.values(agents).forEach(function (agent) {
-      const image = new Image();
-      image.src = agent.image;
+      stage.addEventListener("click", function (event) {
+        const button = event.target.closest("[data-agent-id]");
+        if (!button || !stage.contains(button)) return;
+        setCenter(button.dataset.agentId);
+      });
+
+      setCenter("nl");
+    }
+
+    const workflowStages = {
+      "route-exploration": {
+        image: "/assets/images/workflow/route-exploration.png",
+        alt: "Problem Understanding and Route Exploration stage from the full-cycle theorem proving workflow",
+        caption: "Problem Understanding and Route Exploration",
+        color: "#057db8"
+      },
+      "proof-development": {
+        image: "/assets/images/workflow/proof-development.png",
+        alt: "Proof Development and Bottleneck Identification stage from the full-cycle theorem proving workflow",
+        caption: "Proof Development and Bottleneck Identification",
+        color: "#9785b7"
+      },
+      "strategic-recovery": {
+        image: "/assets/images/workflow/strategic-recovery.png",
+        alt: "Mechanism Blockage and Strategic Recovery stage from the full-cycle theorem proving workflow",
+        caption: "Mechanism Blockage and Strategic Recovery",
+        color: "#c6152b"
+      },
+      "computation-certification": {
+        image: "/assets/images/workflow/computation-certification.png",
+        alt: "Computation Certification and Proof Assembly stage from the full-cycle theorem proving workflow",
+        caption: "Computation Certification and Proof Assembly",
+        color: "#af9217"
+      },
+      "lean-formalization": {
+        image: "/assets/images/workflow/lean-formalization.png",
+        alt: "Lean 4 Formalization and Verification stage from the full-cycle theorem proving workflow",
+        caption: "Lean 4 Formalization and Verification",
+        color: "#2b9487"
+      }
+    };
+    const workflowControls = document.querySelector("[data-workflow-controls]");
+    const workflowDetail = document.querySelector("[data-workflow-detail]");
+    const workflowModal = document.querySelector("[data-workflow-modal]");
+
+    if (!workflowControls || !workflowDetail || !workflowModal) return;
+
+    const workflowImage = workflowDetail.querySelector("[data-workflow-image]");
+    const workflowCaption = workflowDetail.querySelector("[data-workflow-caption]");
+    const workflowClose = workflowModal.querySelector("[data-workflow-close]");
+
+    function resetWorkflowControls() {
+      workflowControls.querySelectorAll("[data-workflow-stage]").forEach(function (control) {
+        control.classList.remove("is-active");
+        control.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    workflowControls.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-workflow-stage]");
+      if (!button || !workflowControls.contains(button)) return;
+
+      const stageData = workflowStages[button.dataset.workflowStage];
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+
+      resetWorkflowControls();
+
+      if (isOpen || !stageData) {
+        workflowDetail.hidden = true;
+        workflowImage.removeAttribute("src");
+        workflowImage.alt = "";
+        workflowCaption.textContent = "";
+        workflowModal.close();
+        return;
+      }
+
+      button.classList.add("is-active");
+      button.setAttribute("aria-expanded", "true");
+      workflowImage.src = stageData.image;
+      workflowImage.alt = stageData.alt;
+      workflowCaption.textContent = stageData.caption;
+      workflowDetail.style.setProperty("--workflow-active-color", stageData.color);
+      workflowModal.style.setProperty("--workflow-active-color", stageData.color);
+      workflowDetail.hidden = false;
+      workflowModal.showModal();
     });
 
-    stage.addEventListener("click", function (event) {
-      const button = event.target.closest("[data-agent-id]");
-      if (!button || !stage.contains(button)) return;
-      setCenter(button.dataset.agentId);
+    workflowClose.addEventListener("click", function () {
+      workflowModal.close();
     });
 
-    setCenter("nl");
+    workflowModal.addEventListener("click", function (event) {
+      if (event.target === workflowModal) workflowModal.close();
+    });
+
+    workflowModal.addEventListener("close", function () {
+      resetWorkflowControls();
+    });
   });
 })();
