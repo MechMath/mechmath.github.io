@@ -211,5 +211,53 @@
     workflowModal.addEventListener("close", function () {
       resetWorkflowControls();
     });
+
+    const discoveryCarousel = document.querySelector("[data-discovery-carousel]");
+    if (!discoveryCarousel) return;
+
+    const discoveryTrack = discoveryCarousel.querySelector("[data-discovery-track]");
+    const discoveryPrevious = discoveryCarousel.querySelector("[data-discovery-previous]");
+    const discoveryNext = discoveryCarousel.querySelector("[data-discovery-next]");
+    const discoveryDots = discoveryCarousel.querySelector("[data-discovery-dots]");
+    const discoveryViewport = discoveryCarousel.querySelector(".discovery-carousel__viewport");
+    const discoveryCards = Array.from(discoveryTrack.children);
+    let discoveryIndex = 0;
+
+    function setDiscoveryCard(index) {
+      discoveryIndex = (index + discoveryCards.length) % discoveryCards.length;
+      discoveryTrack.style.transform = `translateX(-${discoveryCards[discoveryIndex].offsetLeft}px)`;
+      discoveryCards.forEach(function (card, cardIndex) {
+        card.setAttribute("aria-hidden", cardIndex === discoveryIndex ? "false" : "true");
+      });
+      discoveryDots.querySelectorAll("[data-discovery-go]").forEach(function (dot) {
+        const isActive = Number(dot.dataset.discoveryGo) === discoveryIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-current", isActive ? "true" : "false");
+      });
+    }
+
+    discoveryPrevious.addEventListener("click", function () {
+      setDiscoveryCard(discoveryIndex - 1);
+    });
+
+    discoveryNext.addEventListener("click", function () {
+      setDiscoveryCard(discoveryIndex + 1);
+    });
+
+    discoveryDots.addEventListener("click", function (event) {
+      const dot = event.target.closest("[data-discovery-go]");
+      if (!dot || !discoveryDots.contains(dot)) return;
+      setDiscoveryCard(Number(dot.dataset.discoveryGo));
+    });
+
+    discoveryViewport.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") setDiscoveryCard(discoveryIndex - 1);
+      if (event.key === "ArrowRight") setDiscoveryCard(discoveryIndex + 1);
+    });
+
+    setDiscoveryCard(0);
+    window.addEventListener("resize", function () {
+      setDiscoveryCard(discoveryIndex);
+    });
   });
 })();

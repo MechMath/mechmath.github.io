@@ -139,18 +139,88 @@ scripts:
 <section id="automated-discovery" class="agent-content-section">
   <div class="agent-content-section__intro">
     <h2>Project-Level Discovery</h2>
-    <p>Archived results feed back into new research directions. This sparse-polynomial map connects prior questions, core themes, and the discoveries that extend them.</p>
+    <p>Starting from one sparse-polynomial multiplication problem, MMAT expanded the investigation into six connected research directions. Select a theme to trace the question it inherited and the result it produced.</p>
   </div>
-  <ul class="discovery-topic-list" aria-label="Sparse polynomial research themes">
-    <li>Multiplication</li>
-    <li>Divisibility</li>
-    <li>Roots</li>
-    <li>GCD</li>
-    <li>Decomposition</li>
-    <li>Factorization</li>
-  </ul>
-  <figure class="agent-content-figure">
-    <img src="{{ '/assets/images/discovery.png' | relative_url }}" alt="Sparse polynomial discovery map linking research questions, six themes, prior results, and new discoveries">
-    <figcaption>The six themes connect prior questions to formalized research outcomes.</figcaption>
-  </figure>
+  <div class="discovery-carousel" data-discovery-carousel aria-label="Sparse polynomial research themes">
+    <button class="discovery-carousel__arrow" type="button" data-discovery-previous aria-label="Previous research theme"><span aria-hidden="true">&#8592;</span></button>
+    <div class="discovery-carousel__viewport" tabindex="0">
+      <div class="discovery-carousel__track" data-discovery-track>
+        <article class="discovery-card discovery-card--multiplication">
+          <h3>Multiplication</h3>
+          <section class="discovery-card__section">
+            <h4>Prior Work</h4>
+            <p>Roche (2018) asked whether sparse polynomial multiplication admits a quasi-linear algorithm.</p>
+          </section>
+          <section class="discovery-card__section">
+            <h4>MMAT Result</h4>
+            <p>MMAT settled the problem over the integers after auditing the proof chain, finding a counterexample to a flawed argument, and reconstructing a verified proof.</p>
+          </section>
+        </article>
+        <article class="discovery-card discovery-card--divisibility">
+          <h3>Divisibility</h3>
+          <section class="discovery-card__section">
+            <h4>Prior Work</h4>
+            <p>Plaisted (1984) posed the complexity question for sparse polynomial divisibility testing.</p>
+          </section>
+          <section class="discovery-card__section">
+            <h4>MMAT Result</h4>
+            <p>Over finite fields, MMAT established that sparse polynomial divisibility testing is coNP-hard under BPP reductions.</p>
+          </section>
+        </article>
+        <article class="discovery-card discovery-card--roots">
+          <h3>Roots</h3>
+          <section class="discovery-card__section">
+            <h4>Prior Work</h4>
+            <p>Bi et al. (2016) showed that deciding whether a sparse polynomial has a finite-field root is NP-hard.</p>
+          </section>
+          <section class="discovery-card__section">
+            <h4>MMAT Result</h4>
+            <p>MMAT showed that deciding whether a sparse polynomial vanishes at a root of unity is NP-hard.</p>
+          </section>
+        </article>
+        <article class="discovery-card discovery-card--gcd">
+          <h3>GCD</h3>
+          <section class="discovery-card__section">
+            <h4>Prior Work</h4>
+            <p>Davenport et al. (2009) asked whether output-sensitive sparse GCD computation is polynomial-time.</p>
+          </section>
+          <section class="discovery-card__section">
+            <h4>MMAT Result</h4>
+            <p>MMAT resolved the finite-field problem by demonstrating output-sensitive GCD computation is NP-hard under BPP reductions.</p>
+          </section>
+        </article>
+        <article class="discovery-card discovery-card--decomposition">
+          <h3>Decomposition</h3>
+          <section class="discovery-card__section">
+            <h4>Prior Work</h4>
+            <p>Erdos conjectured that sparsity of h(x)^2 implies sparsity of h(x), later resolved in the univariate setting.</p>
+          </section>
+          <section class="discovery-card__section">
+            <h4>MMAT Result</h4>
+            <p>MMAT solved the multivariate extension: sparsity of g^e implies sparsity of g, with a polynomial-time algorithm for g.</p>
+          </section>
+        </article>
+        <article class="discovery-card discovery-card--factorization">
+          <h3>Factorization</h3>
+          <section class="discovery-card__section">
+            <h4>Prior Work</h4>
+            <p>Gathen and collaborators studied how the sparsity of factors is controlled by a sparse polynomial.</p>
+          </section>
+          <section class="discovery-card__section">
+            <h4>MMAT Result</h4>
+            <p>MMAT proved that sparsity of gh implies sparsity of g and h when h is multilinear.</p>
+          </section>
+        </article>
+      </div>
+    </div>
+    <button class="discovery-carousel__arrow" type="button" data-discovery-next aria-label="Next research theme"><span aria-hidden="true">&#8594;</span></button>
+    <div class="discovery-carousel__dots" data-discovery-dots aria-label="Research theme navigation">
+      <button class="is-active" type="button" data-discovery-go="0" aria-label="Show Multiplication" aria-current="true"></button>
+      <button type="button" data-discovery-go="1" aria-label="Show Divisibility" aria-current="false"></button>
+      <button type="button" data-discovery-go="2" aria-label="Show Roots" aria-current="false"></button>
+      <button type="button" data-discovery-go="3" aria-label="Show GCD" aria-current="false"></button>
+      <button type="button" data-discovery-go="4" aria-label="Show Decomposition" aria-current="false"></button>
+      <button type="button" data-discovery-go="5" aria-label="Show Factorization" aria-current="false"></button>
+    </div>
+  </div>
 </section>
