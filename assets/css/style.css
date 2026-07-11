@@ -132,15 +132,18 @@ img{max-width:100%;height:auto}
 .workflow-stage-item:nth-child(odd):before,.workflow-stage-item:nth-child(even):before{content:"";position:absolute;z-index:2;top:3.25rem;width:.75rem;height:.75rem;border:3px solid #fff;border-radius:50%;background:var(--workflow-color);box-shadow:0 0 0 1px #cfd2d8}
 .workflow-stage-item:nth-child(odd):before{right:-2.375rem}
 .workflow-stage-item:nth-child(even):before{left:-2.375rem}
-.workflow-stage-button{position:relative;display:grid;grid-template-columns:1fr;gap:.65rem;width:84%;min-height:8.25rem;padding:1.35rem 1.5rem 1.35rem 5.75rem;border:1px solid var(--workflow-color);border-left:6px solid var(--workflow-color);border-radius:4px;background:var(--workflow-tint);color:var(--workflow-color);font:inherit;text-align:left;cursor:pointer;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}
+.workflow-stage-button{position:relative;display:grid;grid-template-columns:1fr;gap:.65rem;width:84%;min-height:8.25rem;padding:6.5rem 1.5rem 1.35rem;border:1px solid var(--workflow-color);border-left:6px solid var(--workflow-color);border-radius:4px;background:var(--workflow-tint);color:var(--workflow-color);font:inherit;text-align:left;cursor:pointer;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}
 .workflow-stage-item:nth-child(odd) .workflow-stage-button{margin-left:auto}
 .workflow-stage-item:nth-child(even) .workflow-stage-button{margin-right:auto}
-.workflow-stage-item:nth-child(odd) .workflow-stage-button{padding:1.35rem 5.75rem 1.35rem 1.5rem;border-right:6px solid var(--workflow-color);border-left:1px solid var(--workflow-color);text-align:left}
-.workflow-stage-item:nth-child(odd) .workflow-stage-button__number{right:.35rem;left:auto}
-.workflow-stage-button__number{position:absolute;z-index:0;top:50%;left:.35rem;color:#fff;font-size:5.25rem;font-weight:700;letter-spacing:.02em;line-height:1;opacity:.9;transform:translateY(-50%)}
+.workflow-stage-item:nth-child(odd) .workflow-stage-button{padding:6.5rem 1.5rem 1.35rem;border-right:6px solid var(--workflow-color);border-left:1px solid var(--workflow-color);text-align:left}
+.workflow-stage-item:nth-child(odd) .workflow-stage-button__number{right:.75rem;left:auto}
+.workflow-stage-button__number{position:absolute;z-index:0;top:.75rem;left:.75rem;color:#fff;font-size:5.25rem;font-weight:700;letter-spacing:.02em;line-height:1;opacity:.9;transform:none}
+.workflow-stage-item:nth-child(1) .workflow-stage-button__number,.workflow-stage-item:nth-child(3) .workflow-stage-button__number,.workflow-stage-item:nth-child(5) .workflow-stage-button__number{top:.75rem;right:.75rem;bottom:auto;left:auto;transform:none}
+.workflow-stage-item:nth-child(2) .workflow-stage-button__number,.workflow-stage-item:nth-child(4) .workflow-stage-button__number{top:.75rem;right:auto;bottom:auto;left:.75rem;transform:none}
 .workflow-stage-button__title{font-size:1.05rem;font-weight:700;line-height:1.3}
 .workflow-stage-button__summary{color:#393e46;font-size:.96rem;font-weight:500;line-height:1.5}
-.workflow-stage-button>span{position:relative;z-index:1}
+.workflow-stage-button__title,.workflow-stage-button__summary{position:relative;z-index:1}
+.workflow-stage-button>span.workflow-stage-button__number{position:absolute;z-index:0}
 .workflow-stage-button--blue{--workflow-color:#057db8;--workflow-tint:#e8f5fb}
 .workflow-stage-button--purple{--workflow-color:#9785b7;--workflow-tint:#f1edf6}
 .workflow-stage-button--red{--workflow-color:#c6152b;--workflow-tint:#fcecef}
@@ -264,9 +267,8 @@ img{max-width:100%;height:auto}
   .workflow-stage-item:nth-child(1),.workflow-stage-item:nth-child(2),.workflow-stage-item:nth-child(3),.workflow-stage-item:nth-child(4),.workflow-stage-item:nth-child(5){grid-row:auto;transform:none}
   .workflow-stage-controls{grid-template-rows:none}
   .workflow-stage-item:nth-child(odd):before,.workflow-stage-item:nth-child(even):before{top:2.5rem;left:-1.95rem;right:auto}
-  .workflow-stage-button,.workflow-stage-item:nth-child(odd) .workflow-stage-button,.workflow-stage-item:nth-child(even) .workflow-stage-button{width:100%;margin:0;min-height:0;padding:1rem 1rem 1rem 5rem;border-right:1px solid var(--workflow-color);border-left:6px solid var(--workflow-color);text-align:left}
-  .workflow-stage-item:nth-child(odd) .workflow-stage-button__number{right:auto;left:.35rem}
-  .workflow-stage-button__number{font-size:4.5rem}
+  .workflow-stage-button,.workflow-stage-item:nth-child(odd) .workflow-stage-button,.workflow-stage-item:nth-child(even) .workflow-stage-button{width:100%;margin:0;min-height:0;padding:5.75rem 1rem 1rem;border-right:1px solid var(--workflow-color);border-left:6px solid var(--workflow-color);text-align:left}
+  .workflow-stage-item:nth-child(odd) .workflow-stage-button__number{right:auto;left:.75rem}
   .workflow-stage-button__summary{font-size:.92rem}
   .workflow-modal{width:96vw;max-height:88vh;padding:3rem .5rem .5rem}
   .feature-row{grid-template-columns:1fr;padding:1rem}
