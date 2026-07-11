@@ -6,12 +6,12 @@ scripts:
   - /assets/js/agent-team.js
 ---
 
-<section class="home-card publication-summary">
-  <h2>Agent Team</h2>
-  <p>Agents coordinate across knowledge base management, natural language proof, and formal verification.</p>
-</section>
-
-<section class="team-index">
+<section id="agent-team" class="agent-content-section agent-content-section--team">
+  <div class="agent-content-section__intro">
+    <p class="agent-content-section__eyebrow">System Architecture</p>
+    <h2>MechMath Agent Team</h2>
+    <p>KB-Manager, NL-Prover, and FL-Prover operate as a closed loop that accumulates mathematical knowledge, develops proofs, and produces formal certification.</p>
+  </div>
   <div class="agent-system" aria-label="MechMath Agent Team relationship diagram">
     <div class="agent-stage" data-agent-stage>
       <svg class="agent-links" viewBox="0 0 100 100" aria-hidden="true">
@@ -69,4 +69,57 @@ scripts:
       </article>
     </div>
   </div>
+</section>
+
+<section id="knowledge-base" class="agent-content-section">
+  <div class="agent-content-section__intro">
+    <p class="agent-content-section__eyebrow">Persistent Knowledge</p>
+    <h2>Knowledge Base</h2>
+    <p>The KB-Manager turns the team&apos;s sources, proof fragments, formal artifacts, and verified obstructions into a shared mathematical dependency and evidence graph.</p>
+  </div>
+  <figure class="agent-content-figure">
+    <img src="{{ '/assets/images/kb.png' | relative_url }}" alt="Knowledge Base graph showing sources, concepts, analyses, partial proofs, obstructions, and Lean artifacts">
+    <figcaption>A project-scoped memory graph preserves reusable results and the reasoning paths that produced them.</figcaption>
+  </figure>
+</section>
+
+<section id="proving-workflow" class="agent-content-section">
+  <div class="agent-content-section__intro">
+    <p class="agent-content-section__eyebrow">From Discovery To Certification</p>
+    <h2>NL-FL Proving Workflow</h2>
+    <p>NL-Prover develops and recovers mathematical routes, while FL-Prover turns validated derivations into machine-checkable Lean 4 proofs. The detailed workflow follows five connected stages.</p>
+  </div>
+  <ol class="workflow-stage-list" aria-label="NL-FL proving workflow stages">
+    <li>Problem Understanding and Route Exploration</li>
+    <li>Proof Development and Bottleneck Identification</li>
+    <li>Mechanism Blockage and Strategic Recovery</li>
+    <li>Computation Certification and Proof Assembly</li>
+    <li>Lean 4 Formalization and Verification</li>
+  </ol>
+  <figure class="agent-content-figure agent-content-figure--workflow">
+    <object class="workflow-document" data="{{ '/assets/images/workflow_white.pdf' | relative_url }}" type="application/pdf">
+      <a href="{{ '/assets/images/workflow_white.pdf' | relative_url }}">Open the complete NL-FL proving workflow.</a>
+    </object>
+    <figcaption>Complete workflow reference. A stage-by-stage interactive view will be added here.</figcaption>
+  </figure>
+</section>
+
+<section id="automated-discovery" class="agent-content-section">
+  <div class="agent-content-section__intro">
+    <p class="agent-content-section__eyebrow">Research Compounding</p>
+    <h2>Automated Discovery</h2>
+    <p>Archived results feed back into new research directions. This sparse-polynomial map connects prior questions, core themes, and the discoveries that extend them.</p>
+  </div>
+  <ul class="discovery-topic-list" aria-label="Sparse polynomial research themes">
+    <li>Multiplication</li>
+    <li>Divisibility</li>
+    <li>Roots</li>
+    <li>GCD</li>
+    <li>Decomposition</li>
+    <li>Factorization</li>
+  </ul>
+  <figure class="agent-content-figure">
+    <img src="{{ '/assets/images/discovery.png' | relative_url }}" alt="Sparse polynomial discovery map linking research questions, six themes, prior results, and new discoveries">
+    <figcaption>The six themes connect prior questions to formalized research outcomes.</figcaption>
+  </figure>
 </section>
