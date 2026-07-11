@@ -1,0 +1,72 @@
+---
+layout: default
+title: Agent Team
+permalink: /agent-team/
+scripts:
+  - /assets/js/agent-team.js
+---
+
+<section class="home-card publication-summary">
+  <h2>Agent Team</h2>
+  <p>Agents coordinate across knowledge base management, natural language proof, and formal verification.</p>
+</section>
+
+<section class="team-index">
+  <div class="agent-system" aria-label="MechMath Agent Team relationship diagram">
+    <div class="agent-stage" data-agent-stage>
+      <svg class="agent-links" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="agent-arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z"></path>
+          </marker>
+        </defs>
+        <path class="agent-link agent-link--top" d="M 31 24 L 56 40"></path>
+        <path class="agent-link agent-link--top" d="M 56 37 L 31 21"></path>
+        <path class="agent-link agent-link--bottom" d="M 31 76 L 56 60"></path>
+        <path class="agent-link agent-link--bottom" d="M 56 63 L 31 79"></path>
+        <g class="agent-link-label" transform="translate(45 39) rotate(32)">
+          <text y="1.6" data-relation-slot="top-to-center">Inform</text>
+        </g>
+        <g class="agent-link-label" transform="translate(45 23) rotate(32)">
+          <text y="1.6" data-relation-slot="center-to-top">Archive</text>
+        </g>
+        <g class="agent-link-label" transform="translate(45 61) rotate(-32)">
+          <text y="1.6" data-relation-slot="bottom-to-center">Feedback</text>
+        </g>
+        <g class="agent-link-label" transform="translate(45 77) rotate(-32)">
+          <text y="1.6" data-relation-slot="center-to-bottom">Formalize</text>
+        </g>
+      </svg>
+
+      <button class="agent-node agent-node--top" type="button" data-agent-slot="top" data-agent-id="kb" aria-describedby="agent-note">
+        <img src="{{ '/assets/images/collector.jpg' | relative_url }}" alt="">
+        <span>KB Manager</span>
+      </button>
+
+      <button class="agent-node agent-node--center is-active" type="button" data-agent-slot="center" data-agent-id="nl" aria-describedby="agent-note">
+          <img src="{{ '/assets/images/NL.jpg' | relative_url }}" alt="">
+          <span>NL Prover</span>
+      </button>
+
+      <button class="agent-node agent-node--bottom" type="button" data-agent-slot="bottom" data-agent-id="fl" aria-describedby="agent-note">
+        <img src="{{ '/assets/images/FL.jpg' | relative_url }}" alt="">
+        <span>FL Prover</span>
+      </button>
+    </div>
+
+    <div class="agent-notes" aria-live="polite">
+      <article id="agent-note" class="agent-note agent-note--nl" data-agent-note>
+        <h3>NL-Prover</h3>
+        <p class="agent-note__summary" data-agent-summary>Leads mathematical discovery by coordinating a scalable proof pipeline that synthesizes and revises natural-language proofs.</p>
+        <section class="agent-note__section" aria-labelledby="agent-subagents-heading">
+          <h4 id="agent-subagents-heading">Subagents</h4>
+          <p data-agent-subagents>Coordinates core derivation, grounded interfaces, advanced reasoning, and documentation agents for decomposition, recovery, auditing, and publication-ready synthesis.</p>
+        </section>
+        <section class="agent-note__section" aria-labelledby="agent-tools-heading">
+          <h4 id="agent-tools-heading">Tools &amp; infrastructure</h4>
+          <p data-agent-tools>Its command-line tooling handles literature retrieval, PDF parsing, programmatic execution, and structural schema gating so the agents can focus on logical synthesis.</p>
+        </section>
+      </article>
+    </div>
+  </div>
+</section>
