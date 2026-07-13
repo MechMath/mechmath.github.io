@@ -225,7 +225,8 @@
 
     function setDiscoveryCard(index) {
       discoveryIndex = (index + discoveryCards.length) % discoveryCards.length;
-      discoveryTrack.style.transform = `translateX(-${discoveryCards[discoveryIndex].offsetLeft}px)`;
+      const offset = discoveryCards[discoveryIndex].offsetLeft - discoveryCards[0].offsetLeft;
+      discoveryTrack.style.transform = `translateX(-${offset}px)`;
       discoveryCards.forEach(function (card, cardIndex) {
         card.setAttribute("aria-hidden", cardIndex === discoveryIndex ? "false" : "true");
       });

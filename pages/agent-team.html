@@ -2,21 +2,23 @@
 layout: default
 title: Agent Team
 permalink: /agent-team/
+body_class: agent-page
 scripts:
   - /assets/js/agent-team.js
 ---
 
 <header class="agent-page-header">
-  <a class="agent-page-header__arxiv" href="https://arxiv.org/abs/2607.04394" target="_blank" rel="noopener" aria-label="Read the paper on arXiv">
-    <img src="{{ '/assets/icons/arxiv-logo-one-color-white.svg' | relative_url }}" alt="">
-  </a>
   <h1>MechMath Agent Team</h1>
   <p>KB-Manager, NL-Prover, and FL-Prover operate as a closed loop that accumulates mathematical knowledge, develops proofs, and produces formal certification.</p>
+  <div class="agent-page-header__links">
+    <a class="system-link" href="https://arxiv.org/abs/2607.04394" target="_blank" rel="noopener">View the Technical Report <span aria-hidden="true">→</span></a>
+  </div>
 </header>
 
 <section id="agent-team" class="agent-content-section agent-content-section--team">
   <div class="agent-content-section__intro">
     <h2>Three Specialized Agents</h2>
+    <p>MMAT is organized as a closed loop of three domain-specialized agents: the KB-Manager maintains a shared, auditable memory graph; the NL-Prover orchestrates exploration and synthesizes natural-language proofs; and the FL-Prover formalizes and mechanically verifies these derivations in Lean 4. Select an agent portrait to explore its role, relationships with the rest of the team, and the capabilities it coordinates.</p>
   </div>
   <div class="agent-system" aria-label="MechMath Agent Team relationship diagram">
     <div class="agent-stage" data-agent-stage>
@@ -91,7 +93,7 @@ scripts:
 <section id="proving-workflow" class="agent-content-section">
   <div class="agent-content-section__intro">
     <h2>Full-Cycle Theorem Proving</h2>
-    <p>Using OEIS A287616 as a case study, MMAT coordinates 137 specialized subagents across mathematical exploration, computational certification, and iterative Lean 4 verification. The resulting natural-language proof is compiled into more than 3,500 lines of formally checked Lean code.</p>
+    <p>Using OEIS A287616 as a case study, MMAT coordinates <strong>137 specialized subagents</strong> through mathematical exploration, computational certification, and iterative Lean 4 verification. The resulting proof comprises more than <strong>3,500 lines</strong> of formally checked Lean code. Select a stage card to examine the corresponding work in detail.</p>
   </div>
   <div class="workflow-stage-controls" data-workflow-controls aria-label="Full-cycle theorem proving stages">
     <div class="workflow-stage-item">
