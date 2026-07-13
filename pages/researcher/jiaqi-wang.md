@@ -3,7 +3,7 @@ layout: default
 title: Jiaqi Wang
 role: Phd
 researcher_group: phd
-order: 5
+order: 6
 homepage:
 photo: /assets/researchers/jiaqi-wang.jpg
 summary: AI4Math, LLM Agents, Formal Mathematics
