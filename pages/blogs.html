@@ -8,6 +8,7 @@ scripts:
   - /assets/js/list-index.js
 ---
 
+{% assign blog_pages = site.pages | where_exp: "item", "item.path contains 'pages/blogs/'" | sort: "blog_date" | reverse %}
 <div data-list-index data-page-size="7">
   <section class="home-card list-summary">
     <h2>Blogs</h2>
@@ -29,12 +30,30 @@ scripts:
 
   <section class="list-index">
     <div class="list-items">
-      <article class="home-card list-card blog-card" data-list-card data-list-text="Blog Title Blog summary placeholder.">
-        <h3>Blog Title</h3>
-        <p class="list-card-summary">Blog summary placeholder.</p>
-      </article>
+      {% assign blog_count = 0 %}
+      {% for blog in blog_pages %}
+        {% unless blog.blog_template %}
+          {% assign blog_count = blog_count | plus: 1 %}
+          {% assign blog_search_text = blog.title | append: " " | append: blog.authors | append: " " | append: blog.summary | strip_html | normalize_whitespace %}
+          <article class="home-card list-card" data-list-card data-list-text="{{ blog_search_text | escape }}">
+            {% if blog.blog_date %}
+              <time class="list-card-date" datetime="{{ blog.blog_date | date_to_xmlschema }}">{{ blog.blog_date | date: "%b %-d, %Y" }}</time>
+            {% endif %}
+            <h3><a href="{{ blog.url | relative_url }}">{{ blog.title }}</a></h3>
+            {% if blog.authors %}
+              <p class="list-card-meta">{{ blog.authors }}</p>
+            {% endif %}
+            {% if blog.summary %}
+              <div class="list-card-summary">{{ blog.summary | markdownify }}</div>
+            {% endif %}
+          </article>
+        {% endunless %}
+      {% endfor %}
     </div>
     <nav class="list-pagination" data-list-pagination aria-label="Blog pages"></nav>
     <p class="empty-state" data-list-empty hidden>No blogs match your search.</p>
+    {% if blog_count == 0 %}
+      <p class="empty-state">No blog posts are available yet.</p>
+    {% endif %}
   </section>
 </div>
