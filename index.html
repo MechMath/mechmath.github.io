@@ -50,6 +50,7 @@ title: MechMath Agent Team
             <h2>Research Team</h2>
             {% assign researcher_pages = site.pages | where_exp: "item", "item.path contains 'pages/researcher/'" | sort: "title" %}
             {% assign researcher_groups = "professor|postdoc|phd" | split: "|" %}
+            {% assign shown_researchers = 0 %}
             <div class="home-researcher-grid">
                 {% for group in researcher_groups %}
                     {% assign group_researchers = researcher_pages | where: "researcher_group", group %}
@@ -57,20 +58,26 @@ title: MechMath Agent Team
                     {% assign unordered_researchers = group_researchers | where_exp: "researcher", "researcher.order == nil" %}
                     {% for researcher in ordered_researchers %}
                         {% unless researcher.researcher_template %}
-                            {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
-                            <span class="home-researcher">
-                                <img class="home-researcher__photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
-                                <span class="home-researcher__name">{{ researcher.title }}</span>
-                            </span>
+                            {% if shown_researchers < 9 %}
+                                {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
+                                <span class="home-researcher">
+                                    <img class="home-researcher__photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                                    <span class="home-researcher__name">{{ researcher.title }}</span>
+                                </span>
+                                {% assign shown_researchers = shown_researchers | plus: 1 %}
+                            {% endif %}
                         {% endunless %}
                     {% endfor %}
                     {% for researcher in unordered_researchers %}
                         {% unless researcher.researcher_template %}
-                            {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
-                            <span class="home-researcher">
-                                <img class="home-researcher__photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
-                                <span class="home-researcher__name">{{ researcher.title }}</span>
-                            </span>
+                            {% if shown_researchers < 9 %}
+                                {% assign researcher_photo = researcher.photo | default: "/assets/images/default-researcher.svg" %}
+                                <span class="home-researcher">
+                                    <img class="home-researcher__photo" src="{{ researcher_photo | relative_url }}" alt="{{ researcher.title }} photo">
+                                    <span class="home-researcher__name">{{ researcher.title }}</span>
+                                </span>
+                                {% assign shown_researchers = shown_researchers | plus: 1 %}
+                            {% endif %}
                         {% endunless %}
                     {% endfor %}
                 {% endfor %}
