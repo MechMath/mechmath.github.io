@@ -1,6 +1,9 @@
 {% assign publication = include.publication %}
 {% unless include.compact %}
-  {% include publication-citation.html publication=publication %}
+{% if publication.related_system_url and publication.related_system_label %}
+<p class="publication-related-system"><a class="system-link" href="{{ publication.related_system_url | relative_url }}">{{ publication.related_system_label }} <span aria-hidden="true">→</span></a></p>
+{% endif %}
+{% include publication-citation.html publication=publication %}
 {% endunless %}
 <div class="publication-links">
   {% if include.compact and publication.citation %}

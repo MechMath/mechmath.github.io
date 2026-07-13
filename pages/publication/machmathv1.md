@@ -10,6 +10,8 @@ publication_date: 2026-06-26 23:59:00 +0000
 arxiv: https://arxiv.org/abs/2603.24465
 github: https://github.com/MechMath/MechMath-v1
 permalink: /publication/mechmathv1/
+related_system_url: /mechmath-v1/
+related_system_label: Explore MechMath v1
 citation: |
   @inproceedings{qiu2026mechmath,
     title={MechMath: Sorrifier-Driven Formal Decomposition Workflow for Automated Theorem Proving},

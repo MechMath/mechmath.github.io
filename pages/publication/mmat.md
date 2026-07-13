@@ -9,6 +9,8 @@ tag: AI4Math
 publication_date: 2026-07-05 16:37:40 +0000
 arxiv: https://arxiv.org/abs/2607.04394
 permalink: /publication/mmat/
+related_system_url: /agent-team/
+related_system_label: Explore MechMath Agent Team
 ---
 
 <article class="home-card publication-detail-card" markdown="1">
