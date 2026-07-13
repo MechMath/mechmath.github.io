@@ -1,0 +1,10 @@
+{% assign publication = include.publication %}
+{% if publication.citation %}
+  <section class="publication-citation" aria-labelledby="citation-heading">
+    <div class="publication-citation__header">
+      <h2 id="citation-heading">Cite this work</h2>
+      <button class="publication-citation__copy" type="button" data-copy-citation>Copy BibTeX<span class="visually-hidden" data-citation-content>{{ publication.citation | escape }}</span></button>
+    </div>
+    <pre class="publication-citation__code"><code>{{ publication.citation | escape }}</code></pre>
+  </section>
+{% endif %}

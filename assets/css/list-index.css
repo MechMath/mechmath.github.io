@@ -2,11 +2,13 @@
 .list-summary{margin-top:1rem;padding-bottom:1rem}
 .list-summary p{margin:0;color:#393e46}
 .list-search-shell{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin-top:.8rem}
-.list-search-toggle,.list-filter-toggle{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:1px solid #cfd2d8;border-radius:4px;background:#fff;color:#393e46;cursor:pointer}
-.list-search-toggle:hover,.list-search-toggle:focus-visible,.list-filter-toggle:hover,.list-filter-toggle:focus-visible{border-color:#0092ca;color:#0092ca;outline:0}
-.list-search-toggle svg,.list-filter-toggle svg{display:block;width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.list-search-toggle,.list-filter-toggle,.list-citation-toggle{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:1px solid #cfd2d8;border-radius:4px;background:#fff;color:#393e46;cursor:pointer}
+.list-search-toggle:hover,.list-search-toggle:focus-visible,.list-filter-toggle:hover,.list-filter-toggle:focus-visible,.list-citation-toggle:hover,.list-citation-toggle:focus-visible{border-color:#0092ca;color:#0092ca;outline:0}
+.list-search-toggle svg,.list-filter-toggle svg,.list-citation-toggle svg{display:block;width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.list-citation-toggle.is-active{border-color:#0092ca;background:#0092ca;color:#fff}
+.list-citation-toggle.is-active svg{fill:currentColor}
 .list-search-tooltip,.list-control-tooltip{position:absolute;left:50%;bottom:calc(100% + .45rem);z-index:2;padding:.25rem .45rem;border-radius:4px;background:#222831;color:#fff;font-size:.78rem;font-weight:700;line-height:1;white-space:nowrap;opacity:0;pointer-events:none;transform:translate(-50%,.25rem);transition:opacity .15s ease,transform .15s ease}
-.list-search-toggle:hover .list-search-tooltip,.list-search-toggle:focus-visible .list-search-tooltip,.list-filter-toggle:hover .list-control-tooltip,.list-filter-toggle:focus-visible .list-control-tooltip{opacity:1;transform:translate(-50%,0)}
+.list-search-toggle:hover .list-search-tooltip,.list-search-toggle:focus-visible .list-search-tooltip,.list-filter-toggle:hover .list-control-tooltip,.list-filter-toggle:focus-visible .list-control-tooltip,.list-citation-toggle:hover .list-control-tooltip,.list-citation-toggle:focus-visible .list-control-tooltip{opacity:1;transform:translate(-50%,0)}
 .list-search{display:grid;flex:1;gap:.4rem;max-width:36rem;opacity:0;transform:translateX(-.35rem);transition:opacity .18s ease,transform .18s ease}
 .list-search[hidden]{display:none}
 .list-search.is-open{opacity:1;transform:translateX(0)}

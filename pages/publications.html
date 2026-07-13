@@ -6,6 +6,7 @@ stylesheets:
   - /assets/css/list-index.css
 scripts:
   - /assets/js/list-index.js
+  - /assets/js/copy-citation.js
 ---
 
 {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
@@ -33,6 +34,12 @@ scripts:
         </svg>
         <span class="list-control-tooltip">Filter</span>
       </button>
+      <button class="list-citation-toggle" type="button" data-list-citation-toggle aria-pressed="false" aria-label="Show publications with citations">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m12 3 2.78 5.63 6.22.9-4.5 4.38 1.06 6.19L12 17.18 6.44 20.1 7.5 13.91 3 9.53l6.22-.9L12 3Z"></path>
+        </svg>
+        <span class="list-control-tooltip">Citations</span>
+      </button>
       {% assign publication_tags = publication_pages | map: "tag" | compact | uniq | sort %}
       <div class="list-filter" id="publication-filter-panel" data-list-filter-panel hidden>
         <button class="is-active" type="button" data-list-filter-tag="" aria-pressed="true">All</button>
@@ -50,7 +57,7 @@ scripts:
       {% unless publication.publication_template %}
         {% assign publication_count = publication_count | plus: 1 %}
         {% assign publication_search_text = publication.title | append: " " | append: publication.abstract | strip_html | normalize_whitespace %}
-        <article class="home-card list-card" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}">
+        <article class="home-card list-card" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}" data-list-citation="{% if publication.citation %}true{% else %}false{% endif %}">
           {% if publication.publication_date %}
             <time class="list-card-date" datetime="{{ publication.publication_date | date_to_xmlschema }}">{{ publication.publication_date | date: "%b %-d, %Y" }}</time>
           {% endif %}
@@ -61,7 +68,7 @@ scripts:
           {% if publication.abstract %}
             <div class="list-card-summary">{{ publication.abstract | markdownify }}</div>
           {% endif %}
-          {% include publication-links.html publication=publication %}
+          {% include publication-links.html publication=publication compact=true %}
         </article>
       {% endunless %}
     {% endfor %}

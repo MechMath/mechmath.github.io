@@ -11,10 +11,12 @@
     var searchPanel = app.querySelector('[data-list-search-panel]');
     var filterToggle = app.querySelector('[data-list-filter-toggle]');
     var filterPanel = app.querySelector('[data-list-filter-panel]');
+    var citationToggle = app.querySelector('[data-list-citation-toggle]');
     var tagButtons = Array.prototype.slice.call(app.querySelectorAll('[data-list-filter-tag]'));
     var emptyState = app.querySelector('[data-list-empty]');
     var currentPage = 1;
     var selectedTag = '';
+    var citationsOnly = false;
     var filteredCards = cards;
 
     function renderPagination(totalPages) {
@@ -79,7 +81,8 @@
       filteredCards = cards.filter(function (card) {
         var matchesQuery = !query || card.getAttribute('data-list-text').toLowerCase().indexOf(query) !== -1;
         var matchesTag = !selectedTag || card.getAttribute('data-list-tags') === selectedTag;
-        return matchesQuery && matchesTag;
+        var matchesCitation = !citationsOnly || card.getAttribute('data-list-citation') === 'true';
+        return matchesQuery && matchesTag && matchesCitation;
       });
       setPage(1);
     }
@@ -120,6 +123,16 @@
     if (filterToggle && filterPanel) {
       filterToggle.addEventListener('click', function () {
         togglePanel(filterToggle, filterPanel, tagButtons[0]);
+      });
+    }
+
+    if (citationToggle) {
+      citationToggle.addEventListener('click', function () {
+        citationsOnly = !citationsOnly;
+        citationToggle.classList.toggle('is-active', citationsOnly);
+        citationToggle.setAttribute('aria-pressed', citationsOnly ? 'true' : 'false');
+        citationToggle.setAttribute('aria-label', citationsOnly ? 'Show all publications' : 'Show publications with citations');
+        filterCards();
       });
     }
 

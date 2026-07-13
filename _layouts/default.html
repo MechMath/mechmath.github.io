@@ -70,5 +70,8 @@
         <script defer src="{{ script | relative_url }}"></script>
       {% endfor %}
     {% endif %}
+    {% if page.citation %}
+      <script defer src="{{ '/assets/js/copy-citation.js' | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>

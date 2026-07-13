@@ -8,6 +8,13 @@ github: pending
 permalink: /publication/template/
 publication_template: true
 published: false
+# citation: |
+#   @article{author2026title,
+#     title={...},
+#     author={...},
+#     journal={...},
+#     year={2026}
+#   }
 ---
 
 <article class="home-card publication-detail-card" markdown="1">
