@@ -1,0 +1,33 @@
+---
+layout: default
+title: Gröbner Tactics
+permalink: /groebner-tactic/
+body_class: systems-page
+---
+
+<header class="systems-page-header systems-page-header--compact">
+  <h1>Gröbner Tactics</h1>
+  <p>Lean 4 tactics for the automated formal verification of Gröbner-basis properties and computations.</p>
+</header>
+
+<section class="systems-detail-section" aria-labelledby="groebner-overview-heading">
+  <h2 id="groebner-overview-heading">Overview</h2>
+  <p>Gröbner Tactics connects external Gröbner-basis computation with kernel-checked verification in Lean. It is designed to automate proof obligations involving polynomial reduction, ideal membership, and Gröbner bases.</p>
+</section>
+
+<section class="systems-detail-section" aria-labelledby="groebner-tactics-heading">
+  <h2 id="groebner-tactics-heading">Included tactics</h2>
+  <ul>
+    <li><code>gb_solve</code> verifies polynomial reductions, Gröbner-basis properties, ideal membership, and radical-ideal membership.</li>
+    <li><code>idealeq</code> verifies equality between polynomial ideals.</li>
+    <li><code>add_gb_hyp</code> computes a Gröbner basis and adds its certified property to the Lean proof context.</li>
+  </ul>
+</section>
+
+<section class="systems-detail-section" aria-labelledby="groebner-links-heading">
+  <h2 id="groebner-links-heading">Links</h2>
+  <div class="system-feature__links">
+    <a class="system-link" href="https://github.com/WuProver/GroebnerTactic" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
+    <a class="system-link" href="{{ '/systems/' | relative_url }}">Back to MechMath Systems <span aria-hidden="true">→</span></a>
+  </div>
+</section>

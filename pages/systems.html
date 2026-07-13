@@ -46,10 +46,12 @@ body_class: systems-page
     <h2 id="lineage-heading">Earlier work</h2>
   </div>
   <div class="systems-lineage">
-    <article class="systems-lineage__item">
+    <article class="systems-entry">
       <h3>MechMath v1</h3>
-      <p>An earlier MechMath system and the foundation for subsequent research directions.</p>
-      <a class="system-link" href="{{ '/mechmath-v1/' | relative_url }}">View system overview <span aria-hidden="true">→</span></a>
+      <p class="systems-entry__summary">An earlier MechMath system and the foundation for subsequent research directions.</p>
+      <div class="system-feature__links">
+        <a class="system-link" href="{{ '/mechmath-v1/' | relative_url }}">View system overview <span aria-hidden="true">→</span></a>
+      </div>
     </article>
   </div>
 </section>
@@ -57,8 +59,15 @@ body_class: systems-page
 <section class="systems-section systems-section--tools" aria-labelledby="tools-heading">
   <div class="systems-section__intro">
     <h2 id="tools-heading">Useful tools</h2>
-    <p>A curated collection of supporting tools and resources will be added here.</p>
   </div>
+  <article class="systems-entry">
+    <h3>Gröbner Tactics</h3>
+    <p class="systems-entry__summary">Lean 4 tactics for the automated formal verification of Gröbner-basis properties and computations.</p>
+    <div class="system-feature__links">
+      <a class="system-link" href="{{ '/groebner-tactic/' | relative_url }}">View tool overview <span aria-hidden="true">→</span></a>
+      <a class="system-link" href="https://github.com/WuProver/GroebnerTactic" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
+    </div>
+  </article>
 </section>
 
 <section class="systems-next">
