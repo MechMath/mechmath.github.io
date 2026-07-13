@@ -2,32 +2,61 @@
 layout: default
 title: Gröbner Tactics
 permalink: /groebner-tactic/
-body_class: systems-page
+body_class: agent-page
 ---
 
-<header class="systems-page-header systems-page-header--compact">
+<header class="agent-page-header">
   <h1>Gröbner Tactics</h1>
-  <p>Lean 4 tactics for the automated formal verification of Gröbner-basis properties and computations.</p>
+  <p>Certificate-based tactics that connect external symbolic computation with kernel-checked polynomial reasoning in Lean 4.</p>
+  <div class="agent-page-header__links">
+    <a class="system-link" href="https://arxiv.org/abs/2604.13514" target="_blank" rel="noopener">Read the Paper <span aria-hidden="true">→</span></a>
+  </div>
 </header>
 
-<section class="systems-detail-section" aria-labelledby="groebner-overview-heading">
-  <h2 id="groebner-overview-heading">Overview</h2>
-  <p>Gröbner Tactics connects external Gröbner-basis computation with kernel-checked verification in Lean. It is designed to automate proof obligations involving polynomial reduction, ideal membership, and Gröbner bases.</p>
-</section>
-
-<section class="systems-detail-section" aria-labelledby="groebner-tactics-heading">
-  <h2 id="groebner-tactics-heading">Included tactics</h2>
-  <ul>
-    <li><code>gb_solve</code> verifies polynomial reductions, Gröbner-basis properties, ideal membership, and radical-ideal membership.</li>
-    <li><code>idealeq</code> verifies equality between polynomial ideals.</li>
-    <li><code>add_gb_hyp</code> computes a Gröbner basis and adds its certified property to the Lean proof context.</li>
-  </ul>
-</section>
-
-<section class="systems-detail-section" aria-labelledby="groebner-links-heading">
-  <h2 id="groebner-links-heading">Links</h2>
-  <div class="system-feature__links">
-    <a class="system-link" href="https://github.com/WuProver/GroebnerTactic" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
-    <a class="system-link" href="{{ '/systems/' | relative_url }}">Back to MechMath Systems <span aria-hidden="true">→</span></a>
+<section class="agent-content-section agent-content-section--first" aria-labelledby="groebner-overview-heading">
+  <div class="agent-content-section__intro">
+    <h2 id="groebner-overview-heading">Certificate-Based Polynomial Reasoning</h2>
+    <p>Computing Gröbner bases directly within Lean 4 is impractical for realistic examples because its standard multivariate-polynomial representation is not designed for efficient symbolic computation. Gröbner Tactics delegates the main algebraic computation to SageMath or SymPy, then imports the result into Lean&apos;s computable polynomial representation and verifies the returned certificate inside the kernel.</p>
   </div>
+</section>
+
+<section class="agent-content-section" aria-labelledby="groebner-workflow-heading">
+  <div class="agent-content-section__intro">
+    <h2 id="groebner-workflow-heading">Verification Workflow</h2>
+    <p>The external solver accelerates computation, but Lean remains the final authority: only results that can be checked against the imported certificate become part of the formal proof.</p>
+  </div>
+  <ol class="groebner-workflow">
+    <li>
+      <span class="groebner-workflow__number">01</span>
+      <h3>Extract</h3>
+      <p>Read multivariate polynomials and ideal generators from the Lean proof context.</p>
+    </li>
+    <li>
+      <span class="groebner-workflow__number">02</span>
+      <h3>Compute</h3>
+      <p>Delegate Gröbner-basis computation to SageMath or SymPy.</p>
+    </li>
+    <li>
+      <span class="groebner-workflow__number">03</span>
+      <h3>Import</h3>
+      <p>Return the computed result to Lean as structured certificate data.</p>
+    </li>
+    <li>
+      <span class="groebner-workflow__number">04</span>
+      <h3>Verify</h3>
+      <p>Discharge the resulting polynomial identities within the Lean kernel.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="agent-content-section" aria-labelledby="groebner-tactics-heading">
+  <div class="agent-content-section__intro">
+    <h2 id="groebner-tactics-heading">Supported Goals</h2>
+    <p>The tactic suite turns common Gröbner-basis proof obligations into formally verified Lean results.</p>
+  </div>
+  <ul class="groebner-goals">
+    <li><code>gb_solve</code><span>Certifies polynomial reductions, Gröbner-basis properties, ideal membership, and radical-ideal membership.</span></li>
+    <li><code>idealeq</code><span>Verifies equality between polynomial ideals.</span></li>
+    <li><code>add_gb_hyp</code><span>Computes a Gröbner basis and introduces its certified property into the local Lean context.</span></li>
+  </ul>
 </section>
