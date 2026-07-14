@@ -34,7 +34,7 @@ scripts:
 
 Since Hilbert proposed the decision problem in 1928, automated theorem proving has developed for nearly a century, passing through several major stages: theoretical foundations, symbolic reasoning, interactive proving, mathematics mechanization, and large-language-model (LLM) reasoning. Today, with the rapid development of LLMs and the use of agents, LLM-based mathematical research agents have become capable assistants to mathematicians.
 
-This short article briefly reviews the principal achievements of automated theorem proving, introduces the mathematical research agent MechMath Agent Team developed by our group, and finally shares several experiences and reflections.
+This short article or blog briefly reviews the principal achievements of automated theorem proving or AI reasoning from my perspective, introduces the mathematical research agent MechMath Agent Team developed by our group, and finally shares several experiences and reflections.
 
 
 ## I. A Century-Long Journey in Automated Theorem Proving
@@ -47,9 +47,9 @@ From 1900 to 1930, Hilbert gradually developed the grand plan later known as Hil
 
 Gödel, Herbrand, Turing, and others gave breakthrough answers to Hilbert's decision problem, laying the theoretical foundations for AI reasoning:
 
-- In 1931, Gödel proved that every consistent axiomatic system containing Peano arithmetic necessarily contains propositions that are “true but unprovable,” shattering the hope of automatically proving mathematical theorems.
+- In 1931, Gödel proved that every consistent axiomatic system containing Peano arithmetic necessarily contains propositions that are “true but unprovable,” shattering the hope of automatically proving all mathematical theorems.
 
-- On the other hand, Herbrand also gave a positive result for a special decision problem in 1931. He provided a semi-decision algorithm for first-order logic: as long as a proof of a proposition exists, the algorithm can generate it automatically.
+- On the other hand, in the same year (1931), Herbrand gave a positive result for Hilbert’s decision problem. He provided a semi-decision algorithm for first-order logic: as long as a proof of a proposition exists, the algorithm can generate it automatically.
 
 - In 1936, in order to describe precisely the concepts of “decision” and “computation,” Turing introduced the universal computational model of the “Turing machine.”
 
@@ -65,9 +65,9 @@ In 1971, Cook proved that propositional-logic theorem proving (SAT) is NP-comple
 
 The continued advance of automated theorem proving split into two new routes. Simply put, interactive proving partly gave up automation, while mathematics mechanization partly gave up completeness.
 
-Interactive theorem proving (ITP; 1968, AUTOMATH) no longer has machines automatically generate proofs; instead, it has computers automatically verify the logical rigor of existing proofs. Formal-verification tools thereby created, such as Isabelle, Rocq, and Lean, are used not only to verify the rigor of complex proofs, but also to verify the security of chips, operating systems, and network protocols. Formalized mathematics is mathematical knowledge that has undergone formal verification. Somewhat unexpectedly, formalizing existing mathematical proofs is also very time-consuming: in a 2024 talk, Fields Medalist Terence Tao stated that formalizing a proof of moderate difficulty may take ten times as long as producing the proof by hand. Szegedy's pessimistic estimate in 2020 was that only 0.001% of mathematical knowledge had been formalized at that time.
+Interactive theorem proving (ITP; 1968, AUTOMATH) no longer has machines automatically generate proofs; instead, it has computers automatically verify the logical rigor of existing proofs. Formal-verification tools thereby created, such as Isabelle, Rocq, and Lean, are used not only to verify the rigor of complex proofs, but also to verify the security of chips, operating systems, and network protocols. Formalized mathematics is mathematical knowledge that has undergone formal verification. Somewhat unexpectedly, formalizing existing mathematical proofs is also very time-consuming: in a 2024 talk, Fields Medalist Terence Tao stated that formalizing a proof of moderate difficulty may take ten times as long as producing the proof by hand. Szegedy's pessimistic estimate in 2020 was that only 0.001% of mathematical knowledge had been formalized at that time. Recent progress in large language models has produced powerful tools that move us a step closer to the formalization of existing mathematical knowledge.
 
-Mathematics mechanization (the Wu method, 1978) refers to the development of efficient algorithms for meaningful branches of mathematics or classes of problems. For example, Wu Wenjun's Wu method not only “turned geometric theorem proving from a not very successful field of automated reasoning into one of the most successful fields,” but was also widely applied in CAD, robot vision, cryptanalysis, and numerical-control machine tools. Along this route, new disciplines such as computer algebra, computational number theory, computational algebraic geometry, computational topology, computational group theory, and symbolic analysis emerged.
+Mathematics mechanization (the Wu method, 1978) refers to the development of efficient algorithms for meaningful branches or classes of mathematics or classes of problems. For example, Wu's work not only “turned geometry theorem proving from one of the less successful research areas in automated deduction to one of the most successful,” but was also widely applied in CAD, robot vision, cryptanalysis, and numerical-control machine tools. Along this route, new disciplines such as computer algebra, computational number theory, computational algebraic geometry, computational topology, computational group theory, and symbolic analysis emerged.
 
 ### 4. The LLM era: AI becomes a powerful assistant to mathematicians
 
@@ -77,7 +77,7 @@ The first stage is competition-level theorem proving, which may be regarded as t
 
 The second stage is research-level theorem proving. Representative LLM agents include AlphaEvolve (June 2025), which improved lower bounds for Ramsey numbers and several other mathematical counting problems through LLM-driven evolutionary optimization; and Aletheia (February 2026), which helped mathematicians complete five mathematics papers.
 
-It should be noted that, although theoretical research related to LLM mathematical reasoning has made significant progress, existing theory still finds it difficult to characterize the mathematical reasoning abilities of LLMs in actual deployment.
+It should be noted that, although theoretical research on LLM's mathematical reasoning capability has made significant progress, existing theory still finds it difficult to characterize the mathematical reasoning abilities and boundaries of LLMs in actual deployment.
 
 
 ## II. Mathematical Research Agent: MechMath Agent Team
@@ -110,7 +110,7 @@ MMAT agents: on the basis of the General Harness, three agents are formed throug
 
 ### 2. Test results
 
-MMAT has independently, or interactively with mathematicians, solved 11 mathematical problems, including eight long-standing open problems in algebraic computation theory, differential algebra, and number theory, and has submitted nine arXiv papers. Among them, four problems were solved fully automatically and independently by MMAT; for the other seven, the key core lemmas were proved by MMAT. MMAT has also provided formal verification for two papers. The problems solved include:
+MMAT has independently, or interactively with mathematicians, solved 11 mathematical problems, including eight long-standing open problems in algebraic computation theory, differential algebra, and number theory, and has completed nine arXiv papers. Among them, four problems were solved fully automatically and independently by MMAT; for the other seven, the key lemmas were proved by MMAT. MMAT has also provided formal verification for two papers. The problems solved include:
 
 - The Erdős–Rényi (1949) sparsity conjecture for perfect powers of sparse polynomials. The univariate case was solved by Schinzel (1987) and Zannier (2008). We solved the multivariate case.
 
@@ -140,7 +140,7 @@ Based on the use of MMAT, I share several experiences and reflections.
 
 5. The development of LLM mathematical agents has made Terence Tao's 2024 prediction, “AI Will Become Mathematicians' Co-Pilot,” a reality. LLM agents have become powerful research assistants for mathematical research, greatly improving its efficiency.
 
-6. Mathematicians will remain the main body of mathematical research. In key links such as identifying core research questions, checking proofs derived by AI, building complete theoretical frameworks, creating entirely new mathematical concepts, and assessing the value of academic results, human mathematicians have an irreplaceable role.
+6. Mathematicians will remain the driving force behind mathematical research. When it comes to core tasks such as proposing pivotal research questions, checking proofs derived by AI, building theoretical frameworks, inventing novel concepts, and assessing the value of academic results, human mathematicians play an irreplaceable role.
 
 </article>
 
