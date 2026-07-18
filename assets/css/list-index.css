@@ -1,6 +1,8 @@
-.list-index{margin-top:1rem}
-.list-summary{margin-top:1rem;padding-bottom:1rem}
-.list-summary p{margin:0;color:#393e46}
+.blog-index-page{max-width:74rem;margin:0 auto}
+.blog-index-intro{margin-top:1.75rem;padding:3rem 3.5rem 2rem;border-top:5px solid #0092ca;background:linear-gradient(180deg,#f3fbff 0,#fff 100%);box-shadow:0 12px 28px rgba(34,40,49,.08)}
+.blog-index-intro h1{margin:0 0 .75rem;color:#0077a5;font-size:clamp(2rem,4vw,2.65rem);font-weight:750;letter-spacing:-.025em;line-height:1.12}
+.blog-index-intro>p{max-width:48rem;margin:0;color:#303842;font-size:1.06rem;line-height:1.75}
+.list-index{margin-top:1.5rem}
 .list-search-shell{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin-top:.8rem}
 .list-search-toggle,.list-filter-toggle,.list-citation-toggle{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:1px solid #cfd2d8;border-radius:4px;background:#fff;color:#393e46;cursor:pointer}
 .list-search-toggle:hover,.list-search-toggle:focus-visible,.list-filter-toggle:hover,.list-filter-toggle:focus-visible,.list-citation-toggle:hover,.list-citation-toggle:focus-visible{border-color:#0092ca;color:#0092ca;outline:0}
@@ -28,21 +30,29 @@
 .list-pagination button:hover:not(:disabled),.list-pagination button:focus-visible{border-color:#0092ca;color:#0092ca}
 .list-pagination button.is-active{border-color:#0092ca;background:#0092ca;color:#fff}
 .list-pagination button:disabled{cursor:not-allowed;opacity:.45}
-.list-card{position:relative;padding-right:9rem;padding-bottom:3.75rem}
-.list-card h3{margin-top:-.15rem;padding-bottom:.75rem;border-bottom:1px solid #cfd2d8;font-size:1.55rem}
-.list-card h3 a{color:inherit}
-.list-card-date{position:absolute;top:1.2rem;right:1.25rem;color:#667085;font-size:.82rem;font-weight:600;line-height:1.2;white-space:nowrap}
-.list-card-meta{margin:0 0 .5rem;color:#393e46;font-weight:700}
-.list-card-summary{margin:0;color:#393e46}
+.blog-list-card{position:relative;min-height:15rem;margin-bottom:0;padding:2rem 0 4rem;border:1px solid #d9eaf1;border-top:4px solid #0092ca;background:linear-gradient(115deg,#f8fdff 0,#fff 42%);box-shadow:0 6px 18px rgba(34,40,49,.06)}
+.blog-list-card:hover{border-color:#82cae6;border-top-color:#0092ca;box-shadow:0 10px 24px rgba(34,40,49,.12)}
+.list-card h2{width:80%;max-width:none;margin:0 0 .75rem 3.5rem;padding:0 0 .7rem;border-bottom:1px solid #b9e2f3;color:#0077a5;font-size:clamp(1.35rem,2.4vw,1.7rem);font-weight:750;letter-spacing:-.015em;line-height:1.25}
+.list-card-date{position:absolute;top:1.45rem;right:1.5rem;padding:.35rem .6rem;border-radius:999px;background:#dff3fb;color:#0077a5;font-size:.78rem;font-weight:750;letter-spacing:.02em;line-height:1.2;white-space:nowrap}
+.list-card-meta{width:80%;margin:0 0 .8rem 3.5rem;color:#667085;font-size:.9rem;font-weight:700;line-height:1.4}
+.blog-list-card .list-card-meta{margin-left:3.5rem}
+.list-card-summary{width:80%;max-width:none;margin:0 0 0 3.5rem;color:#303842;font-size:1rem;line-height:1.7}
 .list-card-summary p{margin:0}
-.blog-card{padding-right:1.5rem;padding-bottom:1.5rem}
+.list-card__action{position:absolute;bottom:1.35rem;left:3.5rem;color:#0077a5;font-size:.92rem;font-weight:750;text-decoration:none}
+.list-card__action:hover{color:#005f85;text-decoration:underline;text-decoration-color:#82cae6;text-underline-offset:4px}
 @media (max-width:720px){
-  .list-summary{padding-bottom:1rem}
+  .blog-index-intro{margin-top:1rem;padding:2.5rem 1.25rem 1.5rem}
+  .blog-index-intro>p{font-size:1rem;line-height:1.7}
   .list-search-shell{align-items:flex-start}
   .list-search{flex-basis:calc(100% - 3.5rem);max-width:none}
   .list-filter{max-height:12rem}
-  .list-card{padding-top:2.5rem;padding-right:1rem}
+  .blog-list-card{min-height:0;padding:4.5rem 1.25rem 3.75rem}
+  .list-card h2{font-size:1.4rem}
+  .list-card h2,.list-card-meta,.list-card-summary{width:100%}
+  .list-card h2,.list-card-meta,.list-card-summary{margin-left:0}
+  .blog-list-card .list-card-meta{margin-left:0}
   .list-card-date{top:1rem;right:auto;left:1rem}
+  .list-card__action{bottom:1.2rem;left:1.25rem}
 }
 @media (prefers-reduced-motion:reduce){
   .list-search,.list-filter,.list-search-tooltip,.list-control-tooltip{transition:none}

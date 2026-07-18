@@ -10,9 +10,9 @@ scripts:
 ---
 
 {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
-<div data-list-index data-page-size="7">
-  <section class="home-card list-summary">
-    <h2>Publications</h2>
+<div class="blog-index-page" data-list-index data-page-size="7">
+  <section class="blog-index-intro">
+    <h1>Publications</h1>
     <p>Our publications explore AI-assisted mathematics across theorem proving, formal verification, symbolic computation, and computational complexity. Recent work includes Lean-formalized solutions to OEIS conjectures, finite certificates for inequalities, complexity results for sparse polynomial problems, fast algorithms in computer algebra, and human-AI collaborations through the MechMath Agent Team.</p>
     <div class="list-search-shell">
       <button class="list-search-toggle" type="button" data-list-search-toggle aria-expanded="false" aria-controls="publication-search-panel" aria-label="Search publications">
@@ -57,17 +57,18 @@ scripts:
       {% unless publication.publication_template %}
         {% assign publication_count = publication_count | plus: 1 %}
         {% assign publication_search_text = publication.title | append: " " | append: publication.abstract | strip_html | normalize_whitespace %}
-        <article class="home-card list-card" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}" data-list-citation="{% if publication.citation %}true{% else %}false{% endif %}">
+        <article class="home-card list-card blog-list-card publication-list-card" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}" data-list-citation="{% if publication.citation %}true{% else %}false{% endif %}">
           {% if publication.publication_date %}
             <time class="list-card-date" datetime="{{ publication.publication_date | date_to_xmlschema }}">{{ publication.publication_date | date: "%b %-d, %Y" }}</time>
           {% endif %}
-          <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
+          <h2>{{ publication.title }}</h2>
           {% if publication.authors %}
             <p class="list-card-meta">{{ publication.authors }}</p>
           {% endif %}
           {% if publication.abstract %}
             <div class="list-card-summary">{{ publication.abstract | markdownify }}</div>
           {% endif %}
+          <a class="list-card__action" href="{{ publication.url | relative_url }}">Read publication <span aria-hidden="true">→</span></a>
           {% include publication-links.html publication=publication compact=true %}
         </article>
       {% endunless %}

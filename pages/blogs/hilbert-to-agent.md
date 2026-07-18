@@ -5,7 +5,7 @@ title: From Hilbert's Decision Problem to Reasoning Agents
 authors: Xiao-Shan Gao
 blog_date: 2026-07-08
 summary: >-
-  A review of automated theorem proving from Hilbert's decision problem to LLM-based research agents, with an introduction to MechMath Agent Team.
+  A review of automated theorem proving from Hilbert's decision problem to LLM-based research agents, with an introduction to MechMath Agent Team. It traces the shift from symbolic automation and interactive proving to agent systems that support mathematical research.
 permalink: /blogs/hilbert-to-agent/
 scripts:
   - /assets/js/blog-toc.js

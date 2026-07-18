@@ -5,7 +5,7 @@ title: "IMO 2026: From Natural-Language Solutions to Lean Verification"
 authors: MechMath Team
 blog_date: 2026-07-18
 summary: >-
-  A progress report on complete natural-language and Lean 4 solutions to all six IMO 2026 problems, with a comparison of proof-generation times.
+  A progress report on complete natural-language and Lean 4 solutions to all six IMO 2026 problems. It presents the public proof artifacts, verification workflow, and recorded NL/FL proof-generation times.
 permalink: /blogs/imo-2026-progress/
 scripts:
   - /assets/js/blog-toc.js

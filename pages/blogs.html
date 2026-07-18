@@ -9,10 +9,10 @@ scripts:
 ---
 
 {% assign blog_pages = site.pages | where_exp: "item", "item.path contains 'pages/blogs/'" | sort: "blog_date" | reverse %}
-<div data-list-index data-page-size="7">
-  <section class="home-card list-summary">
-    <h2>Blogs</h2>
-    <p>Research notes, project updates, and technical reflections on AI for Mathematics.</p>
+<div class="blog-index-page" data-list-index data-page-size="7">
+  <section class="blog-index-intro">
+    <h1>Blogs</h1>
+    <p>Research notes, project updates, and technical reflections on AI for mathematics. Each post connects mathematical ideas with the systems, proof artifacts, and research practices behind them.</p>
     <div class="list-search-shell">
       <button class="list-search-toggle" type="button" data-list-search-toggle aria-expanded="false" aria-controls="blog-search-panel" aria-label="Search blogs">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -35,17 +35,18 @@ scripts:
         {% unless blog.blog_template %}
           {% assign blog_count = blog_count | plus: 1 %}
           {% assign blog_search_text = blog.title | append: " " | append: blog.authors | append: " " | append: blog.summary | strip_html | normalize_whitespace %}
-          <article class="home-card list-card" data-list-card data-list-text="{{ blog_search_text | escape }}">
+          <article class="home-card list-card blog-list-card" data-list-card data-list-text="{{ blog_search_text | escape }}">
             {% if blog.blog_date %}
               <time class="list-card-date" datetime="{{ blog.blog_date | date_to_xmlschema }}">{{ blog.blog_date | date: "%b %-d, %Y" }}</time>
             {% endif %}
-            <h3><a href="{{ blog.url | relative_url }}">{{ blog.title }}</a></h3>
+            <h2>{{ blog.title }}</h2>
             {% if blog.authors %}
               <p class="list-card-meta">{{ blog.authors }}</p>
             {% endif %}
             {% if blog.summary %}
               <div class="list-card-summary">{{ blog.summary | markdownify }}</div>
             {% endif %}
+            <a class="list-card__action" href="{{ blog.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
           </article>
         {% endunless %}
       {% endfor %}
