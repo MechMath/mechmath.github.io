@@ -1,5 +1,6 @@
 ---
 layout: default
+body_class: archive-page
 title: Blogs
 permalink: /blogs/
 stylesheets:
@@ -9,17 +10,17 @@ scripts:
 ---
 
 {% assign blog_pages = site.pages | where_exp: "item", "item.path contains 'pages/blogs/'" | sort: "blog_date" | reverse %}
-<div class="blog-index-page" data-list-index data-page-size="7">
-  <section class="blog-index-intro">
+<div class="archive-page archive-page--blogs" data-list-index data-page-size="7">
+  <section class="archive-intro">
     <h1>Blogs</h1>
     <p>Research notes, project updates, and technical reflections on AI for mathematics. Each post connects mathematical ideas with the systems, proof artifacts, and research practices behind them.</p>
     <div class="list-search-shell">
-      <button class="list-search-toggle" type="button" data-list-search-toggle aria-expanded="false" aria-controls="blog-search-panel" aria-label="Search blogs">
+      <button class="list-search-toggle list-control" type="button" data-list-search-toggle aria-expanded="false" aria-controls="blog-search-panel" aria-label="Search blogs">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
           <path d="m16 16 4 4"></path>
         </svg>
-        <span class="list-search-tooltip">Search</span>
+        <span class="list-control-label">Search</span>
       </button>
       <div class="list-search" id="blog-search-panel" data-list-search-panel hidden>
         <label class="list-search-label" for="blog-search-input">Search blogs</label>
@@ -28,18 +29,18 @@ scripts:
     </div>
   </section>
 
-  <section class="list-index">
-    <div class="list-items">
+  <section class="archive-list">
+    <div class="list-items archive-items">
       {% assign blog_count = 0 %}
       {% for blog in blog_pages %}
         {% unless blog.blog_template %}
           {% assign blog_count = blog_count | plus: 1 %}
           {% assign blog_search_text = blog.title | append: " " | append: blog.authors | append: " " | append: blog.summary | strip_html | normalize_whitespace %}
-          <article class="home-card list-card blog-list-card" data-list-card data-list-text="{{ blog_search_text | escape }}">
+          <article class="list-card archive-item archive-item--blog" data-list-card data-list-text="{{ blog_search_text | escape }}">
             {% if blog.blog_date %}
               <time class="list-card-date" datetime="{{ blog.blog_date | date_to_xmlschema }}">{{ blog.blog_date | date: "%b %-d, %Y" }}</time>
             {% endif %}
-            <h2>{{ blog.title }}</h2>
+            <h2><a href="{{ blog.url | relative_url }}">{{ blog.title }}</a></h2>
             {% if blog.authors %}
               <p class="list-card-meta">{{ blog.authors }}</p>
             {% endif %}

@@ -131,7 +131,7 @@
         citationsOnly = !citationsOnly;
         citationToggle.classList.toggle('is-active', citationsOnly);
         citationToggle.setAttribute('aria-pressed', citationsOnly ? 'true' : 'false');
-        citationToggle.setAttribute('aria-label', citationsOnly ? 'Show all publications' : 'Show publications with citations');
+        citationToggle.setAttribute('aria-label', citationsOnly ? 'Show all publications' : 'Show published publications only');
         filterCards();
       });
     }

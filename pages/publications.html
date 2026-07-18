@@ -1,5 +1,6 @@
 ---
 layout: default
+body_class: archive-page
 title: Publications
 permalink: /publications/
 stylesheets:
@@ -10,35 +11,35 @@ scripts:
 ---
 
 {% assign publication_pages = site.pages | where_exp: "item", "item.path contains 'pages/publication/'" | sort: "publication_date" | reverse %}
-<div class="blog-index-page" data-list-index data-page-size="7">
-  <section class="blog-index-intro">
+<div class="archive-page archive-page--publications" data-list-index data-page-size="7">
+  <section class="archive-intro">
     <h1>Publications</h1>
     <p>Our publications explore AI-assisted mathematics across theorem proving, formal verification, symbolic computation, and computational complexity. Recent work includes Lean-formalized solutions to OEIS conjectures, finite certificates for inequalities, complexity results for sparse polynomial problems, fast algorithms in computer algebra, and human-AI collaborations through the MechMath Agent Team.</p>
     <div class="list-search-shell">
-      <button class="list-search-toggle" type="button" data-list-search-toggle aria-expanded="false" aria-controls="publication-search-panel" aria-label="Search publications">
+      <button class="list-search-toggle list-control" type="button" data-list-search-toggle aria-expanded="false" aria-controls="publication-search-panel" aria-label="Search publications">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
           <path d="m16 16 4 4"></path>
         </svg>
-        <span class="list-search-tooltip">Search</span>
+        <span class="list-control-label">Search</span>
       </button>
       <div class="list-search" id="publication-search-panel" data-list-search-panel hidden>
         <label class="list-search-label" for="publication-search-input">Search publications</label>
         <input id="publication-search-input" type="search" data-list-search placeholder="Search by title or abstract">
       </div>
-      <button class="list-filter-toggle" type="button" data-list-filter-toggle aria-expanded="false" aria-controls="publication-filter-panel" aria-label="Filter publications">
+      <button class="list-filter-toggle list-control" type="button" data-list-filter-toggle aria-expanded="false" aria-controls="publication-filter-panel" aria-label="Filter publications">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 6h16"></path>
           <path d="M7 12h10"></path>
           <path d="M10 18h4"></path>
         </svg>
-        <span class="list-control-tooltip">Filter</span>
+        <span class="list-control-label">Filter</span>
       </button>
-      <button class="list-citation-toggle" type="button" data-list-citation-toggle aria-pressed="false" aria-label="Show publications with citations">
+      <button class="list-citation-toggle list-control" type="button" data-list-citation-toggle aria-pressed="false" aria-label="Show published publications only">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="m12 3 2.78 5.63 6.22.9-4.5 4.38 1.06 6.19L12 17.18 6.44 20.1 7.5 13.91 3 9.53l6.22-.9L12 3Z"></path>
         </svg>
-        <span class="list-control-tooltip">Citations</span>
+        <span class="list-control-label">Published</span>
       </button>
       {% assign publication_tags = publication_pages | map: "tag" | compact | uniq | sort %}
       <div class="list-filter" id="publication-filter-panel" data-list-filter-panel hidden>
@@ -50,26 +51,34 @@ scripts:
     </div>
   </section>
 
-  <section class="list-index">
-  <div class="list-items">
+  <section class="archive-list publication-list">
+  <div class="list-items archive-items">
     {% assign publication_count = 0 %}
     {% for publication in publication_pages %}
       {% unless publication.publication_template %}
         {% assign publication_count = publication_count | plus: 1 %}
         {% assign publication_search_text = publication.title | append: " " | append: publication.abstract | strip_html | normalize_whitespace %}
-        <article class="home-card list-card blog-list-card publication-list-card" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}" data-list-citation="{% if publication.citation %}true{% else %}false{% endif %}">
-          {% if publication.publication_date %}
-            <time class="list-card-date" datetime="{{ publication.publication_date | date_to_xmlschema }}">{{ publication.publication_date | date: "%b %-d, %Y" }}</time>
-          {% endif %}
-          <h2>{{ publication.title }}</h2>
+        <article class="list-card archive-item publication-list-item" data-list-card data-list-text="{{ publication_search_text | escape }}" data-list-tags="{{ publication.tag | downcase | escape }}" data-list-citation="{% if publication.citation %}true{% else %}false{% endif %}">
+          <div class="publication-list-item__eyebrow">
+            {% if publication.publication_date %}
+              <time datetime="{{ publication.publication_date | date_to_xmlschema }}">{{ publication.publication_date | date: "%b %-d, %Y" }}</time>
+            {% endif %}
+            {% if publication.tag %}
+              <span class="publication-tag">{{ publication.tag }}</span>
+            {% endif %}
+            <span class="publication-status {% if publication.citation %}publication-status--published{% else %}publication-status--preprint{% endif %}">{% if publication.citation %}Published{% else %}Preprint{% endif %}</span>
+          </div>
+          <h2><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h2>
           {% if publication.authors %}
             <p class="list-card-meta">{{ publication.authors }}</p>
           {% endif %}
           {% if publication.abstract %}
             <div class="list-card-summary">{{ publication.abstract | markdownify }}</div>
           {% endif %}
-          <a class="list-card__action" href="{{ publication.url | relative_url }}">Read publication <span aria-hidden="true">→</span></a>
-          {% include publication-links.html publication=publication compact=true %}
+          <div class="publication-list-item__footer">
+            <a class="list-card__action" href="{{ publication.url | relative_url }}">View details <span aria-hidden="true">→</span></a>
+            {% include publication-links.html publication=publication compact=true %}
+          </div>
         </article>
       {% endunless %}
     {% endfor %}
