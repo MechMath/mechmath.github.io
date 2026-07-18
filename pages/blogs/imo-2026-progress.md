@@ -92,6 +92,8 @@ The reported grand total is retained exactly as recorded in the README; it shoul
 
 The project is built with Lean 4 and Mathlib, both at version 4.29.0.  A standard build checks the solution files and their theorem dependencies, while the printed axiom reports provide an additional, transparent verification record.
 
+Specifically, for the second question (geometry), we have adopted an additional method of using intermediate state language translation and a proof method that combines large models and symbolic computation (computer algebra systems) to automatically translate and complete Lean's proof from natural language questions, significantly improving the efficiency of the proof. Human inspection questions are consistent with informal expressions. This method only took **68 minutes** and was proven with **328 lines of Lean** code. This prover will be published in future papers.
+
 ## II. Discussion
 
 ### 2.1. What Formal Verification Adds
