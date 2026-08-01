@@ -297,6 +297,26 @@ img{max-width:100%;height:auto}
 .blog-detail-card li::marker{color:#0092ca;font-weight:750}
 .blog-detail-card a{color:#0077a5;text-decoration-color:#82cae6;text-underline-offset:3px}
 .blog-detail-card a:hover{color:#005f85;text-decoration-color:currentColor}
+.blog-detail-card :not(pre)>code{padding:.12em .38em;border:1px solid #c8e7f3;border-radius:3px;background:#eef9fd;color:#005f85;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:.9em;overflow-wrap:anywhere}
+.blog-detail-card div.highlighter-rouge{margin:1.6rem 0 1.75rem;overflow:hidden;border:1px solid #b9e2f3;border-top:4px solid #0092ca;border-radius:4px;background:#fbfdfe;box-shadow:0 8px 20px rgba(34,40,49,.07)}
+.blog-detail-card div.highlighter-rouge:before{display:block;padding:.48rem 1rem;border-bottom:1px solid #b9e2f3;background:#dff3fb;color:#005f85;content:"Code";font-size:.72rem;font-weight:800;letter-spacing:.08em;line-height:1.2;text-transform:uppercase}
+.blog-detail-card div.language-bash:before,.blog-detail-card div.language-shell:before{content:"Bash"}
+.blog-detail-card div.language-python:before{content:"Python"}
+.blog-detail-card div.language-ruby:before{content:"Ruby"}
+.blog-detail-card div.language-javascript:before,.blog-detail-card div.language-js:before{content:"JavaScript"}
+.blog-detail-card div.language-html:before{content:"HTML"}
+.blog-detail-card div.language-css:before{content:"CSS"}
+.blog-detail-card div.language-json:before{content:"JSON"}
+.blog-detail-card div.language-yaml:before,.blog-detail-card div.language-yml:before{content:"YAML"}
+.blog-detail-card div.language-lean:before{content:"Lean"}
+.blog-detail-card div.highlighter-rouge .highlight{overflow-x:auto;scrollbar-color:#82cae6 #eef9fd}
+.blog-detail-card div.highlighter-rouge pre{min-width:max-content;margin:0;padding:1.05rem 1.2rem;border:0;background:transparent;color:#263640;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:.88rem;line-height:1.65;tab-size:2}
+.blog-detail-card div.highlighter-rouge code{padding:0;border:0;background:transparent;color:inherit;font:inherit;white-space:pre}
+.blog-detail-card .highlight .c,.blog-detail-card .highlight .c1,.blog-detail-card .highlight .cm,.blog-detail-card .highlight .cp{color:#71808a;font-style:italic}
+.blog-detail-card .highlight .k,.blog-detail-card .highlight .kd,.blog-detail-card .highlight .kn,.blog-detail-card .highlight .kp,.blog-detail-card .highlight .kr,.blog-detail-card .highlight .kt{color:#005f85;font-weight:750}
+.blog-detail-card .highlight .s,.blog-detail-card .highlight .s1,.blog-detail-card .highlight .s2,.blog-detail-card .highlight .sb,.blog-detail-card .highlight .se{color:#087f6d}
+.blog-detail-card .highlight .m,.blog-detail-card .highlight .mi,.blog-detail-card .highlight .mf,.blog-detail-card .highlight .mh{color:#9a5b13}
+.blog-detail-card .highlight .nb,.blog-detail-card .highlight .nc,.blog-detail-card .highlight .nf,.blog-detail-card .highlight .nt{color:#7a4f9a;font-weight:650}
 .blog-detail-date{margin:0 0 1.25rem}
 .blog-date{position:absolute;top:1.45rem;right:1.6rem;padding:.35rem .6rem;border-radius:999px;background:#dff3fb;color:#0077a5;font-size:.78rem;font-weight:750;letter-spacing:.02em;line-height:1.2;white-space:nowrap}
 .blog-detail-authors{margin:0 0 .25rem!important;color:#0077a5!important;font-size:1rem!important;font-weight:750}
@@ -438,6 +458,9 @@ img{max-width:100%;height:auto}
   .blog-detail-card h2{margin-top:2.75rem;font-size:1.5rem}
   .blog-detail-card h3{margin-top:1.75rem}
   .blog-detail-card p,.blog-detail-card li{font-size:1rem;line-height:1.75}
+  .blog-detail-card div.highlighter-rouge{margin:1.35rem 0 1.5rem}
+  .blog-detail-card div.highlighter-rouge:before{padding:.45rem .85rem}
+  .blog-detail-card div.highlighter-rouge pre{padding:.9rem 1rem;font-size:.82rem}
   .proof-timing-figure{margin:1.75rem 0 1.5rem}
   .proof-timing-figure table{min-width:33rem;font-size:.9rem}
   .proof-timing-figure thead th{font-size:.9rem}
