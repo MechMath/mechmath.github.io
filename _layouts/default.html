@@ -70,6 +70,7 @@
     {% endif %}
     {% if page.body_class == "blog-page" %}
       <script defer src="{{ '/assets/js/blog-meta.js' | relative_url }}"></script>
+      <script defer src="{{ '/assets/js/blog-code.js' | relative_url }}"></script>
     {% endif %}
     {% if page.scripts %}
       {% for script in page.scripts %}
