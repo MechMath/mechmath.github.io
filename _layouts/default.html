@@ -65,6 +65,12 @@
         </div>
       </footer>
     {% endunless %}
+    {% if site.goatcounter.code %}
+      <script defer src="{{ '/assets/js/analytics.js' | relative_url }}" data-goatcounter-code="{{ site.goatcounter.code | escape }}" data-production-host="{{ site.goatcounter.production_host | escape }}"></script>
+    {% endif %}
+    {% if page.body_class == "blog-page" %}
+      <script defer src="{{ '/assets/js/blog-meta.js' | relative_url }}"></script>
+    {% endif %}
     {% if page.scripts %}
       {% for script in page.scripts %}
         <script defer src="{{ script | relative_url }}"></script>

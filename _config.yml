@@ -6,3 +6,6 @@ url: ""
 markdown: kramdown
 collections: {}
 permalink: /:path/
+goatcounter:
+  code: reedqiuu
+  production_host: mechmath.github.io

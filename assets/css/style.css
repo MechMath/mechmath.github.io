@@ -301,6 +301,8 @@ img{max-width:100%;height:auto}
 .blog-date{position:absolute;top:1.45rem;right:1.6rem;padding:.35rem .6rem;border-radius:999px;background:#dff3fb;color:#0077a5;font-size:.78rem;font-weight:750;letter-spacing:.02em;line-height:1.2;white-space:nowrap}
 .blog-detail-authors{margin:0 0 .25rem!important;color:#0077a5!important;font-size:1rem!important;font-weight:750}
 .blog-detail-affiliation{margin:0 0 1.35rem!important;color:#667085!important;font-size:.94rem!important;line-height:1.5!important}
+.blog-reading-meta{display:flex;flex-wrap:wrap;gap:.25rem .55rem;margin:.65rem 0 1.25rem!important;color:#667085!important;font-size:.86rem!important;line-height:1.4!important;text-align:left!important}
+.blog-reading-meta__item:not(:last-child):after{margin-left:.55rem;color:#9aa4af;content:"·"}
 .blog-detail-divider{height:0;margin:0 0 1.8rem;border:0;border-top:1px solid #b9e2f3}
 .blog-detail-card .blog-detail-divider+ p{font-size:1.12rem;line-height:1.8}
 .blog-detail-card hr:not(.blog-detail-divider){height:0;margin:2.75rem 0;border:0;border-top:1px solid #d9eaf1}
