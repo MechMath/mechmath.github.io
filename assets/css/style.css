@@ -113,7 +113,7 @@ img{max-width:100%;height:auto}
 .agent-page-header{position:relative;max-width:58rem;margin:clamp(1.5rem,4vw,3.75rem) 0 clamp(2.5rem,6vw,5rem);padding-bottom:clamp(1.5rem,3vw,2.5rem);border-bottom:1px solid #cfd2d8}
 .agent-page-header h1{margin:0 0 .8rem;color:#222831;font-size:clamp(2.25rem,4vw,4rem);line-height:1.08}
 .agent-page-header p{max-width:52rem;margin:0;color:#393e46;font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.55}
-.agent-page-header__links{margin-top:1.25rem}
+.agent-page-header__links{display:flex;flex-wrap:wrap;gap:.7rem 1.5rem;margin-top:1.25rem}
 .agent-page-header__links .system-link{font-size:clamp(1.05rem,1.3vw,1.3rem)}
 .systems-page-header{max-width:58rem;margin:clamp(1.5rem,4vw,3.75rem) 0 clamp(2.5rem,6vw,5rem);padding-bottom:clamp(1.5rem,3vw,2.5rem);border-bottom:1px solid #cfd2d8}
 .systems-page-header--compact{margin-bottom:2.5rem}
