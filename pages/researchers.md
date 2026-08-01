@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Researchers
+description: Meet the MechMath researchers working on mathematics mechanization, symbolic computation, formal mathematics, and AI-assisted discovery.
 permalink: /researchers/
 ---
 

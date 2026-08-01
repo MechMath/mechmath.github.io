@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign sitemap_pages = site.pages | sort: "url" -%}
+  {% for item in sitemap_pages -%}
+    {% unless item.sitemap == false or item.blog_template or item.publication_template or item.researcher_template -%}
+      {% if item.url -%}
+  <url>
+    <loc>{{ item.url | replace: "index.html", "" | absolute_url | xml_escape }}</loc>
+    {% assign item_date = item.updated_date | default: item.blog_date | default: item.publication_date -%}
+    {% if item_date %}<lastmod>{{ item_date | date_to_xmlschema }}</lastmod>{% endif %}
+  </url>
+      {% endif -%}
+    {% endunless -%}
+  {% endfor -%}
+</urlset>

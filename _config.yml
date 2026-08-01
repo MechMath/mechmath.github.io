@@ -1,8 +1,10 @@
 title: MechMath
 email: ""
-description: "MechMath GitHub Pages site"
+description: "MechMath develops AI systems for mathematical research, combining theorem proving, formal verification, symbolic computation, and reusable mathematical knowledge."
+lang: en
+locale: en_US
 baseurl: ""
-url: ""
+url: "https://mechmath.github.io"
 markdown: kramdown
 collections: {}
 permalink: /:path/

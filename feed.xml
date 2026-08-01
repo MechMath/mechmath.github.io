@@ -1,0 +1,29 @@
+---
+layout: null
+permalink: /feed.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+{% assign blog_pages = site.pages | where_exp: "item", "item.path contains 'pages/blogs/'" | sort: "blog_date" | reverse -%}
+{% assign latest_blog = blog_pages | where_exp: "item", "item.blog_template != true" | first -%}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | append: " Blogs" | xml_escape }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ '/blogs/' | absolute_url }}"/>
+  <id>{{ '/blogs/' | absolute_url }}</id>
+  <updated>{{ latest_blog.blog_date | date_to_xmlschema }}</updated>
+  {% for blog in blog_pages -%}
+    {% unless blog.blog_template -%}
+  <entry>
+    <title>{{ blog.title | xml_escape }}</title>
+    <link href="{{ blog.url | absolute_url }}"/>
+    <id>{{ blog.url | absolute_url }}</id>
+    <published>{{ blog.blog_date | date_to_xmlschema }}</published>
+    <updated>{{ blog.updated_date | default: blog.blog_date | date_to_xmlschema }}</updated>
+    {% if blog.authors %}<author><name>{{ blog.authors | xml_escape }}</name></author>{% endif %}
+    <summary type="html">{{ blog.summary | markdownify | xml_escape }}</summary>
+  </entry>
+    {% endunless -%}
+  {% endfor -%}
+</feed>
