@@ -1,12 +1,16 @@
 ---
 layout: default
+body_class: archive-page
 title: Researchers
 description: Meet the MechMath researchers working on mathematics mechanization, symbolic computation, formal mathematics, and AI-assisted discovery.
 permalink: /researchers/
+stylesheets:
+  - /assets/css/list-index.css
 ---
 
-<section class="home-card publication-summary">
-  <h2>Researchers</h2>
+<div class="archive-page archive-page--researchers">
+<section class="archive-intro">
+  <h1>Researchers</h1>
   <p>Researchers collaborating on AI-assisted mathematical discovery, proof development, and formal verification.</p>
 </section>
 
@@ -33,8 +37,8 @@ permalink: /researchers/
 
       {% if group_count > 0 %}
         {% assign researcher_count = researcher_count | plus: group_count %}
-        <article class="card researcher-group-card">
-          <h3>{{ group_label }}</h3>
+        <section class="researcher-group" aria-labelledby="researcher-group-{{ group_key }}">
+          <h2 id="researcher-group-{{ group_key }}">{{ group_label }}</h2>
           <div class="researcher-person-grid">
             {% for researcher in ordered_researchers %}
               {% unless researcher.researcher_template %}
@@ -93,7 +97,7 @@ permalink: /researchers/
               {% endunless %}
             {% endfor %}
           </div>
-        </article>
+        </section>
       {% endif %}
     {% endfor %}
   </div>
@@ -102,3 +106,4 @@ permalink: /researchers/
     <p class="empty-state">暂无研究人员条目。</p>
   {% endif %}
 </section>
+</div>
