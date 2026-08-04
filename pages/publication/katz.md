@@ -26,8 +26,6 @@ permalink: /publication/katz/
 
 <hr class="publication-detail-divider">
 
-## Abstract
-
 In this paper, we establish degree obstructions to the equivalence of generalized Airy operators of the same type. As an application, we answer a question posed by Nicholas M. Katz in Inventiones Mathematicae (87, pp. 13-61,1987). The main results of Sections 3 and 4 were obtained through a close interactive collaboration between the authors and the artificial intelligence agent system MechMath Agent Team (MMAT).
 
 {% include publication-links.html publication=page %}

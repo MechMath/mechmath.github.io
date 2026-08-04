@@ -30,8 +30,6 @@ related_system_label: Explore Gröbner Tactic
 
 <hr class="publication-detail-divider">
 
-## Abstract
-
 Applying Gröbner basis theory to concrete problems in Lean 4 remains difficult since the current formalization of multivariate polynomials is based on a non-computable representation and is therefore not suitable for efficient symbolic computation. As a result, computing Gröbner bases directly inside Lean is impractical for realistic examples. To address this issue, we propose a certificate-based approach that combines external computer algebra systems, such as SageMath or SymPy, with formal verification in Lean 4. Our approach uses a computable representation of multivariate polynomials in Lean to import and verify externally generated Gröbner basis computations. The external solver carries out the main algebraic computations, while the returned results are verified inside Lean. Based on this method, we develop automated tactics that transfer polynomial data between Lean and the external system and certify the returned results. These tactics support tasks such as remainder verification, Gröbner basis checking, ideal equality, and ideal or radical membership. This work provides a practical way to integrate external symbolic computation into Lean 4 while preserving the reliability of formal proof.
 
 {% include publication-links.html publication=page %}

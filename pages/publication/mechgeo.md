@@ -28,8 +28,6 @@ permalink: /publication/mechgeo/
 
 <hr class="publication-detail-divider">
 
-## Abstract
-
 We present MechGeo, a Mathlib native agentic framework that jointly addresses faithful autoformalization and certified proof construction for Euclidean geometry. In this framework, GeoFormalizer represents informal problems in GeoIR, deterministically translates them into Lean 4, and iteratively repairs candidate statements using structural diagnostics and semantic evaluation. GeoProver constructs geometric proof plans, derives intermediate lemmas, and selectively algebraizes suitable subgoals through a library verified in Lean. Singular or SymPy may generate algebraic certificates, but all resulting proofs and counterexamples are checked by Lean's kernel. Experiments across seven LLM backbones show substantial improvements in autoformalization, particularly for models with weaker direct translation performance. On 43 historical IMO geometry problems, GeoFormalizer generates formal statements that GeoProver proves in 29 cases; for the remaining 14, it constructs counterexamples verified in Lean and proves all repaired statements after expert correction. Together with IMO 2026 Problem 2, this yields, to the best of our knowledge, the largest reported collection of automated, kernel-checked Lean proofs for IMO geometry problems. On the 14 geometry statements in LEAP's Lean-IMO-Bench, MechGeo proves 12 for the first time, formally refutes the remaining two, and proves both repaired statements. These results establish counterexample guided diagnosis, geometric reasoning, and certified symbolic computation as a practical foundation for trustworthy formal geometry.
 
 {% include publication-links.html publication=page %}

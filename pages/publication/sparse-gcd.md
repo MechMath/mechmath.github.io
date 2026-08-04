@@ -26,8 +26,6 @@ permalink: /publication/sparse-gcd/
 
 <hr class="publication-detail-divider">
 
-## Abstract
-
 In this paper, we prove that output-sensitive sparse polynomial GCD computation over finite fields is NP-hard under BPP many-one reduction. More precisely, for two sparse univariate polynomials $f,g$ with finite field coefficients, there exists no randomized algorithm to compute $\mathrm{gcd}(f,g)$, which is polynomial-time in the sizes of $f,g,\mathrm{gcd}(f,g)$ under the standard complexity assumption NP$\nsubseteq$BPP. This settles the open problem posed as Challenge 5 in the book _The Sparsity Challenges_ in the finite field setting. Furthermore, we show that the Roots of Unity Detection problem over finite fields is NP-hard; that is, determining whether the GCD of a sparse univariate polynomial and xn−1 has nonzero degree is NP-hard.
 
 {% include publication-links.html publication=page %}

@@ -33,8 +33,6 @@ published: false
 
 <hr class="publication-detail-divider">
 
-## Abstract
-
 在这里填写论文摘要。
 
 {% include publication-links.html publication=page %}

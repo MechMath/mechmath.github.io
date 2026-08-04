@@ -26,8 +26,6 @@ permalink: /publication/sparse-root/
 
 <hr class="publication-detail-divider">
 
-## Abstract
-
 We study the problem of deterministically computing the exact root of a sparse polynomial in the multivariate setting. Let $f \in \mathbb{F}[x_1,\ldots,x_n]$ be a nonzero polynomial that is an exact $e$-th power, say $f = g^e$. Suppose $f$ is $s$-sparse, has an individual degree of at most $d$, and a total degree of $D = \mathrm{tdeg}(f)$. We prove a sparsity bound on the base polynomial $g$: $\|g\|_0 \le s^{D(2d+2)/e + 1}.$ Based on this bound, we develop a deterministic algorithm that computes the base $g$. In contrast to the general deterministic factorization algorithm of Bhargava, Saraf, and Volkovich \cite{BhargavaSarafVolkovich2020}, which achieves only a quasi-polynomial dependence on the input parameters, our algorithm is \emph{polynomial-time} in the setting where the total degree $D$ is bounded. Specifically,  the overall complexity is $\mathrm{poly}\left(s^{O(Dd)}, n, d, D\right) + s\cdot R(e),$ where $R(e)$ denotes the cost of constructing a single $e$-th root of a scalar in the base field $\mathbb{F}$, and, when $\operatorname{char}(\mathbb{F})\mid e$, the cost of computing a single Frobenius root of a scalar. This term is field-dependent, and over finite fields, $\mathbb{Q}$, or number fields with a suitable representation, it is absorbed into the polynomial complexity bound. Within the bounded total-degree regime, this yields a deterministic polynomial-time algorithm for exact-root computation.
 
 {% include publication-links.html publication=page %}
