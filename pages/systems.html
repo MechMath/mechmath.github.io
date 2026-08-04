@@ -1,22 +1,29 @@
 ---
 layout: default
 title: MechMath Systems
-description: Explore MechMath systems for organizing mathematical knowledge, exploring conjectures, constructing proofs, and verifying results.
+description: Explore MechMath research systems, specialized provers, benchmarks, and formal verification tools.
 permalink: /systems/
 body_class: systems-page
 ---
 
 <header class="systems-page-header">
   <h1>MechMath Systems</h1>
-  <p>MechMath develops AI systems that help mathematicians organize knowledge, explore conjectures, construct proofs, and verify results.</p>
+  <p class="systems-page-header__summary">MechMath develops research systems, specialized provers, benchmarks, and formal verification tools for trustworthy mathematical discovery.</p>
+  <nav class="systems-index" aria-label="Systems categories">
+    <p class="systems-index__label">Explore by category</p>
+    <ul>
+      <li><a href="#mechmath-agent-team">MechMath Agent Team</a></li>
+      <li><a href="#specialized-proving-systems">Specialized Proving Systems</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#formal-verification-tools">Formal Verification Tools</a></li>
+    </ul>
+  </nav>
 </header>
 
-<section class="systems-section systems-section--current" aria-labelledby="current-system-heading">
-  <div class="systems-section__intro">
-    <h2 id="current-system-heading">MechMath Agent Team</h2>
-  </div>
+<section id="mechmath-agent-team" class="systems-section systems-section--current" aria-label="MechMath Agent Team">
   <article class="system-feature">
     <div class="system-feature__body">
+      <h3>MechMath Agent Team</h3>
       <p class="system-feature__summary">A coordinated research environment in which a knowledge-base manager, natural-language prover, and formal-language prover form a closed loop for discovery, proof development, and Lean verification.</p>
       <ul class="system-feature__highlights">
         <li>Shared mathematical memory and evidence tracking</li>
@@ -42,14 +49,24 @@ body_class: systems-page
   </article>
 </section>
 
-<section class="systems-section systems-section--lineage" aria-labelledby="lineage-heading">
+<section id="specialized-proving-systems" class="systems-section systems-section--provers" aria-labelledby="provers-heading">
   <div class="systems-section__intro">
-    <h2 id="lineage-heading">Earlier work</h2>
+    <h2 id="provers-heading">Specialized Proving Systems</h2>
+    <p>Purpose-built systems that focus on particular theorem-proving settings, representations, or mathematical domains.</p>
   </div>
-  <div class="systems-lineage">
+  <div class="systems-entry-grid">
     <article class="systems-entry">
+      <p class="systems-section__label">Euclidean geometry</p>
+      <h3>MechGeo</h3>
+      <p class="systems-entry__summary">A Mathlib-native agentic system for faithful autoformalization and certified theorem proving in Euclidean geometry.</p>
+      <div class="system-feature__links">
+        <a class="system-link" href="https://arxiv.org/abs/2608.02295" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+    <article class="systems-entry">
+      <p class="systems-section__label">Automated theorem proving</p>
       <h3>MechMath v1</h3>
-      <p class="systems-entry__summary">An earlier MechMath system and the foundation for subsequent research directions.</p>
+      <p class="systems-entry__summary">A specialized automated theorem-proving system based on formal decomposition and iterative proof refinement.</p>
       <div class="system-feature__links">
         <a class="system-link" href="{{ '/mechmath-v1/' | relative_url }}">View system overview <span aria-hidden="true">→</span></a>
       </div>
@@ -57,18 +74,40 @@ body_class: systems-page
   </div>
 </section>
 
-<section class="systems-section systems-section--tools" aria-labelledby="tools-heading">
+<section id="benchmarks" class="systems-section systems-section--benchmarks" aria-labelledby="benchmarks-heading">
   <div class="systems-section__intro">
-    <h2 id="tools-heading">Useful tools</h2>
+    <h2 id="benchmarks-heading">Benchmarks</h2>
+    <p>Open evaluation sets and verified artifacts for measuring progress in mathematical formalization and theorem proving.</p>
   </div>
-  <article class="systems-entry">
-    <h3>Gröbner Tactics</h3>
-    <p class="systems-entry__summary">Lean 4 tactics for the automated formal verification of Gröbner-basis properties and computations.</p>
-    <div class="system-feature__links">
-      <a class="system-link" href="{{ '/groebner-tactic/' | relative_url }}">View tool overview <span aria-hidden="true">→</span></a>
-      <a class="system-link" href="https://github.com/WuProver/GroebnerTactic" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
-    </div>
-  </article>
+  <div class="systems-entry-grid systems-entry-grid--single">
+    <article class="systems-entry">
+      <p class="systems-section__label">Formal geometry</p>
+      <h3>MechGeoBench</h3>
+      <p class="systems-entry__summary">A benchmark and artifact collection for evaluating autoformalization and certified theorem proving in Euclidean geometry.</p>
+      <div class="system-feature__links">
+        <a class="system-link" href="https://github.com/MechMath/MechGeoBench" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
+        <a class="system-link" href="https://arxiv.org/abs/2608.02295" target="_blank" rel="noopener">Read the related paper <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="formal-verification-tools" class="systems-section systems-section--tools" aria-labelledby="tools-heading">
+  <div class="systems-section__intro">
+    <h2 id="tools-heading">Formal Verification Tools</h2>
+    <p>Reusable proof-engineering tools that connect symbolic computation with kernel-checked formal reasoning.</p>
+  </div>
+  <div class="systems-entry-grid systems-entry-grid--single">
+    <article class="systems-entry">
+      <p class="systems-section__label">Lean 4 tactics</p>
+      <h3>Gröbner Tactics</h3>
+      <p class="systems-entry__summary">Lean 4 tactics for the automated formal verification of Gröbner-basis properties and computations.</p>
+      <div class="system-feature__links">
+        <a class="system-link" href="{{ '/groebner-tactic/' | relative_url }}">View tool overview <span aria-hidden="true">→</span></a>
+        <a class="system-link" href="https://github.com/WuProver/GroebnerTactic" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section class="systems-next">
