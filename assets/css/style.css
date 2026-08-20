@@ -360,6 +360,10 @@ img{max-width:100%;height:auto}
 .proof-timing-figure tfoot th{text-align:left}
 .proof-timing-figure figcaption{padding:.75rem 1rem .85rem;border-top:1px solid #d9eaf1;background:#fbfdfe;color:#667085;font-size:.84rem;line-height:1.5}
 .proof-timing-figure figcaption strong{color:#3d4b56;font-weight:750}
+.mechgeo-stats table{min-width:40rem;table-layout:fixed}
+.mechgeo-stats thead th{font-size:1.25rem}
+.mechgeo-stats thead th:first-child{text-align:center}
+.mechgeo-stats tbody td{text-align:center;white-space:normal;vertical-align:middle}
 .blog-toc{position:sticky;top:1.5rem;max-height:calc(100vh - 3rem);margin-top:1.75rem;padding:.9rem .9rem 1rem;overflow-y:auto;border-top:4px solid #0092ca;border-radius:4px;background:#f3fbff;box-shadow:0 4px 14px rgba(34,40,49,.08)}
 .blog-toc[hidden]{display:none}
 .blog-toc__title{margin:0 0 .65rem;color:#0077a5;font-size:.8rem;font-weight:750;letter-spacing:.06em;line-height:1.2;text-transform:uppercase}

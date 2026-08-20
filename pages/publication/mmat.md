@@ -8,6 +8,7 @@ abstract: >-
 tag: AI4Math
 publication_date: 2026-07-05 16:37:40 +0000
 arxiv: https://arxiv.org/abs/2607.04394
+github: https://github.com/MechMath/MechMath-agent-team
 permalink: /publication/mmat/
 related_system_url: /agent-team/
 related_system_label: Explore MechMath Agent Team
