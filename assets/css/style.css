@@ -411,6 +411,8 @@ img{max-width:100%;height:auto}
 .footer-contact__name{font-weight:700}
 .footer-contact address{margin-top:.2rem;color:rgba(255,255,255,.9);font-style:normal;line-height:1.5}
 .footer-copyright{white-space:nowrap;color:rgba(255,255,255,.9)}
+.page__footer .footer-easter-egg{display:inline-block;color:inherit;text-decoration:none;transition:transform .18s ease}
+.page__footer .footer-easter-egg:hover,.page__footer .footer-easter-egg:focus-visible{outline:0;text-decoration:none;transform:rotate(-12deg) scale(1.12)}
 @media (max-width:1080px){
   .blog-page-layout{display:block;max-width:none}
   .blog-toc{display:none}
