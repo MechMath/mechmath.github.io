@@ -1,0 +1,34 @@
+---
+layout: default
+title: Workspace
+description: Access the MechMath Workspace and MechGeo online systems.
+permalink: /workspace/
+body_class: workspace-page
+scripts:
+  - /assets/js/workspace.js
+---
+
+<header class="systems-page-header">
+  <h1>Workspace</h1>
+  <p class="systems-page-header__summary">Access MechMath research environments and theorem-proving systems.</p>
+</header>
+
+<section class="workspace-grid" aria-label="Available workspaces">
+  <article class="workspace-card">
+    <p class="workspace-card__label">Internal workspace</p>
+    <h2>MechMath Workspace</h2>
+    <p>An internal workspace for MechMath research and collaboration at AMSS.</p>
+    <a class="workspace-card__link" href="http://159.226.47.203:24678/" target="_blank" rel="noopener" data-internal-workspace>
+      Open workspace <span aria-hidden="true">→</span>
+    </a>
+  </article>
+
+  <article class="workspace-card">
+    <p class="workspace-card__label">Geometry system</p>
+    <h2>MechGeo</h2>
+    <p>An online system for autoformalization and certified theorem proving in Euclidean geometry.</p>
+    <a class="workspace-card__link" href="https://mechgeo.com/" target="_blank" rel="noopener">
+      Open MechGeo <span aria-hidden="true">→</span>
+    </a>
+  </article>
+</section>
