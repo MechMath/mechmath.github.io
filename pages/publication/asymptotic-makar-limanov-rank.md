@@ -5,7 +5,7 @@ title: >-
 authors: Sizhuo Yan, Hao Shen, Jianting Yang
 abstract: >-
   Let $k$ be an algebraically closed field of characteristic zero and let $f$ be a nonconstant polynomial in finitely many freely noncommuting variables. We prove the asymptotic Makar-Limanov rank conjecture, namely that the normalized rank of a value of $f$ can be made arbitrarily small by choosing matrices over $k$ of finite size.
-tag: Algebraic Complexity Theory
+tag: Operator Algebras
 publication_date: 2026-10-05 17:51:38 +0000
 arxiv: https://arxiv.org/abs/2610.06800
 permalink: /publication/asymptotic-makar-limanov-rank/
