@@ -27,7 +27,7 @@ permalink: /publication/sparse-irr/
 
 <hr class="publication-detail-divider">
 
-In this paper, we prove that irreducibility testing for sparse polynomials in $\mathbb{Z}[X]$ is coNP-hard under deterministic polynomial-time many-one reductions. That is, there exists no polynomial-time irreducibility test algorithm unless $\mathsf{P}=\mathsf{NP}$. We also provide an upper bound for this problem by demonstrating that the same irreducibility testing problem lies in $\mathsf{PP}\subset\mathsf{PSPACE}; in other words, it can be solved in probabilistic polynomial time and, moreover, within polynomial space. The fact that $\mathsf{Sparselrred_\mathbb{Z}\in\mathsf{PP}$ relies on the quasi-Riemann hypothesis result of Cureton--Thorner and on the uniform effective prime-ideal bound by Frei--Sofos--Widmer just posted recently.
+In this paper, we prove that irreducibility testing for sparse polynomials in $\mathbb{Z}[X]$ is coNP-hard under deterministic polynomial-time many-one reductions. That is, there exists no polynomial-time irreducibility test algorithm unless $\mathsf{P}=\mathsf{NP}$. We also provide an upper bound for this problem by demonstrating that the same irreducibility testing problem lies in $\mathsf{PP}\subset\mathsf{PSPACE}$; in other words, it can be solved in probabilistic polynomial time and, moreover, within polynomial space. The fact that $\mathsf{Sparselrred_\mathbb{Z}\in\mathsf{PP}$ relies on the quasi-Riemann hypothesis result of Cureton--Thorner and on the uniform effective prime-ideal bound by Frei--Sofos--Widmer just posted recently.
 
 {% include publication-links.html publication=page %}
 
